@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Conectividad N1</title>
+  <style>
+    .form-control {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+  </style>
+  <script>
+    // Esta función se llama cada vez que se escribe algo en el input
+    function actualizarTitulo() {
+      const input = document.getElementById("Caso").value;
+      if (input.trim() !== "") {
+        document.title = "Conectividad N1 - " + input;
+      } else {
+        document.title = "Conectividad N1";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Formulario de Incidente</h1>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Número de Incidente"
+    aria-label="Número de incidente"
+    id="Caso"
+    oninput="actualizarTitulo()"
+  >
+</body>
+</html>

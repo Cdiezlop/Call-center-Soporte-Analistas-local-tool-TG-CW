@@ -1,0 +1,199 @@
+body {
+  background-color: #9ec8ff;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+button {
+    padding: 0px;
+    margin: 0px;
+    height: 35px;
+}
+
+input {
+    padding: 0px;
+    height: 35px;
+    border: 2px solid;
+    box-shadow: none !important;
+}
+
+h6 {
+  text-align: center;
+  padding: 5px 5px 0px 0px;
+}
+
+textarea:focus {
+  box-shadow: none !important;
+}
+
+select:focus {
+  box-shadow: none !important;
+}
+
+label {
+height: 38px;
+width: 95px;
+color: #ffffff !important;
+background-color: #0d6efd !important;
+}
+
+
+#btGuion {
+  width: 100px;
+  height: 38px;
+}
+
+#btnDeleteGuiones {
+  height: 38px;
+}
+#engranaje {
+  color: rgb(255, 255, 255);
+  padding: 0px !important;
+  margin: 0px !important;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+#btnEngranaje {
+  background-color:#c5f7c600;
+  color:none;
+  border: none;
+  margin: 0px 5px 10px 5px ;
+}
+.mb-3 {
+  margin: 0px !important;
+}
+
+.form-control::placeholder {
+  color: #c9c9c9 !important;
+}
+
+.btn01 {
+  width: 100px;
+  text-align: center;
+  font-size: 15px !important;
+  padding: 3px 0px;
+}
+
+/*hovers*/
+.btn01:hover {
+  background-color: #3f8cff !important;
+  border: 1px solid !important;
+  border: #fff6f7 1px solid !important;
+}
+.btn-danger:hover {
+  background-color: #f8828c !important;
+  border: 1px solid !important;
+  border: #fff6f7 1px solid !important;
+}
+
+.btn-success:hover {
+  background-color: #369b6c !important;
+  border: 1px solid !important;
+  border: #fff6f7 1px solid !important;
+}
+
+
+/*actives*/
+.btn01:active{
+  background-color: #cef3ff !important;
+  color: rgb(255, 255, 255) !important;
+  border:  1px solid #a7e9ff !important;
+}
+
+
+.btn-success:active{
+  background-color: #79d67c !important;
+  color: rgb(255, 255, 255) !important;
+  border:  1px solid #c5f7c6 !important;
+}
+
+.btn-danger:active{
+  background-color: #ff8d85 !important;
+  color: rgb(255, 255, 255) !important;
+  border:  1px solid #ffffff;
+}
+
+
+.container-input {
+    padding: 2px;
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 2px 0px !important;
+  width: 100%;
+  padding: 0px 7px !important;
+  background: #9ec8ff;
+}
+
+.containarEdatel {
+  margin: 10px 0px;
+  padding: 0px 7px !important;
+  height: 10px !important;
+  border: 1px solid black!important;
+  
+  
+}
+
+
+
+
+.offcanvas label {
+  background-color: white !important;
+  color: black !important;
+  text-align:center;
+  margin: 0px !important;
+  
+}
+
+
+
+
+/*Busqueda de ne edatel*/
+ /* Eliminar los puntos de lista */
+ ul {
+  list-style-type: none;  /* Quitar los puntos de la lista */
+  padding-left: 0;
+  margin: 0;
+}
+
+/* Estilo para el contenedor de resultados */
+#result-container {
+  width: 100%;         /* Ancho fijo del contenedor */
+  height: 35px;        /* Alto fijo del contenedor */
+  border: 1px solid #ccc; /* Bordes del contenedor */
+  overflow-y: auto;     /* Habilitar scroll vertical */
+  padding: 0px;
+  box-sizing: border-box; /* Incluir padding en el tamaño total */
+}
+
+
+
+#result-container-Metro {
+  width: 100%;         /* Ancho fijo del contenedor */
+  height: 100px;        /* Alto fijo del contenedor */
+  border: 1px solid #ccc; /* Bordes del contenedor */
+  overflow-y: auto;     /* Habilitar scroll vertical */
+  padding: 0px;
+  box-sizing: border-box; /* Incluir padding en el tamaño total */
+}
+
+/* Estilizar los elementos de la lista */
+li {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.offcanvas-body {
+  max-height: 100vh; /* Limita la altura del offcanvas al 80% de la altura de la pantalla */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  padding: 3px !important;
+}
+
+
+
+/*temporizador************************************************/
