@@ -1,657 +1,419 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>N1</title>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="estilos.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-        <link rel="shortcut icon" href="https://worldvectorlogo.com/static/img/favicon.ico">
-    </head>
-
-    <body style="background-color:#9ec8ff;">
-
-        <!--Claves botones -->
-        <div class="btn-group container1" role="group" aria-label="Basic example">
-            <button type="button " class="btn btn-primary" id="btRed" value="RED">RED <i
-                    class="bi bi-key"></i></button>
-            <button type="button " class="btn btn btn-primary" id="btEdatel" value="EDATEL">EDAT <i
-                    class="bi bi-key"></i></button>
-            <button type="button " class="btn btn btn-primary" id="btEtp" value="ETP">ETP <i
-                    class="bi bi-key"></i></button>
-            <button type="button " class="btn btn btn-primary" id="btElite" value="ELITE">ELIT <i
-                    class="bi bi-key"></i></button>
-            <button type="button " class="btn btn btn-primary" id="btFenix" value="FENIX">FENIX <i
-                    class="bi bi-key"></i></button>
-        </div>
-
-        <!--Primera linea -->
-        <div class="btn-group container1" role="group" aria-label="Basic example">
-            <!-- <button type="button" class="btn btn-primary" onclick="captura('traza');">--</button> -->
-            <button type="button " class="btn btn-primary" id="btAvaya" value="AVAYA">AVAYA</button>
-            <button type="button" class="btn btn-primary" onclick="loginMayuscula();">LOGIN</button>
-            <button type="button" class="btn btn-primary" id="btLogin" value="LOGIN">login</button>
-            <button type="button" class="btn btn-primary" onclick="loginAgregarUne();">@une</button>
-            <button type="button" class="btn btn-primary" onclick="copiarFormatoWord();">Word</button>
-            <button type="button" class="btn btn-primary" onclick="fecha();">FECHA</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Remark');">Remark</button>
-            <!-- <button type="button" class="btn btn-primary" onclick="captura('consulta_equipo');">--</button> -->
-        </div>
-
-        <!--Segunda linea  -->
-        <div class="btn-group container1" role="group" aria-label="Basic example">
-            <!-- <button type="button" class="btn btn-primary" onclick="captura('ELITE');">--</button> -->
-            
-            <!-- <button type="button" class="btn btn-primary" id="btClaveArris" value="claveArris">--</button> -->
-             <button type="button" class="btn btn-primary" onclick="captura('Activo');">Activo</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Online');">Online</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Switch');">Switch</button>
-            
-            <button type="button" class="btn btn-primary" onclick="captura('Parametros');">Parame</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Capa3');">Capa3</button>
-            <button type="button" class="btn btn-primary" id="btnMac">CPE#</button>
-            <button type="button" class="btn btn-primary" id="btnCpe">ONT#</button>
-            <!-- <button type="button" class="btn btn-primary" onclick="captura('SEABEL');">--</button> -->
-            
-        </div>
-
-
-        <!--quinta linea  -->
-        <div class="btn-group container1" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary" onclick="captura('Ping');">Ping</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Offline');">Off</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Vlans');">vlans </button>
-            <!-- <button type="button" class="btn btn-primary" onclick="captura('Movil');">--</button> -->
-            <button type="button" class="btn btn-primary" onclick="reporteSeabel()">Report</button>
-            <button type="button" class="btn btn-primary" onclick="captura('24H');">24H</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Puerto');">Puerto</button>
-            <button type="button" class="btn btn-primary" onclick="captura('Bri/Rou');">Bri/Rou</button>
-
-        </div>
-
-        <!--Numero de caso --><!---->
-        <div class="input-group container-input container1">
-
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('Caso','btCaso','Caso')" id="btCaso">INC</button>
-            <input type="text" class="form-control" placeholder="Numero de Incidente" aria-label="Recipient's username with two button addons" id="Caso" oninput="actualizarTitulo()" onkeyup="mayus(this);" value="INC0000000">
-
-           <!--
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('REQ')" id="btnREQ" style="width: 30px; padding: 0px;">REQ</button>
-            <input type="text" class="form-control" placeholder="REQ" aria-label="Recipient's username with two button addons" id="REQ" onkeyup="mayus(this);" >-->
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Caso','REQ')"><i class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--nombre -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('Nombre')"
-                id="btNombre">Nombre</button>
-            <input type="text" class="form-control" placeholder="Nombre(Mayusculas automaticas)"
-                aria-label="Recipient's username with two button addons" id="Nombre" onkeyup="capitalizar(this);">
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Nombre')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--Nit -->
-        <div class="input-group container-input container1 ">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('dian1','btCC','CC')" id="btCC"
-                style="width: 50px; padding: 0px;">NIT</button>
-            <button class="btn btn-primary btn01" type="button" onclick="cm1_c1c()" style="width: 50px; padding: 0px;"
-                value="Dig">Dig </button>
-
-            <input type="text" class="form-control w-50" placeholder="Cedula / nit  " onkeyup="cm1_tecla2()"
-                onpaste="cm1_tecla2()" id="dian1">
-
-            <input type="text" id="dian2" class="form-control " style="width:15px;" maxlength="15">
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('dian1','dian2')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-            <input type="text" id="dian3" style="position:absolute; margin-top: -100000px; width:150px; font-size:16px;"
-                maxlength="15">
-
-        </div>
-
-
-        <!-- <input type="text" id="dian1" onkeyup="cm1_tecla2()" onpaste="cm1_tecla2()" ; style="width:150px; font-size:16px;" maxlength="15">-->
-
-        <!-- <input type="text" id="dian2" style="width:15px; font-size:16px;" maxlength="15" >-->
-
-
-        <!--ID llamada  -->
-        <div class="input-group container-input container1">
-
-
-            <button class="btn btn-primary btn01" type="button"
-                onclick="copyToClipBoard('IdLlamada','btLlamada','ID llamada')" id="btLlamada">ID llamada</button>
-
-
-
-            <input type="text" class="form-control" placeholder="ID de llamada "
-                aria-label="Recipient's username with two button addons" id="IdLlamada" oninput="actualizarTitulo()">
-
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('IdLlamada')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--Celular -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('Celular')"
-                id="btCelular">Celular</button>
-            <input type="text" class="form-control" placeholder="Nuemro de Celular "
-                aria-label="Recipient's username with two button addons" id="Celular">
-
-            <button class="btn btn-primary btn01" type="button"
-                onclick="copyToClipBoard('Fijo','btIDServicio','ID servicio')" id="btFijo"
-                style="width: 30px; padding: 0px;">Fijo</button>
-            <input type="text" class="form-control" placeholder="Telefono fijo "
-                aria-label="Recipient's username with two button addons" id="Fijo" onkeyup="mayus(this);">
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Celular','Fijo')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--cORREO  --> 
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('Correo')"
-                id="btCorreo">Correo</button>
-            <input type="text" class="form-control" placeholder="Correo@correo.com "
-                aria-label="Recipient's username with two button addons" id="Correo" onkeyup="minus(this);" value="@">
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Correo')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-
-        <!--Direccion  -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('Direccion')"
-                id="btCorreo">Direcci</button>
-            <input type="text" class="form-control" placeholder="Direccion "
-                aria-label="Recipient's username with two button addons" id="Direccion">
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Direccion')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--ID servicio  -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button"
-                onclick="copyToClipBoard('Legado','btIDServicio','ID servicio')" id="btIDServicio">ID servicio</button>
-            <input type="text" class="form-control" placeholder="Id servicio "
-                aria-label="Recipient's username with two button addons" id="Legado" onkeyup="mayus(this);">
-            <button class="btn btn-primary btn01" type="button"
-                onclick="copyToClipBoard('Legado2','btIDServicio','ID servicio')" id="btIDServicio2"
-                style="width: 30px; padding: 0px;">S/N</button>
-            <input type="text" class="form-control" placeholder="SERIAL/MAC "
-                aria-label="Recipient's username with two button addons" id="Legado2" onkeyup="mayus(this);">
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('Legado','Legado2')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-
-        <!--ACP- Anillo  -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('acp')"
-                id="btnAcp">ACP-</button>
-            <input type="text" class="form-control" placeholder="ACP- "
-                aria-label="Recipient's username with two button addons" id="acp" onkeyup="mayus(this);">
-
-            <button class="btn btn-primary btn01" type="button"
-                onclick="copyToClipBoard('anillo','btIDServicio','ID servicio')" id="btAnillo"
-                style="width: 30px; padding: 0px;">Anil</button>
-            <input type="text" class="form-control" placeholder="Anillo"
-                aria-label="Recipient's username with two button addons" id="anillo" onkeyup="mayus(this);">
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('acp','anillo')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-        <!--swich mpls  -->
-        <div class="input-group container-input container1">
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('switch1')"
-                id="btSwitch">SWITCH</button>
-
-            <input type="text" class="form-control" placeholder="switch "
-                aria-label="Recipient's username with two button addons" id="switch1" onkeyup="mayus(this);">
-
-            <button class="btn btn-primary btn01" type="button" onclick="copyToClipBoard('NE')" id="btNe"
-                style="width: 30px; padding: 0px;">NE</button>
-
-            <input type="text" class="form-control" placeholder="MPLS"
-                aria-label="Recipient's username with two button addons" id="NE" onkeyup="mayus(this);">
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('switch1','NE')"><i
-                    class="bi bi-trash3-fill"></i></button>
-
-        </div>
-
-
-
-
-
-
-
-        <!--Notas adicionales   -->
-        <div class="container1">
-            <textarea class="form-control" id="nota" rows="14" name="nota"
-                placeholder="Notas adicionales"></textarea>
-        </div>
-
-
-
-        
-
-
-        <!--Despegable Guiones -->
-        <div class="input-group container-input container1">
-            <button type="button " class="btn btn-success "
-                onclick="copyToClipBoard('observacionesGiones','btGuionGuiones')" id="btGuionGuiones"
-                style="width: 100px; padding: 0px;">Copiar guion</button>
-
-
-           <select class="form-select" aria-label="Default select example" onchange="selecionGuiones()" id="guionesGuion">
-
-
-                    <option value="">--Selecciona una opción--</option>
-
-                     <optgroup label="VOZ">
-                        <option value="15">VOZ Escalamiento N2 - Edatel</option>
-                        <option value="16">Servicio ok troncal IMS</option>
-                        <option value="18">Servicio ok troncal IMS (ONT)</option>
-                        <option value="17">Servicio ok WebexCalling</option>
-                        <option value="19">Registro IMS GPON</option>
-                        <option value="20">Registro IMS HFC</option>
-                        
-
-                    </optgroup>
-
-                    <optgroup label="GPON">
-                        <option value="0">GPON - Capa3</option>
-                        <option value="6">GPON - Online</option>
-                        <option value="1">GPON - Lost</option>
-                        <option value="12">ONT sin Registro</option>
-                    </optgroup>
-
-                    <optgroup label="HFC">
-                        <option value="3">HFC - Online</option>
-                        <option value="4">HFC - Offline</option>
-                        <option value="7">TV -HFC OK</option>
-                        <option value="8">TV -HFC sin señal</option>
-                    </optgroup>
-
-                    <optgroup label="FIBRA">
-                        <option value="5">FIBRA - Capa3</option>
-                        <option value="14">FIBRA - Offline</option>
-                    </optgroup>
-
-                   
-
-                    <optgroup label="Otros Guiones">
-                        <option value="2">No responde</option>
-                        <option value="9">Movilidad</option>
-                        <option value="10">Seguimientos de casos</option>
-                        <option value="11">Direccionamiento</option>
-                        <option value="13">Novedad comercial</option>      
-                    </optgroup>
-                </select>
-
-
-
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('observacionesGiones')"
-                id="btnDeleteGuiones2"><i class="bi bi-trash3-fill"></i></button>
-        </div>
-
-        <!--Plantilla Guiones  -->
-        <div class="container1" >
-            <textarea class="form-control" id="observacionesGiones" rows="8" name="observacionesGiones"></textarea>
-        </div>
-
-
-
-        <!--Despegable 1 -->
-        <div class="input-group container-input container1">
-            <button type="button " class="btn btn-success " onclick="copyToClipBoard('observaciones','btGuion','Guion')"
-                id="btGuion" style="width: 100px; padding: 0px;">Copiar guion</button>
-
-
-            <select class="form-select" aria-label="Default select example" id="AreaConware" onchange="resetCon()">
-                    <option value="1">N1</option>
-                    <option value="2">N2 COMWARE</option>
-                    <option value="3">N2 TIGO</option>
-                    <option value="4">LC</option>
-                    <option value="5">MESA TT</option>
-                    <option value="6">EVENTOS</option>
-            </select>
-
-
-
-            <select class="form-select" aria-label="Default select example" onchange="selecion()" id="guiones">
-
-                    <option value="s">--Guiones Diagnosticos--</option>
-                    <option value="1">DIAGNOSTICO</option>
-                  <!--   <option value="2">DIAG. AVANZADO(interno)</option>-->
-                    <option value="3">LLAMADA-ENTRANTE(Public)</option>
-                    <option value="4">LLAMADA-SALIENTE(Public)</option>
-                    <option value="5">REPRUEBA(interno)</option>
-                    <option value="6">CORREO-ENTRANTE(interno)</option>
-                    <option value="7">CORREO-SALIENTE(interno)</option>
-                    <option value="8">COM. ESPECIALISTA-ENTRANTE(interno)</option>
-                    <option value="9">COM. ESPECIALISTA-SALIENTE(interno)</option>
-
-            </select>
-            <button class="btn btn-danger" type="button" onclick="
-                deliteTextbox('Entra')" id="btnDeleteGuiones"><i
-                    class="bi bi-trash3-fill"></i></button>
-        </div>
-
-
-
-
-        <!--Observaciones  -->
-        <div class="container1">
-            <textarea class="form-control" id="observaciones" name="observaciones" rows="10"></textarea>
-        </div>
-
-
-
-
-        <!--Despegable 2 -->
-        <div class="input-group container-input container1">
-            <button type="button " class="btn btn-success "
-                onclick="copyToClipBoard('observaciones2','btGuion2','Guion')" id="btGuion2"
-                style="width: 100px; padding: 0px;">Copiar guion</button>
-            <select class="form-select" aria-label="Default select example" onchange="selecion2()" id="guiones2">
-                <option value="s">--Guiones resolucion // agendamiento--</option>
-                <option value="1">AGENDAMIENTO</option>
-                <option value=0 style="color: red;">RESOLUCIÓN CAPA3</option>               
-                <option value="2">Resolucion (En blanco)</option>
-                <option value="3">Sin Respuesta a las llamadas</option>
-                <option value="4">Puerto bloqueado </option>
-                <option value="5">Decodificador sin canales asociados. </option>
-                <option value="6">ONT Registrada </option>
-                <option value="7">Novedad Comercial </option>
-                <option value="8">llamada ok servicio ok </option>
-                <option value="9">Persona no autorizada </option>
-                <option value="10">Visita Agendada </option>
-                <option value="11">Reaprovicionar TOIP </option>
-
-
-
-            </select>
-            <button class="btn btn-danger" type="button" onclick="deliteTextbox('observaciones2')"
-                id="btnDeleteGuiones2"><i class="bi bi-trash3-fill"></i></button>
-        </div>
-
-        <!--Plantilla agendamiento y resolucion selecionCr -->
-        <div class="container1" >
-            <textarea class="form-control" id="observaciones2" rows="13" name="observaciones2"></textarea>
-        </div>
-
-        <!--Botones borrar generar  selecionCr-->
-        <div class="btn-group container1" role="group" aria-label="Basic example">
-            <button type="button " class="btn btn-danger" onclick="borrarTodo();" id="btBorrarTodo" disabled>Borrar todo
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analista Conectividad B2B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" href="https://worldvectorlogo.com/static/img/favicon.ico">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-custom d-flex justify-content-between align-items-center sticky-top">
+        <h1 class="navbar-title">Registro y gestión de casos – Analistas de Conectividad Tg B2B</h1>
+        <div>
+            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
+                <i class="bi bi-search"></i>
             </button>
-            <button type="button " class="btn btn-primary btn01" onclick="copyToClipBoard('nota')" id="btGenerar">↑↑
-                Copiar Notas ↑↑</button>
+            <button class="btn btn-sm btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProfile">
+                <i class="bi bi-person-circle"></i>
+            </button>
         </div>
-
-
-        <!-- Engranaje -->
-<button class="" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-aria-controls="offcanvasWithBothOptions" id="btnEngranaje">
-<i class="bi bi-gear-fill" id="engranaje"></i>
-</button>
-
-<!-- Btn para descargar txt -->
-<button onclick="generarTXT()" class="btn btn-info" style="float: right;">Descargar TXT</button>
-
-
-<!-- Menu opciones -->
-<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-aria-labelledby="offcanvasWithBothOptionsLabel">
-<div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Datos</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-</div>
-
-<!-- Agregar offcanvas-body para el contenido desplazable -->
-<div class="offcanvas-body">
-    <div class="container">
-        <h5>Usuario</h5>
-        <input type="text" id="user" class="form-control">
-
-        <h5>ID Avaya</h5>
-        <input type="text" id="avaya" class="form-control">
-
-        RED <i class="bi bi-key"></i>
-        <input type="password" id="passRed" class="form-control">
-
-        EDATEL <i class="bi bi-key"></i>
-        <input type="password" id="passEda" class="form-control">
-
-        ETP <i class="bi bi-key"></i>
-        <input type="password" id="passEtp" class="form-control">
-
-        ELITE <i class="bi bi-key"></i>
-        <input type="password" id="passElite" class="form-control">
-
-        FENIX <i class="bi bi-key"></i>
-        <input type="password" id="passFenix" class="form-control">
-    </div>
-
-    <div class="container">
-        <button type="button" class="btn btn-primary" id="btSavePass"
-            data-bs-dismiss="offcanvas">Establecer</button>
-         <button type="button" class="btn btn-primary" id="btDownload"
-            data-bs-dismiss="offcanvas">Descargar Credenciales</button>
-    </div>
-
-
-    <div class="container" style="padding: 20px 10px;">
-        <h5>NE Edatel</h5>
-        <input type="text" class="form-control" id="search-NE" placeholder="Buscar por nombre..."
-            onkeyup="searchData()">
-        <div id="result-container" class="form-control">
-            <ul id="result-list"></ul>
-        </div>
-    </div>
-
-
-    <div class="container" style="padding: 20px 10px;">
-        <h5>NE Metro</h5>
-        <input type="text" class="form-control" id="search-NE-Metro" placeholder="Buscar por nombre..."
-            onkeyup="searchData2()">
-        <div id="result-container-Metro" class="form-control" >
-            <ul id="result-list-Metro"></ul>
-        </div>
-    </div>
-
-    <div class="container">
-        <p>Notas</p>
-        <textarea name="" id="" rows="10" class="form-control" readonly>
-servicio al cliente 3356
-
-*** wts ****
-10.100.65.26 wts MSS m6
-10.100.65.4
-10.100.65.70
-10.158.122.144
-10.158.122.145
-netwts04-19
-netwts04-12
-
-10.158.122.45 elite
-10.158.122.141 ETP
-10.158.122.140 nacional
-10.158.122.146 Edatel
-
-Fenix OK
-AMEVM-PATS22-02
-
-Fenix No
-AMEVM-PATS22-07 
-NETWTS04-19
-NETWTS04-12
-10.100.65.70
-NETVM-PWTS13-50
-
-Consultar parametros tecnicos 
-prcpr (ETP)
-prcco (Edatel)
-
-**servidor dns ***
-200.13.249.101 med
-190.248.0.5 bog
-181.10.124.110 baranquilla
-
-**Acceso fortinet**
-8443
-10443
-
-**sedtsip troncales moviles y fijas**
-
-172.17.179.166 fija es toda que tenga numeración de fijos
-172.17.179.150 móvil tiene numeración de móviles
-
-**************************************
-NOTAS N2 COMWARE
-Todo incidente que se encuentre en los siguientes grupos
-CONECTIVIDAD Y TELEVISION N2
-HIGH N2
-IOT Y MOVILIDAD AVANZADA N2
-VOZ Y COLABORACION N2
-
-NOTAS N2 TIGO
-Todo incidente que se encuentre en los siguientes grupos
-GESTION INFRAESTRUCTURA AVANZADA
-GESTION INFRAESTRUCTURA BASICA
-GESTION PLATAFORMA
-GESTION PROVEEDORES
-OPC INCIDENTES MAYORES
-OPC PENDIENTES FUERZA MAYOR
-GESTION DE RED NETWORKING (N3)
-GESTION DE RED VOZ (N3)
-GESTION DE MOVIL (N3)
-
-NOTAS LC
-Todo incidente que este en despacho (LOGISTICA DE CAMPO)
-
-MESA TT
-Todo incidente que se encuentre en el grupo de alguna MESA TT
-
-NOTAS EVENTOS
-Todo incidente que se encuentre en el grupo de GESTION DE EVENTOS
-
-CONECTIVIDAD EDATEL
-
-
-N1
-
-
-*****FENIX*****
-qgas - para consultar el contrato con el elemento de medicion.(suscriptor)
--------se coloca en el numero del servicio.
-
-
-        </textarea>
-    </div>
-</div> <!-- fin offcanvas-body -->
-</div>
-
-
-
-
-
-
-        <input id="55555" type="hidden" value="55555">
-        <input id="AVAYA" type="hidden" value="51116">
-        <input id="ELITE" type="hidden" value="ELITE">
-        <input id="WALVIZVA" type="hidden" value="WALVIZVA">
-        <input id="walvizva" type="hidden" value="walvizva">
-        <input id="Remark" type="hidden"
-            value="Incidente/ Descripción (ap simple, doble, retiro, reingreso, potencias) / TT-Pedido de retiro-EG/anillo/ubicación/IP">
-        <input id="arroba" type="hidden" value="walvizva@une">
-
-
-        <!--Linea 4-->
-        <input id="Activo" type="hidden" value="Servicio se encuentra Activo.">
-        <input id="Online" type="hidden" value="Equipo se encuentra en estado online.">
-        <input id="Switch" type="hidden" value="Switch en estado operativo.">
-        <input id="Vlans" type="hidden" value="Vlans correctamente configuradas para el plan que tiene contratado.">
-        <input id="Parametros" type="hidden" value="Equipo se encuentra dentro de los rangos óptimos de operatividad.">
-        <input id="Capa3" type="hidden" value="Se realiza levantamiento de equipo en capa 3.">
-        <input id="Equipocliente" type="hidden" value="Equipo es de administración interna del usuario. ">
-        <input id="Equipocliente" type="hidden" value="Equipo es de administración interna del usuario. ">
-
-        <!--Linea 5-->
-
-
-        <input id="Ping" type="hidden" value="Se realiza prueba de ping sin pérdida de paquetes">
-        <input id="Offline" type="hidden" value="Equipo se encuentra en estado offline.">
-        <input id="Movil" type="hidden" value="Línea se encuentra en estado activo y con particiones.">
-        <input id="24H" type="hidden" value="se le indica adicionalmente que caso quedara monitoreado durante 24 horas en caso que presente alguna novedad nuevamente con el servicio.">
-        <input id="Puerto" type="hidden" value="No se evidencia afectación en el puerto.">
-        <input id="Bri/Rou" type="hidden" value="Servicio se encuentra en modo bridge/router.">
-        <input id="" type="hidden" value="">
-
-
-
-
-
-
-
-        <input id="sincronizacion" type="hidden" value="SINCRONIZACION">
-        <input id="instalacion" type="hidden" value="INST-EQUIPO">
-        <input id="cambio" type="hidden" value="CAMBIO-EQUIPO">
-        <input id="reuso" type="hidden" value="REUSO-ACCESO">
-        <input id="retequipo" type="hidden" value="RETIRO-EQUIPO">
-        <input id="traza" type="hidden" value="T1g0.2021">
-        <input id="IMSWEB" type="hidden" value="https://10.54.77.21:8543/spg/login.do?state=0&resultPage=true">
-
-        <input id="une" type="hidden" value="UNE">
-        <input id="000" type="hidden" value="0000000000000000000">
-        <input id="consulta_equipo" type="hidden" value="http://10.100.66.199:8082/RepEquiposDireccion.aspx">
-        <input id="ubi" type="hidden" value="UBICGENCPE">
-        <input id="SEABEL" type="hidden" value="http://unecrm/ecommunications_esn/start.swe?SWECmd=Start&SWEHo=unecrm">
-
-
-
-
-
-        <script src="ProcesosJS/ReportesWord.js"></script>
-        <script src="ProcesosJS/GuardarPass.js"></script>
-
-        <script src="ProcesosJS/ExportarTxt.js"></script>
-        <script src="ProcesosJS/Pantalla.js"></script>
-
-        <script src="ProcesosJS/NeMetro.js"></script>
-        <script src="ProcesosJS/Edatel.js"></script>
-        <script src="ProcesosJS/guiones.js"></script>
-        <script src="ProcesosJS/plantillasConware.js"></script>
-        <script src="ProcesosJS/Resolucion.js"></script>
-        <script src="ProcesosJS/codigo_cmi1.js"></script>
-        <script src="ProcesosJS/procesos.js"></script>
-        <script src="ProcesosJS/arris.js"></script>
-        <script src="ProcesosJS/mac.js"></script>
-        <script src="ProcesosJS/LocalStore.js"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+    </nav>
+
+    <div class="container-fluid" style="max-width: 1400px;">
+        
+        <div class="card-custom mb-2">
+            <div class="d-flex flex-wrap justify-content-center gap-1">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-primary btn-macro" id="btRed">RED <i class="bi bi-key"></i></button>
+                    <button type="button" class="btn btn-primary btn-macro" id="btEdatel">EDAT <i class="bi bi-key"></i></button>
+                    <button type="button" class="btn btn-primary btn-macro" id="btEtp">ETP <i class="bi bi-key"></i></button>
+                    <button type="button" class="btn btn-primary btn-macro" id="btElite">ELIT <i class="bi bi-key"></i></button>
+                    <button type="button" class="btn btn-primary btn-macro" id="btFenix">FENIX <i class="bi bi-key"></i></button>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-outline-primary btn-macro" id="btAvaya">AVAYA</button>
+                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="loginMayuscula();">LOGIN</button>
+                    <button type="button" class="btn btn-outline-primary btn-macro" id="btLogin">user</button>
+                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="loginAgregarUne();">@une</button>
+                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="fecha();">FECHA</button>
+                    <button type="button" class="btn btn-secondary btn-macro" onclick="captura('Remark');">Remark</button>
+                </div>
+            </div>
             
+            <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
+                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Activo');">Activo</button>
+                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Online');">Online</button>
+                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Switch');">Switch</button>
+                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Parametros');">Parámetros</button>
+                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Capa3');">Capa 3</button>
+                
+                <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
+                <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
+                
+                <div class="vr mx-1"></div>
+                
+                <button class="btn btn-sm btn-success btn-macro" onclick="captura('Ping');">Ping</button>
+                <button class="btn btn-sm btn-danger btn-macro" onclick="captura('Offline');">Offline</button>
+                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Vlans');">Vlans</button>
+                <button class="btn btn-sm btn-dark btn-macro" onclick="reporteSeabel()">Reporte</button>
+                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('24H');">24H</button>
+                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Puerto');">Puerto</button>
+                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Bri/Rou');">Bri/Rou</button>
+                <button class="btn btn-sm btn-primary btn-macro" onclick="copiarFormatoWord();">Word</button>
+                
+                <button onclick="generarTXT()" class="btn btn-sm btn-dark fw-bold btn-macro ms-2"><i class="bi bi-file-text"></i> Exportar a TXT</button>
+            </div>
+        </div>
 
-    </body>
+        <div class="row">
+            
+            <div class="col-md-6">
+                <div class="card-custom h-100">
+                    <div class="card-header-custom">INFORMACIÓN DEL CASO Y CLIENTE</div>
 
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Caso')">INC</button>
+                        <input type="text" class="form-control" id="Caso" placeholder="INC0000000" onkeyup="mayus(this);" value="INC0000000">
+                        <select class="form-select bg-light" id="tipoIncTxt" style="max-width: 110px; font-size: 0.85rem;">
+                            <option value="AVANCE">AVANCE</option>
+                            <option value="CREAR">CREAR</option>
+                        </select>
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Caso')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="d-flex gap-1 mb-1">
+                         <select class="form-select form-select-sm" id="Tratamiento" style="max-width: 75px;" onchange="actualizarDescripcionAuto()">
+                            <option value="Sr">Sr</option>
+                            <option value="Sra">Sra</option>
+                        </select>
+                        <div class="input-group m-0 flex-grow-1">
+                            <button class="btn btn-label-main" onclick="copyToClipBoard('Nombre')">Nombre</button>
+                            <input type="text" class="form-control" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipBoard('Nombre')"><i class="bi bi-clipboard"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex gap-1 mb-2">
+                        <div style="width: 75px;"></div> <div class="input-group m-0 flex-grow-1">
+                            <button class="btn btn-label-main" onclick="copyToClipBoard('Apellido')">Apellido</button>
+                            <input type="text" class="form-control" id="Apellido" placeholder="Apellido" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                            <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipBoard('Apellido')"><i class="bi bi-clipboard"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2 px-1">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="chkContactoActualizado">
+                            <label class="form-check-label text-xs fw-bold text-primary" for="chkContactoActualizado">
+                                Contacto Actualizado (Requerido para TXT)
+                            </label>
+                        </div>
+                        <button class="btn btn-sm btn-outline-dark" onclick="copiarNombreCompleto()" style="font-size: 0.75rem;">
+                            <i class="bi bi-person-vcard"></i> Copiar Nombre Completo
+                        </button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('dian1')">NIT</button>
+                        <button class="btn btn-label-sub" onclick="cm1_c1c()">Dig</button>
+                        <input type="text" class="form-control" id="dian1" placeholder="Cédula / NIT" onkeyup="cm1_tecla2()">
+                        <input type="text" id="dian2" class="form-control text-center bg-light" style="max-width: 60px;" readonly>
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('dian1','dian2')"><i class="bi bi-trash3"></i></button>
+                        <input type="hidden" id="dian3"> </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('IdLlamada')">ID Llam</button>
+                        <input type="text" class="form-control" id="IdLlamada" placeholder="ID de Avaya / Genesys" oninput="actualizarTitulo()">
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('IdLlamada')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="row g-1 mb-2">
+                        <div class="col-6">
+                            <div class="input-group m-0">
+                                <button class="btn btn-label-main" onclick="copyToClipBoard('Celular')" style="min-width: 70px;">Celular</button>
+                                <input type="text" class="form-control" id="Celular" placeholder="Móvil">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-group m-0">
+                                <button class="btn btn-label-sub" onclick="copyToClipBoard('Fijo')" style="min-width: 60px;">ANI/Tel</button>
+                                <input type="text" class="form-control" id="Fijo" placeholder="Fijo/ANI">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Correo')">Correo</button>
+                        <input type="text" class="form-control" id="Correo" placeholder="email@dominio.com" onkeyup="minus(this);">
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Correo')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Direccion')">Dirección</button>
+                        <input type="text" class="form-control" id="Direccion" placeholder="DIRECCIÓN DEL SITIO" onkeyup="mayus(this);">
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Direccion')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Empresa')">Empresa</button>
+                        <input type="text" class="form-control" id="Empresa" placeholder="Empresa" onkeyup="mayus(this);">
+                        <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Ciudad')">Ciudad</button>
+                        <input type="text" class="form-control" id="Ciudad" placeholder="Ciudad" onkeyup="mayus(this);">
+                    </div>
+
+                    <hr class="my-3">
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Legado')">ID Serv</button>
+                        <input type="text" class="form-control" id="Legado" placeholder="ID Servicio" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Legado2')">S/N</button>
+                        <input type="text" class="form-control" id="Legado2" placeholder="SERIAL / MAC / SW" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Legado','Legado2')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('acp')">ACP-</button>
+                        <input type="text" class="form-control" id="acp" placeholder="XXXX" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('anillo')">Anillo</button>
+                        <input type="text" class="form-control" id="anillo" placeholder="Anillo" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('acp','anillo')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">Switch</button>
+                        <input type="text" class="form-control" id="switch1" placeholder="Nombre Switch" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
+                        <input type="text" class="form-control" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="mt-3 p-2 bg-light border rounded">
+                        <label class="text-xs fw-bold text-primary mb-1 d-block">Descripción de Llamada Automática</label>
+                        
+                        <div class="d-flex flex-wrap gap-2 mb-2 text-xs">
+                            <label><input type="checkbox" id="chk_cambios" checked onchange="actualizarDescripcionAuto()"> Sin cambios</label>
+                            <label><input type="checkbox" id="chk_reinicio" checked onchange="actualizarDescripcionAuto()"> Reinició</label>
+                            <label><input type="checkbox" id="chk_conexiones" checked onchange="actualizarDescripcionAuto()"> Cables OK</label>
+                            <label><input type="checkbox" id="chk_electricas" checked onchange="actualizarDescripcionAuto()"> Energía OK</label>
+                            <label><input type="checkbox" id="chk_dispositivos" checked onchange="actualizarDescripcionAuto()"> Todos Disp.</label>
+                        </div>
+                        
+                        <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()">
+                        
+                        <textarea class="form-control form-control-sm" id="desc_auto" rows="3" readonly style="font-size: 0.8rem; background: #e9ecef;"></textarea>
+                        
+                        <textarea id="nota" style="display:none;"></textarea>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card-custom h-100">
+                    <div class="card-header-custom">GESTIÓN Y SCRIPTS</div>
+
+                    <div class="script-block">
+                        <span class="script-title">1. Tipificación y Guión Rápido</span>
+                        <div class="input-group">
+                            <select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
+                                <option value="">-- Selecciona una opción --</option>
+                                <optgroup label="GPON">
+                                    <option value="0">GPON - Capa3</option>
+                                    <option value="6">GPON - Online</option>
+                                    <option value="1">GPON - Lost</option>
+                                </optgroup>
+                                <optgroup label="HFC">
+                                    <option value="3">HFC - Online</option>
+                                    <option value="4">HFC - Offline</option>
+                                </optgroup>
+                                <optgroup label="Otros">
+                                    <option value="2">No responde</option>
+                                    <option value="9">Movilidad</option>
+                                    <option value="15">VOZ Escalamiento</option>
+                                </optgroup>
+                            </select>
+                            <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observacionesGiones')">Copiar</button>
+                            <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observacionesGiones')"><i class="bi bi-trash3"></i></button>
+                        </div>
+                        <textarea class="form-control" id="observacionesGiones" rows="3"></textarea>
+                    </div>
+
+                    <div class="script-block">
+                        <span class="script-title">2. Diagnóstico y Soporte</span>
+                        <div class="d-flex gap-1 mb-1">
+                            <select class="form-select form-select-sm" id="AreaConware" style="width: 30%;">
+                                <option value="1">N1</option>
+                                <option value="2">N2 COMWARE</option>
+                                <option value="3">N2 TIGO</option>
+                                <option value="4">LC</option>
+                                <option value="5">MESA TT</option>
+                            </select>
+                            <select class="form-select form-select-sm" id="guiones" onchange="selecion()">
+                                <option value="s">-- Guiones Diagnósticos --</option>
+                                <option value="1">DIAGNOSTICO</option>
+                                <option value="3">LLAMADA-ENTRANTE</option>
+                                <option value="4">LLAMADA-SALIENTE</option>
+                                <option value="5">REPRUEBA</option>
+                            </select>
+                            <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones')">Copiar</button>
+                            <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones')"><i class="bi bi-trash3"></i></button>
+                        </div>
+                        <textarea class="form-control" id="observaciones" rows="5"></textarea>
+                    </div>
+
+                    <div class="script-block">
+                        <span class="script-title">3. Resolución / Cierre</span>
+                        <div class="input-group">
+                            <select class="form-select form-select-sm" id="guiones2" onchange="selecion2()">
+                                <option value="s">-- Guiones Resolución --</option>
+                                <option value="0" style="color:red; font-weight:bold;">RESOLUCIÓN CAPA3</option>
+                                <option value="1">AGENDAMIENTO</option>
+                                <option value="2">Resolución (Blanco)</option>
+                                <option value="3">Sin Respuesta</option>
+                            </select>
+                            <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones2')">Copiar</button>
+                            <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones2')"><i class="bi bi-trash3"></i></button>
+                        </div>
+                        <textarea class="form-control" id="observaciones2" rows="4"></textarea>
+                    </div>
+
+                    <div class="text-end mt-2">
+                        <button class="btn btn-danger btn-sm" onclick="borrarTodoConConfirmacion()">
+                            <i class="bi bi-eraser-fill"></i> Limpiar Todo
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Credenciales</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="mb-3">
+                <label class="form-label fw-bold small">Usuario</label>
+                <input type="text" id="user" class="form-control form-control-sm">
+            </div>
+            <div class="mb-3">
+                <label class="form-label fw-bold small">ID Avaya</label>
+                <input type="text" id="avaya" class="form-control form-control-sm">
+            </div>
+            <hr>
+            <div class="mb-2">
+                <label class="form-label small">Pass RED</label>
+                <input type="password" id="passRed" class="form-control form-control-sm">
+            </div>
+            <div class="mb-2">
+                <label class="form-label small">Pass EDATEL</label>
+                <input type="password" id="passEda" class="form-control form-control-sm">
+            </div>
+            <div class="mb-2">
+                <label class="form-label small">Pass ETP</label>
+                <input type="password" id="passEtp" class="form-control form-control-sm">
+            </div>
+             <div class="mb-2">
+                <label class="form-label small">Pass ELITE</label>
+                <input type="password" id="passElite" class="form-control form-control-sm">
+            </div>
+             <div class="mb-2">
+                <label class="form-label small">Pass FENIX</label>
+                <input type="password" id="passFenix" class="form-control form-control-sm">
+            </div>
+            <div class="d-grid mt-3">
+                <button class="btn btn-primary btn-sm" id="btSavePass">Guardar Credenciales</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSearch">
+        <div class="offcanvas-header bg-info text-dark">
+            <h5 class="offcanvas-title">Búsqueda & Notas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6 class="fw-bold border-bottom pb-1">Buscar NE Edatel</h6>
+            <input type="text" class="form-control form-control-sm mb-2" id="search-NE" placeholder="Nombre..." onkeyup="searchData()">
+            <ul id="result-list" class="list-group list-group-flush small mb-4"></ul>
+
+            <h6 class="fw-bold border-bottom pb-1">Buscar NE Metro</h6>
+            <input type="text" class="form-control form-control-sm mb-2" id="search-NE-Metro" placeholder="Nombre..." onkeyup="searchData2()">
+            <ul id="result-list-Metro" class="list-group list-group-flush small"></ul>
+        </div>
+    </div>
+
+    <div style="display:none;">
+        <input id="55555" value="55555">
+        <input id="AVAYA" value="51116">
+        <input id="ELITE" value="ELITE">
+        <input id="WALVIZVA" value="WALVIZVA">
+        <input id="walvizva" value="walvizva">
+        <input id="Remark" value="Incidente/ Descripción (ap simple, doble, retiro, reingreso, potencias) / TT-Pedido de retiro-EG/anillo/ubicación/IP">
+        <input id="arroba" value="walvizva@une">
+        <input id="Activo" value="Servicio se encuentra Activo.">
+        <input id="Online" value="Equipo se encuentra en estado online.">
+        <input id="Switch" value="Switch en estado operativo.">
+        <input id="Vlans" value="Vlans correctamente configuradas para el plan que tiene contratado.">
+        <input id="Parametros" value="Equipo se encuentra dentro de los rangos óptimos de operatividad.">
+        <input id="Capa3" value="Se realiza levantamiento de equipo en capa 3.">
+        <input id="Equipocliente" value="Equipo es de administración interna del usuario. ">
+        <input id="Ping" value="Se realiza prueba de ping sin pérdida de paquetes">
+        <input id="Offline" value="Equipo se encuentra en estado offline.">
+        <input id="Movil" value="Línea se encuentra en estado activo y con particiones.">
+        <input id="24H" value="se le indica adicionalmente que caso quedara monitoreado durante 24 horas en caso que presente alguna novedad nuevamente con el servicio.">
+        <input id="Puerto" value="No se evidencia afectación en el puerto.">
+        <input id="Bri/Rou" value="Servicio se encuentra en modo bridge/router.">
+        <input id="" value="">
+        <input id="sincronizacion" value="SINCRONIZACION">
+        <input id="instalacion" value="INST-EQUIPO">
+        <input id="cambio" value="CAMBIO-EQUIPO">
+        <input id="reuso" value="REUSO-ACCESO">
+        <input id="retequipo" value="RETIRO-EQUIPO">
+        <input id="traza" value="T1g0.2021">
+        <input id="IMSWEB" value="https://10.54.77.21:8543/spg/login.do?state=0&resultPage=true">
+        <input id="une" value="UNE">
+        <input id="000" value="0000000000000000000">
+        <input id="consulta_equipo" value="http://10.100.66.199:8082/RepEquiposDireccion.aspx">
+        <input id="ubi" value="UBICGENCPE">
+        <input id="SEABEL" value="http://unecrm/ecommunications_esn/start.swe?SWECmd=Start&SWEHo=unecrm">
+    </div>
+
+    <script src="ProcesosJS/Pantalla.js"></script>
+    <script src="ProcesosJS/LocalStore.js"></script>
+    <script src="ProcesosJS/procesos.js"></script>
+    <script src="ProcesosJS/ExportarTxt.js"></script>
+    <script src="ProcesosJS/guiones.js"></script>
+    <script src="ProcesosJS/plantillasConware.js"></script>
+    <script src="ProcesosJS/Resolucion.js"></script>
+    <script src="ProcesosJS/codigo_cmi1.js"></script>
+    <script src="ProcesosJS/NeMetro.js"></script>
+    <script src="ProcesosJS/Edatel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Inicializar texto inteligente al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+           if(typeof actualizarDescripcionAuto === 'function') {
+               actualizarDescripcionAuto();
+           }
+        });
+    </script>
+</body>
 </html>

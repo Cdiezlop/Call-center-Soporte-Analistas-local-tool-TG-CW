@@ -1,221 +1,193 @@
 
-// limpiar el el btn guion y lo que esta en observaciones
+// Limpiar selectores de guiones
 const btnDeleteGuiones = document.getElementById('btnDeleteGuiones');
-btnDeleteGuiones.addEventListener('click',()=>{
-  document.getElementById("guiones").selectedIndex = "";
-  document.getElementById("AreaConware").selectedIndex = "";
-  document.getElementById("observaciones").value ="";
-})
-
-
-// eliminar espacios y :
-limpiarEntrada(Caso);
-limpiarEntrada(dian1);
-limpiarEntrada(IdLlamada);
-limpiarEntrada(Celular);
-limpiarEntrada(Legado);
-limpiarEntrada(Legado2);
-limpiarEntrada(switch1);
-limpiarEntrada(NE);
-limpiarEntrada(Correo);
-
-function limpiarEntrada(input) {
-  input.addEventListener("input", e => {
-    let string = e.target.value;
-    string = string.replace(/[ :	]/g, "");
-    e.target.value = string;
-  });
+if (btnDeleteGuiones) {
+    btnDeleteGuiones.addEventListener('click', () => {
+        let guiones = document.getElementById("guiones");
+        let area = document.getElementById("AreaConware");
+        if(guiones) guiones.selectedIndex = "";
+        if(area) area.selectedIndex = "";
+        document.getElementById("observaciones").value = "";
+    });
 }
 
-// funcion para evitar ctrl+s
-document.addEventListener("keydown", function(event) {
-  if (event.ctrlKey && event.key === "s") {
-    event.preventDefault(); // evita el comportamiento predeterminado del navegador
-    // código para guardar la información o enviarla al servidor
-  }
+// Limpiar caracteres no deseados en entradas
+// Se agregan validaciones para evitar errores si el elemento no existe en el nuevo HTML
+const inputsALimpiar = [
+    "Caso", "dian1", "IdLlamada", "Celular", "Legado", 
+    "Legado2", "switch1", "NE", "Correo"
+];
+
+inputsALimpiar.forEach(id => {
+    let elemento = document.getElementById(id);
+    if (elemento) {
+        limpiarEntrada(elemento);
+    }
 });
 
-// convertir a mayusculas
+function limpiarEntrada(input) {
+    input.addEventListener("input", e => {
+        let string = e.target.value;
+        // Elimina espacios y dos puntos, útil para pegar datos crudos
+        string = string.replace(/[ :	]/g, "");
+        e.target.value = string;
+    });
+}
+
+// Evitar guardar con Ctrl+S
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && event.key === "s") {
+        event.preventDefault();
+    }
+});
+
+// Convertir a mayúsculas
 function mayus(e) {
-  e.value = e.value.toUpperCase(); 
+    e.value = e.value.toUpperCase();
 }
 
-// convertir a mayusculas
+// Convertir a minúsculas
 function minus(e) {
-  e.value = e.value.toLowerCase(); 
+    e.value = e.value.toLowerCase();
 }
 
-//fecha 
-function fecha(){
-  var fecha = new Date();
-  var year = fecha.getFullYear();
-  var mes=fecha.getMonth()+1;
-  var dia=diaFecha(fecha.getDate());
-  navigator.clipboard.writeText(dia+"/0"+mes+"/"+year);
+// Fecha actual al portapapeles
+function fecha() {
+    var fecha = new Date();
+    var year = fecha.getFullYear();
+    var mes = fecha.getMonth() + 1;
+    var dia = diaFecha(fecha.getDate());
+    navigator.clipboard.writeText(dia + "/0" + mes + "/" + year);
 }
 
-// con esta funcion el texto queda selecionado
+function diaFecha(dia) {
+    return dia < 10 ? "0" + dia : dia;
+}
+
+// Copiar al portapapeles (Función Base)
 function copyToClipBoard(parametro) {
-  var texto = document.getElementById(parametro);
-  texto.select();
-  document.execCommand("copy");
+    var elemento = document.getElementById(parametro);
+    if (elemento) {
+        elemento.select();
+        document.execCommand("copy");
+    }
 }
 
-// capturar sintexto Entra btnDeleteGuiones
+// Capturar valor (Similar a copyToClipBoard pero usa API moderna si es posible)
 function captura(parametro) {
-  var codigoACopiar = document.getElementById(parametro);
-  navigator.clipboard.writeText(codigoACopiar.value);
+    var codigoACopiar = document.getElementById(parametro);
+    if (codigoACopiar) {
+        navigator.clipboard.writeText(codigoACopiar.value);
+    }
 }
 
-
-//borra un solo texto deliteTextbox
-function deliteTextbox(param,param2){
-  document.getElementById(param).value = "";
-  var input = document.getElementById(param);
-  input.focus();
-  document.getElementById(param2).value = "";
+// Borrar cajas de texto específicas
+function deliteTextbox(param, param2) {
+    if (document.getElementById(param)) document.getElementById(param).value = "";
+    if (document.getElementById(param2)) document.getElementById(param2).value = "";
+    let input = document.getElementById(param);
+    if (input) input.focus();
 }
 
-
-//borra un texto y volver a colocar guiones conware y texto en blanco
-function deliteTextbox2(param){
-  deliteTextbox(param)
-  
+function deliteTextbox2(param) {
+    deliteTextbox(param);
 }
 
-//borra todo
-function borrarTodo(){
-  var elementos= ["Caso","Nombre","IdLlamada","switch1","NE","Celular","Legado","dian1","Legado2","observaciones","observaciones2","nota","Correo","Direccion","acp","anillo","observacionesGiones"];
-
-  for(let i=0;i<elementos.length;i++){
-    var item=elementos[i];
-    document.getElementById(item).value = "";
-  }
-  document.getElementById("guiones").selectedIndex = "";
-  document.getElementById("guiones2").selectedIndex = "";
-  document.getElementById("guionesGuion").selectedIndex = "";
-  document.getElementById("nota").value = "Usuario se contacta indicando que no le funciona el servicio de internet, afirma haber realizado descartes de primer nivel, adicional se detecta led lost encendido."+"\n"+"\n"+"Usuario se contacta indicando que esta presentando intermitencia en el servicio de internet, afirma haber realizado descartes de primer nivel.";
-  document.getElementById("dian2").value = "";
-  document.getElementById("AreaConware").selectedIndex = "";
-
-}
-
-//generar documentacion
+// Generar documentación (Legacy)
 function capturarTodo() {
-  let observaciones = document.getElementById("observaciones").value;
-  //enviar toda la informacion capturada  a la plantilla
-  document.getElementById("plantilla").value = observaciones;
-  copyToClipBoard("plantilla");
-  document.getElementById("btGenerar").innerHTML ="Generado!";
-  setTimeout(resGenerar,1000);
- 
+    let observaciones = document.getElementById("observaciones").value;
+    let plantilla = document.getElementById("plantilla");
+    if (plantilla) {
+        plantilla.value = observaciones;
+        copyToClipBoard("plantilla");
+    }
+    
+    let btnGenerar = document.getElementById("btGenerar");
+    if (btnGenerar) {
+        btnGenerar.innerHTML = "Generado!";
+        setTimeout(resGenerar, 1000);
+    }
 }
 
-//funcion notificacion de copiado temporal
-function resGenerar(){
-  document.getElementById("btGenerar").innerHTML ="Generar"
+function resGenerar() {
+    let btn = document.getElementById("btGenerar");
+    if (btn) btn.innerHTML = "Generar";
 }
 
-function resMSS(){
-  document.getElementById("btMssP").innerHTML ="MSS"
+function resMSS() {
+    let btn = document.getElementById("btMssP");
+    if (btn) btn.innerHTML = "MSS";
 }
 
-//convertir numero del mes en mes texto
-
-function converMonth(mes){
-  const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  return meses[mes];
+function converMonth(mes) {
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    return meses[mes];
 }
 
-function diaFecha (dia){
-if(dia<10){
-  return "0"+dia
-}else{
-  return dia
-}
-}
-
-
-
-// convertir mayus login btnDeleteGuiones
+// Funciones de Login y Strings
 function loginMayuscula() {
-  var saveUser = localStorage.getItem("user"); // Obtener el valor almacenado en localStorage
-  if (saveUser) { // Verificar si hay un valor guardado
-    saveUser = mayus2(saveUser); // Convertir a mayúsculas
-    copiarAlPortapapeles(saveUser); // Copiar al portapapeles
-    console.log("Usuario copiado al portapapeles: " + saveUser); // Opcional: para ver el resultado
-  } else {
-    console.log("No hay un usuario guardado.");
-  }
+    var saveUser = localStorage.getItem("user");
+    if (saveUser) {
+        saveUser = mayus2(saveUser);
+        copiarAlPortapapeles(saveUser);
+    }
 }
 
 function mayus2(cadena) {
-  return cadena.toUpperCase(); // Convertir la cadena a mayúsculas
+    return cadena.toUpperCase();
 }
 
 function copiarAlPortapapeles(texto) {
-  navigator.clipboard.writeText(texto).then(function() {
-    console.log("Texto copiado al portapapeles exitosamente.");
-  }, function(err) {
-    console.error("Error al copiar el texto: ", err);
-  });
+    navigator.clipboard.writeText(texto).then(function() {
+        console.log("Copiado exitosamente.");
+    }, function(err) {
+        console.error("Error al copiar: ", err);
+    });
 }
 
-//agregar @une
 function loginAgregarUne() {
-  var saveUser = localStorage.getItem("user"); // Obtener el valor almacenado en localStorage
-  if (saveUser) { // Verificar si hay un valor guardado
-    saveUser = agregarUne(saveUser); // Agregar @une al final
-    copiarAlPortapapeles2(saveUser); // Copiar al portapapeles
-    console.log("Usuario modificado y copiado al portapapeles: " + saveUser); // Ver el resultado
-  } else {
-    console.log("No hay un usuario guardado.");
-  }
+    var saveUser = localStorage.getItem("user");
+    if (saveUser) {
+        saveUser = agregarUne(saveUser);
+        copiarAlPortapapeles2(saveUser);
+    }
 }
 
 function agregarUne(cadena) {
-  return cadena + "@une"; // Agregar @une al final de la cadena
+    return cadena + "@une";
 }
 
-//copiar al portapapeles botones
 function copiarAlPortapapeles2(texto) {
-  navigator.clipboard.writeText(texto).then(function() {
-    console.log("Texto copiado al portapapeles exitosamente.");
-  }, function(err) {
-    console.error("Error al copiar el texto: ", err);
-  });
+    navigator.clipboard.writeText(texto);
 }
 
-
-//funcion para copiar reporte en seabel
-function reporteSeabel(){
-  // Obtiene los valores de los dos campos
-  const numeroIncidente = document.getElementById('Caso').value;
-  const observaciones = document.getElementById('observaciones').value;
-
-  // Combina los valores en un solo texto
-  const textoCombinado = `Número de Incidente: ${numeroIncidente}\n ${observaciones}`;
-
-  copiarAlPortapapeles2(textoCombinado)
+function reporteSeabel() {
+    const numeroIncidente = document.getElementById('Caso').value;
+    const observaciones = document.getElementById('observaciones').value;
+    const textoCombinado = `Número de Incidente: ${numeroIncidente}\n ${observaciones}`;
+    copiarAlPortapapeles2(textoCombinado);
 }
 
-
-
-// actualizar titulo
+// Actualizar título de la pestaña
 function actualizarTitulo() {
-            const input = document.getElementById("Caso").value;
-            const inputIdLlamada = document.getElementById("IdLlamada").value;
-            
-            if (input.trim() !== "") {
-                document.title = input + " ** " + inputIdLlamada;
+    const input = document.getElementById("Caso");
+    const inputIdLlamada = document.getElementById("IdLlamada");
+    
+    let valCaso = input ? input.value : "";
+    let valLlamada = inputIdLlamada ? inputIdLlamada.value : "";
 
-            } else {
-                document.title = inputIdLlamada;
-            }
-        }
+    if (valCaso.trim() !== "") {
+        document.title = valCaso + " ** " + valLlamada;
+    } else {
+        document.title = valLlamada || "Gestión de Casos";
+    }
+}
 
+/* ==========================================
+   NUEVAS FUNCIONES (FASE 1 - MEJORAS)
+   ========================================== */
 
-
+// Capitalizar Nombre y Apellido (Primera letra mayúscula)
 function capitalizar(input) {
     let palabras = input.value.toLowerCase().split(" ");
     for (let i = 0; i < palabras.length; i++) {
@@ -224,4 +196,145 @@ function capitalizar(input) {
         }
     }
     input.value = palabras.join(" ");
+}
+
+// Copiar Nombre Completo (Nombre + Apellido)
+function copiarNombreCompleto() {
+    let nom = document.getElementById("Nombre").value || "";
+    let ape = document.getElementById("Apellido").value || "";
+    let completo = nom + " " + ape;
+    navigator.clipboard.writeText(completo.trim());
+}
+
+// Generar y Copiar ID de Contacto (NIT-CELULAR)
+function generarIdContacto() {
+    let nit = document.getElementById("dian1").value.trim();
+    let cel = document.getElementById("Celular").value.trim();
+    
+    if (!nit && !cel) return; // No copiar si está vacío
+
+    let idContacto = `ID-CONTACTO: ${nit}-${cel}`;
+    navigator.clipboard.writeText(idContacto);
+    // Feedback visual opcional en consola
+    console.log("ID Copiado: " + idContacto);
+}
+
+// Automatización de la Descripción de Llamada
+function actualizarDescripcionAuto() {
+    // Elementos requeridos
+    let elTratamiento = document.getElementById("sel_tratamiento");
+    let elNombre = document.getElementById("Nombre");
+    let elApellido = document.getElementById("Apellido");
+    let elTiempo = document.getElementById("TiempoSinServicio");
+    let elDesc = document.getElementById("desc_auto");
+
+    if (!elDesc) return; // Salir si no existe el campo de descripción
+
+    let tratamiento = elTratamiento ? elTratamiento.value : "";
+    let nombre = elNombre ? elNombre.value.trim() : "";
+    let apellido = elApellido ? elApellido.value.trim() : "";
+    let tiempo = elTiempo ? elTiempo.value.trim() : "";
+    
+    // Lógica del sujeto
+    let sujeto = (tratamiento === 'Sr') ? 'el señor' : 'la señora';
+    let nombreCompleto = (nombre === "" && apellido === "") ? "_______" : `${nombre} ${apellido}`;
+    if (tiempo === "") tiempo = "_______";
+
+    // Construcción del texto base
+    let texto = `Se comunica ${sujeto} ${nombreCompleto} indicando que se encuentra sin servicio de internet desde hace ${tiempo}, `;
+
+    // Obtener estado de los flags (checkboxes)
+    let chkCambios = document.getElementById("chk_cambios");
+    let chkReinicio = document.getElementById("chk_reinicio");
+    let chkConexiones = document.getElementById("chk_conexiones");
+    let chkElectricas = document.getElementById("chk_electricas");
+    let chkDispositivos = document.getElementById("chk_dispositivos");
+
+    // Lógica condicional de flags
+    let txtCambios = (chkCambios && chkCambios.checked) ? "sin cambios recientes" : "con cambios recientes";
+    let txtReinicio = (chkReinicio && chkReinicio.checked) ? "reinició módem y equipos" : "NO ha reiniciado módem y equipos";
+    let txtConexiones = (chkConexiones && chkConexiones.checked) ? "revisó conexiones físicas" : "NO ha revisado conexiones físicas";
+    let txtElectricas = (chkElectricas && chkElectricas.checked) ? "sin fallas eléctricas en empresa ni zona" : "reporta fallas eléctricas";
+    let txtDisp = (chkDispositivos && chkDispositivos.checked) ? "afecta a todos los dispositivos" : "no afecta a todos los dispositivos";
+
+    // Concatenar final
+    texto += `${txtCambios}, ${txtReinicio}, ${txtConexiones}, ${txtElectricas}, ${txtDisp}.`;
+
+    elDesc.value = texto;
+}
+
+// Validar Botón de Descarga TXT
+function validarDescargaTxt() {
+    let check = document.getElementById("chk_contacto_actualizado");
+    let btn = document.getElementById("btnDescargarTxt");
+    
+    if (check && btn) {
+        if (check.checked) {
+            btn.disabled = false;
+            btn.classList.remove("btn-disabled");
+            btn.classList.add("btn-primary-action"); // Clase CSS definida en estilos nuevos
+        } else {
+            btn.disabled = true;
+            btn.classList.add("btn-disabled");
+            btn.classList.remove("btn-primary-action");
+        }
+    }
+}
+
+// Wrapper para confirmar antes de borrar
+function confirmarBorrado() {
+    if (confirm("¿Estás seguro de que deseas borrar TODOS los campos?")) {
+        borrarTodo();
+    }
+}
+
+// Función Borrar Todo (Actualizada con nuevos campos)
+function borrarTodo() {
+    // Lista de IDs a limpiar
+    var elementos = [
+        "Caso", "Nombre", "Apellido", "IdLlamada", "switch1", "NE", 
+        "Celular", "Legado", "dian1", "Legado2", "observaciones", 
+        "observaciones2", "nota", "Correo", "Direccion", "Ciudad", 
+        "acp", "anillo", "observacionesGiones", "Empresa", "TiempoSinServicio", 
+        "desc_auto"
+    ];
+
+    // Limpiar inputs de texto
+    for (let i = 0; i < elementos.length; i++) {
+        let item = document.getElementById(elementos[i]);
+        if (item) item.value = "";
+    }
+
+    // Resetear Selects
+    let guiones = document.getElementById("guiones");
+    let guiones2 = document.getElementById("guiones2");
+    let guionesGuion = document.getElementById("guionesGuion");
+    let areaConware = document.getElementById("AreaConware");
+    let tipoCaso = document.getElementById("tipo_caso");
+    let tratamiento = document.getElementById("sel_tratamiento");
+
+    if (guiones) guiones.selectedIndex = 0;
+    if (guiones2) guiones2.selectedIndex = 0;
+    if (guionesGuion) guionesGuion.selectedIndex = 0;
+    if (areaConware) areaConware.selectedIndex = 0;
+    if (tipoCaso) tipoCaso.selectedIndex = 0;
+    if (tratamiento) tratamiento.selectedIndex = 0;
+
+    // Resetear Checkboxes a su estado por defecto (marcados TRUE según requerimiento)
+    let checksDefaultTrue = ["chk_cambios", "chk_reinicio", "chk_conexiones", "chk_electricas", "chk_dispositivos"];
+    checksDefaultTrue.forEach(id => {
+        let chk = document.getElementById(id);
+        if (chk) chk.checked = true;
+    });
+
+    // Checkbox de contacto actualizado (False por defecto)
+    let chkContacto = document.getElementById("chk_contacto_actualizado");
+    if (chkContacto) chkContacto.checked = false;
+
+    // Resetear campo oculto dian2 y otros
+    if(document.getElementById("dian2")) document.getElementById("dian2").value = "";
+
+    // Actualizar estados visuales
+    validarDescargaTxt();
+    actualizarDescripcionAuto();
 }
