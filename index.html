@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,17 +11,16 @@
     <link rel="stylesheet" href="estilos.css">
     <link rel="shortcut icon" href="https://worldvectorlogo.com/static/img/favicon.ico">
 </head>
-
 <body>
 
     <nav class="navbar navbar-custom d-flex justify-content-between align-items-center sticky-top">
         <h1 class="navbar-title">Registro y gestión de casos – Analistas de Conectividad Tg B2B</h1>
         <div>
             <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
-                <i class="bi bi-search"></i>
+                <i class="bi bi-search"></i> Ayuda
             </button>
             <button class="btn btn-sm btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProfile">
-                <i class="bi bi-person-circle"></i>
+                <i class="bi bi-person-circle"></i> Usuario
             </button>
         </div>
     </nav>
@@ -32,56 +30,54 @@
         <div class="card-custom mb-2">
             <div class="d-flex flex-wrap justify-content-center gap-1">
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-primary btn-macro" id="btRed">RED <i class="bi bi-key"></i></button>
-                    <button type="button" class="btn btn-primary btn-macro" id="btEdatel">EDAT <i class="bi bi-key"></i></button>
-                    <button type="button" class="btn btn-primary btn-macro" id="btEtp">ETP <i class="bi bi-key"></i></button>
-                    <button type="button" class="btn btn-primary btn-macro" id="btElite">ELIT <i class="bi bi-key"></i></button>
-                    <button type="button" class="btn btn-primary btn-macro" id="btFenix">FENIX <i class="bi bi-key"></i></button>
+                    <button class="btn btn-primary btn-macro" id="btRed">RED <i class="bi bi-key"></i></button>
+                    <button class="btn btn-primary btn-macro" id="btEdatel">EDAT <i class="bi bi-key"></i></button>
+                    <button class="btn btn-primary btn-macro" id="btEtp">ETP <i class="bi bi-key"></i></button>
+                    <button class="btn btn-primary btn-macro" id="btElite">ELIT <i class="bi bi-key"></i></button>
+                    <button class="btn btn-primary btn-macro" id="btFenix">FENIX <i class="bi bi-key"></i></button>
                 </div>
                 <div class="btn-group btn-group-sm">
-                    <button type="button" class="btn btn-outline-primary btn-macro" id="btAvaya">AVAYA</button>
-                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="loginMayuscula();">LOGIN</button>
-                    <button type="button" class="btn btn-outline-primary btn-macro" id="btLogin">user</button>
-                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="loginAgregarUne();">@une</button>
-                    <button type="button" class="btn btn-outline-primary btn-macro" onclick="fecha();">FECHA</button>
-                    <button type="button" class="btn btn-secondary btn-macro" onclick="captura('Remark');">Remark</button>
+                    <button class="btn btn-outline-primary btn-macro" id="btAvaya">AVAYA</button>
+                    <button class="btn btn-outline-primary btn-macro" onclick="loginMayuscula()">LOGIN</button>
+                    <button class="btn btn-outline-primary btn-macro" id="btLogin">user</button>
+                    <button class="btn btn-outline-primary btn-macro" onclick="loginAgregarUne()">@une</button>
+                    <button class="btn btn-outline-primary btn-macro" onclick="fecha()">FECHA</button>
                 </div>
             </div>
             
             <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
-                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Activo');">Activo</button>
-                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Online');">Online</button>
-                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Switch');">Switch</button>
-                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Parametros');">Parámetros</button>
-                <button class="btn btn-sm btn-info text-white btn-macro" onclick="captura('Capa3');">Capa 3</button>
-                
                 <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
                 <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
+                <button class="btn btn-sm btn-warning btn-macro" onclick="captura('Arris')">Arris</button>
                 
                 <div class="vr mx-1"></div>
                 
-                <button class="btn btn-sm btn-success btn-macro" onclick="captura('Ping');">Ping</button>
-                <button class="btn btn-sm btn-danger btn-macro" onclick="captura('Offline');">Offline</button>
-                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Vlans');">Vlans</button>
                 <button class="btn btn-sm btn-dark btn-macro" onclick="reporteSeabel()">Reporte</button>
-                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('24H');">24H</button>
-                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Puerto');">Puerto</button>
-                <button class="btn btn-sm btn-secondary btn-macro" onclick="captura('Bri/Rou');">Bri/Rou</button>
-                <button class="btn btn-sm btn-primary btn-macro" onclick="copiarFormatoWord();">Word</button>
-                
-                <button onclick="generarTXT()" class="btn btn-sm btn-dark fw-bold btn-macro ms-2"><i class="bi bi-file-text"></i> Exportar a TXT</button>
+                <button class="btn btn-sm btn-primary btn-macro" onclick="copiarFormatoWord()">Word</button>
+                <button onclick="generarTXT()" class="btn btn-sm btn-dark fw-bold btn-macro ms-2"><i class="bi bi-file-text"></i> Exportar TXT</button>
             </div>
         </div>
 
         <div class="row">
             
             <div class="col-md-6">
-                <div class="card-custom h-100">
+                <div class="card-custom h-100" style="display: flex; flex-direction: column;">
                     <div class="card-header-custom">INFORMACIÓN DEL CASO Y CLIENTE</div>
 
+                    <div class="mb-1 d-flex gap-3 ps-1">
+                        <div class="form-check form-check-inline m-0">
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" checked>
+                            <label class="form-check-label fw-bold small" for="radINC">INC</label>
+                        </div>
+                        <div class="form-check form-check-inline m-0">
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radWO" value="WO">
+                            <label class="form-check-label fw-bold small" for="radWO">WO</label>
+                        </div>
+                    </div>
+
                     <div class="input-group">
-                        <button class="btn btn-label-main" onclick="copyToClipBoard('Caso')">INC</button>
-                        <input type="text" class="form-control" id="Caso" placeholder="INC0000000" onkeyup="mayus(this);" value="INC0000000">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Caso')">#CASO</button>
+                        <input type="text" class="form-control" id="Caso" placeholder="INC*** / WO***" onkeyup="mayus(this)">
                         <select class="form-select bg-light" id="tipoIncTxt" style="max-width: 110px; font-size: 0.85rem;">
                             <option value="AVANCE">AVANCE</option>
                             <option value="CREAR">CREAR</option>
@@ -89,35 +85,25 @@
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Caso')"><i class="bi bi-trash3"></i></button>
                     </div>
 
-                    <div class="d-flex gap-1 mb-1">
-                         <select class="form-select form-select-sm" id="Tratamiento" style="max-width: 75px;" onchange="actualizarDescripcionAuto()">
+                    <div class="input-group mb-1">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Nombre')">Nombre</button>
+                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                        <select class="form-select" id="Tratamiento" style="max-width: 75px;" onchange="actualizarDescripcionAuto()">
                             <option value="Sr">Sr</option>
                             <option value="Sra">Sra</option>
                         </select>
-                        <div class="input-group m-0 flex-grow-1">
-                            <button class="btn btn-label-main" onclick="copyToClipBoard('Nombre')">Nombre</button>
-                            <input type="text" class="form-control" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
-                            <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipBoard('Nombre')"><i class="bi bi-clipboard"></i></button>
-                        </div>
-                    </div>
-                    
-                    <div class="d-flex gap-1 mb-2">
-                        <div style="width: 75px;"></div> <div class="input-group m-0 flex-grow-1">
-                            <button class="btn btn-label-main" onclick="copyToClipBoard('Apellido')">Apellido</button>
-                            <input type="text" class="form-control" id="Apellido" placeholder="Apellido" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
-                            <button class="btn btn-outline-secondary btn-sm" onclick="copyToClipBoard('Apellido')"><i class="bi bi-clipboard"></i></button>
-                        </div>
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Nombre')"><i class="bi bi-trash3"></i></button>
                     </div>
 
-                    <div class="d-flex justify-content-between align-items-center mb-2 px-1">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="chkContactoActualizado">
-                            <label class="form-check-label text-xs fw-bold text-primary" for="chkContactoActualizado">
-                                Contacto Actualizado (Requerido para TXT)
-                            </label>
-                        </div>
-                        <button class="btn btn-sm btn-outline-dark" onclick="copiarNombreCompleto()" style="font-size: 0.75rem;">
-                            <i class="bi bi-person-vcard"></i> Copiar Nombre Completo
+                    <div class="input-group mb-1">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('Apellido')">Apellido</button>
+                        <input type="text" class="form-control" id="Apellido" placeholder="Apellido" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Apellido')"><i class="bi bi-trash3"></i></button>
+                    </div>
+
+                    <div class="mb-2">
+                        <button class="btn btn-label-main w-100" onclick="copiarNombreCompleto()" style="height: 30px; line-height: 1;">
+                            <i class="bi bi-person-vcard"></i> Nombre completo
                         </button>
                     </div>
 
@@ -127,7 +113,8 @@
                         <input type="text" class="form-control" id="dian1" placeholder="Cédula / NIT" onkeyup="cm1_tecla2()">
                         <input type="text" id="dian2" class="form-control text-center bg-light" style="max-width: 60px;" readonly>
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('dian1','dian2')"><i class="bi bi-trash3"></i></button>
-                        <input type="hidden" id="dian3"> </div>
+                        <input type="hidden" id="dian3">
+                    </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('IdLlamada')">ID Llam</button>
@@ -150,10 +137,19 @@
                         </div>
                     </div>
 
-                    <div class="input-group">
+                    <div class="input-group mb-1">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Correo')">Correo</button>
                         <input type="text" class="form-control" id="Correo" placeholder="email@dominio.com" onkeyup="minus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Correo')"><i class="bi bi-trash3"></i></button>
+                    </div>
+                    
+                    <div class="mb-2 bg-light border rounded px-2 py-1">
+                        <div class="form-check m-0">
+                            <input class="form-check-input" type="checkbox" id="chkContactoActualizado">
+                            <label class="form-check-label fw-bold text-primary small" for="chkContactoActualizado">
+                                Contacto Actualizado (Requerido para TXT)
+                            </label>
+                        </div>
                     </div>
 
                     <div class="input-group">
@@ -166,7 +162,7 @@
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Empresa')">Empresa</button>
                         <input type="text" class="form-control" id="Empresa" placeholder="Empresa" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Ciudad')">Ciudad</button>
-                        <input type="text" class="form-control" id="Ciudad" placeholder="Ciudad" onkeyup="mayus(this);">
+                        <input type="text" class="form-control" id="Ciudad" placeholder="Ciudad" onkeyup="capitalizar(this);">
                     </div>
 
                     <hr class="my-3">
@@ -174,49 +170,67 @@
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Legado')">ID Serv</button>
                         <input type="text" class="form-control" id="Legado" placeholder="ID Servicio" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Legado2')">S/N</button>
                         <input type="text" class="form-control" id="Legado2" placeholder="SERIAL / MAC / SW" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Legado','Legado2')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('acp')">ACP-</button>
                         <input type="text" class="form-control" id="acp" placeholder="XXXX" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('anillo')">Anillo</button>
                         <input type="text" class="form-control" id="anillo" placeholder="Anillo" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('acp','anillo')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">Switch</button>
                         <input type="text" class="form-control" id="switch1" placeholder="Nombre Switch" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
                         <input type="text" class="form-control" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
-                        
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
+                        <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
 
-                    <div class="mt-3 p-2 bg-light border rounded">
-                        <label class="text-xs fw-bold text-primary mb-1 d-block">Descripción de Llamada Automática</label>
+                    <div class="mt-3 mb-3 p-2 border rounded bg-light">
+                        <label class="script-title mb-2 text-primary">Resumen</label>
                         
-                        <div class="d-flex flex-wrap gap-2 mb-2 text-xs">
-                            <label><input type="checkbox" id="chk_cambios" checked onchange="actualizarDescripcionAuto()"> Sin cambios</label>
-                            <label><input type="checkbox" id="chk_reinicio" checked onchange="actualizarDescripcionAuto()"> Reinició</label>
-                            <label><input type="checkbox" id="chk_conexiones" checked onchange="actualizarDescripcionAuto()"> Cables OK</label>
-                            <label><input type="checkbox" id="chk_electricas" checked onchange="actualizarDescripcionAuto()"> Energía OK</label>
-                            <label><input type="checkbox" id="chk_dispositivos" checked onchange="actualizarDescripcionAuto()"> Todos Disp.</label>
+                        <div class="d-flex flex-wrap gap-2 mb-2 align-items-center small">
+                            <span class="fw-bold text-muted" style="min-width: 70px;">Causa:</span>
+                            <label><input type="radio" name="res_causa" value="Sin servicio" onchange="actualizarResumen()"> Sin servicio</label>
+                            <label><input type="radio" name="res_causa" value="Lentitud" onchange="actualizarResumen()"> Lentitud</label>
+                            <label><input type="radio" name="res_causa" value="Intermitencia" onchange="actualizarResumen()"> Intermitencia</label>
                         </div>
-                        
-                        <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()">
-                        
-                        <textarea class="form-control form-control-sm" id="desc_auto" rows="3" readonly style="font-size: 0.8rem; background: #e9ecef;"></textarea>
-                        
-                        <textarea id="nota" style="display:none;"></textarea>
+
+                        <div class="d-flex flex-wrap gap-2 mb-2 align-items-center small">
+                            <span class="fw-bold text-muted" style="min-width: 70px;">Servicio:</span>
+                            <label><input type="radio" name="res_servicio" value="Internet" onchange="actualizarResumen()"> Internet</label>
+                            <label><input type="radio" name="res_servicio" value="Television" onchange="actualizarResumen()"> TV</label>
+                            <label><input type="radio" name="res_servicio" value="Telefonia" onchange="actualizarResumen()"> Telefonía</label>
+                            <label><input type="radio" name="res_servicio" value="Movilidad" onchange="actualizarResumen()"> Movilidad</label>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-2 mb-2 align-items-center small">
+                            <span class="fw-bold text-muted" style="min-width: 70px;">Tecnología:</span>
+                            <label><input type="radio" name="res_tec" value="HFC" onchange="actualizarResumen()"> HFC</label>
+                            <label><input type="radio" name="res_tec" value="GPON" onchange="actualizarResumen()"> GPON</label>
+                            <label><input type="radio" name="res_tec" value="FIBRA" onchange="actualizarResumen()"> FIBRA</label>
+                        </div>
+
+                        <div class="input-group mt-2">
+                            <button class="btn-label-main" onclick="copyToClipBoard('ResumenGenerado')">Resumen</button>
+                            <input type="text" class="form-control" id="ResumenGenerado" readonly placeholder="Se genera automáticamente...">
+                        </div>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="script-title text-primary"><i class="bi bi-journal-text"></i> Notas adicionales</span>
+                            <div>
+                                <button class="btn btn-sm btn-success py-0" onclick="copyToClipBoard('nota')"><i class="bi bi-clipboard"></i></button>
+                                <button class="btn btn-sm btn-outline-danger py-0" onclick="deliteTextbox('nota')"><i class="bi bi-trash3"></i></button>
+                            </div>
+                        </div>
+                        <textarea class="form-control" id="nota" rows="4" placeholder="Escriba aquí notas extras..."></textarea>
                     </div>
 
                 </div>
@@ -227,7 +241,27 @@
                     <div class="card-header-custom">GESTIÓN Y SCRIPTS</div>
 
                     <div class="script-block">
-                        <span class="script-title">1. Tipificación y Guión Rápido</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                             <span class="script-title">1. Descripción Automática de Llamada</span>
+                             <div class="btn-group">
+                                <button class="btn btn-success btn-sm py-0" onclick="copyToClipBoard('desc_auto')">Copiar</button>
+                                <button class="btn btn-outline-danger btn-sm py-0" onclick="deliteTextbox('desc_auto')"><i class="bi bi-trash3"></i></button>
+                             </div>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap gap-2 mb-2 text-xs">
+                            <label><input type="checkbox" id="chk_cambios" checked onchange="actualizarDescripcionAuto()"> Sin cambios</label>
+                            <label><input type="checkbox" id="chk_reinicio" checked onchange="actualizarDescripcionAuto()"> Reinició</label>
+                            <label><input type="checkbox" id="chk_conexiones" checked onchange="actualizarDescripcionAuto()"> Cables OK</label>
+                            <label><input type="checkbox" id="chk_electricas" checked onchange="actualizarDescripcionAuto()"> Energía OK</label>
+                            <label><input type="checkbox" id="chk_dispositivos" checked onchange="actualizarDescripcionAuto()"> Todos Disp.</label>
+                        </div>
+                        <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()">
+                        <textarea class="form-control form-control-sm" id="desc_auto" rows="3" readonly style="font-size: 0.8rem; background: #e9ecef;"></textarea>
+                    </div>
+
+                    <div class="script-block">
+                        <span class="script-title">2. Tipificación y Guión Rápido</span>
                         <div class="input-group">
                             <select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
                                 <option value="">-- Selecciona una opción --</option>
@@ -253,7 +287,7 @@
                     </div>
 
                     <div class="script-block">
-                        <span class="script-title">2. Diagnóstico y Soporte</span>
+                        <span class="script-title">3. Diagnóstico y Soporte</span>
                         <div class="d-flex gap-1 mb-1">
                             <select class="form-select form-select-sm" id="AreaConware" style="width: 30%;">
                                 <option value="1">N1</option>
@@ -263,7 +297,7 @@
                                 <option value="5">MESA TT</option>
                             </select>
                             <select class="form-select form-select-sm" id="guiones" onchange="selecion()">
-                                <option value="s">-- Guiones Diagnósticos --</option>
+                                <option value="s">-- Diagnósticos --</option>
                                 <option value="1">DIAGNOSTICO</option>
                                 <option value="3">LLAMADA-ENTRANTE</option>
                                 <option value="4">LLAMADA-SALIENTE</option>
@@ -276,10 +310,10 @@
                     </div>
 
                     <div class="script-block">
-                        <span class="script-title">3. Resolución / Cierre</span>
+                        <span class="script-title">4. Resolución / Cierre</span>
                         <div class="input-group">
                             <select class="form-select form-select-sm" id="guiones2" onchange="selecion2()">
-                                <option value="s">-- Guiones Resolución --</option>
+                                <option value="s">-- Resolución --</option>
                                 <option value="0" style="color:red; font-weight:bold;">RESOLUCIÓN CAPA3</option>
                                 <option value="1">AGENDAMIENTO</option>
                                 <option value="2">Resolución (Blanco)</option>
@@ -291,12 +325,11 @@
                         <textarea class="form-control" id="observaciones2" rows="4"></textarea>
                     </div>
 
-                    <div class="text-end mt-2">
+                    <div class="text-end mt-3">
                         <button class="btn btn-danger btn-sm" onclick="borrarTodoConConfirmacion()">
                             <i class="bi bi-eraser-fill"></i> Limpiar Todo
                         </button>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -304,37 +337,37 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Credenciales</h5>
+            <h5 class="offcanvas-title">Credenciales de Usuario</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
             <div class="mb-3">
-                <label class="form-label fw-bold small">Usuario</label>
+                <label class="form-label small fw-bold">Usuario</label>
                 <input type="text" id="user" class="form-control form-control-sm">
             </div>
             <div class="mb-3">
-                <label class="form-label fw-bold small">ID Avaya</label>
+                <label class="form-label small fw-bold">ID Avaya</label>
                 <input type="text" id="avaya" class="form-control form-control-sm">
             </div>
             <hr>
             <div class="mb-2">
-                <label class="form-label small">Pass RED</label>
+                <label class="form-label small">Pass RED <i class="bi bi-key"></i></label>
                 <input type="password" id="passRed" class="form-control form-control-sm">
             </div>
             <div class="mb-2">
-                <label class="form-label small">Pass EDATEL</label>
+                <label class="form-label small">Pass EDATEL <i class="bi bi-key"></i></label>
                 <input type="password" id="passEda" class="form-control form-control-sm">
             </div>
             <div class="mb-2">
-                <label class="form-label small">Pass ETP</label>
+                <label class="form-label small">Pass ETP <i class="bi bi-key"></i></label>
                 <input type="password" id="passEtp" class="form-control form-control-sm">
             </div>
              <div class="mb-2">
-                <label class="form-label small">Pass ELITE</label>
+                <label class="form-label small">Pass ELITE <i class="bi bi-key"></i></label>
                 <input type="password" id="passElite" class="form-control form-control-sm">
             </div>
              <div class="mb-2">
-                <label class="form-label small">Pass FENIX</label>
+                <label class="form-label small">Pass FENIX <i class="bi bi-key"></i></label>
                 <input type="password" id="passFenix" class="form-control form-control-sm">
             </div>
             <div class="d-grid mt-3">
@@ -343,58 +376,56 @@
         </div>
     </div>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSearch">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSearch" style="width: 450px;">
         <div class="offcanvas-header bg-info text-dark">
-            <h5 class="offcanvas-title">Búsqueda & Notas</h5>
+            <h5 class="offcanvas-title">Centro de Información</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-            <h6 class="fw-bold border-bottom pb-1">Buscar NE Edatel</h6>
-            <input type="text" class="form-control form-control-sm mb-2" id="search-NE" placeholder="Nombre..." onkeyup="searchData()">
-            <ul id="result-list" class="list-group list-group-flush small mb-4"></ul>
+            <div class="mb-4">
+                <h6 class="fw-bold border-bottom pb-1">Buscar NE Edatel / Metro</h6>
+                <input type="text" class="form-control form-control-sm mb-1" id="search-NE" placeholder="Escriba para buscar..." onkeyup="searchData()">
+                <div id="result-container" class="search-results">
+                    <ul id="result-list" class="list-unstyled m-0"></ul>
+                </div>
+            </div>
 
-            <h6 class="fw-bold border-bottom pb-1">Buscar NE Metro</h6>
-            <input type="text" class="form-control form-control-sm mb-2" id="search-NE-Metro" placeholder="Nombre..." onkeyup="searchData2()">
-            <ul id="result-list-Metro" class="list-group list-group-flush small"></ul>
+            <div class="mb-4">
+                <h6 class="fw-bold border-bottom pb-1">Buscar en Notas / Procedimientos</h6>
+                <input type="text" class="form-control form-control-sm mb-1" id="search-INFO" placeholder="Buscar en base de conocimiento..." onkeyup="searchInformation()">
+                <div id="result-info" class="search-results" style="max-height: 400px; white-space: pre-wrap; font-family: monospace; font-size: 0.75rem;">
+                </div>
+            </div>
         </div>
     </div>
 
     <div style="display:none;">
-        <input id="55555" value="55555">
-        <input id="AVAYA" value="51116">
-        <input id="ELITE" value="ELITE">
-        <input id="WALVIZVA" value="WALVIZVA">
-        <input id="walvizva" value="walvizva">
+        <input id="55555" value="55555"><input id="AVAYA" value="51116"><input id="ELITE" value="ELITE">
+        <input id="WALVIZVA" value="WALVIZVA"><input id="walvizva" value="walvizva">
         <input id="Remark" value="Incidente/ Descripción (ap simple, doble, retiro, reingreso, potencias) / TT-Pedido de retiro-EG/anillo/ubicación/IP">
         <input id="arroba" value="walvizva@une">
-        <input id="Activo" value="Servicio se encuentra Activo.">
-        <input id="Online" value="Equipo se encuentra en estado online.">
-        <input id="Switch" value="Switch en estado operativo.">
-        <input id="Vlans" value="Vlans correctamente configuradas para el plan que tiene contratado.">
-        <input id="Parametros" value="Equipo se encuentra dentro de los rangos óptimos de operatividad.">
-        <input id="Capa3" value="Se realiza levantamiento de equipo en capa 3.">
-        <input id="Equipocliente" value="Equipo es de administración interna del usuario. ">
-        <input id="Ping" value="Se realiza prueba de ping sin pérdida de paquetes">
-        <input id="Offline" value="Equipo se encuentra en estado offline.">
-        <input id="Movil" value="Línea se encuentra en estado activo y con particiones.">
-        <input id="24H" value="se le indica adicionalmente que caso quedara monitoreado durante 24 horas en caso que presente alguna novedad nuevamente con el servicio.">
-        <input id="Puerto" value="No se evidencia afectación en el puerto.">
-        <input id="Bri/Rou" value="Servicio se encuentra en modo bridge/router.">
-        <input id="" value="">
-        <input id="sincronizacion" value="SINCRONIZACION">
-        <input id="instalacion" value="INST-EQUIPO">
-        <input id="cambio" value="CAMBIO-EQUIPO">
-        <input id="reuso" value="REUSO-ACCESO">
-        <input id="retequipo" value="RETIRO-EQUIPO">
-        <input id="traza" value="T1g0.2021">
+        <input id="Arris" value="arris">
+        <input id="Activo" value="Servicio se encuentra Activo."><input id="Online" value="Equipo se encuentra en estado online.">
+        <input id="Switch" value="Switch en estado operativo."><input id="Vlans" value="Vlans correctamente configuradas.">
+        <input id="Parametros" value="Equipo dentro de rangos óptimos."><input id="Capa3" value="Levantamiento en capa 3.">
+        <input id="Equipocliente" value="Equipo administración interna."><input id="Ping" value="Prueba de ping exitosa.">
+        <input id="Offline" value="Equipo offline."><input id="Movil" value="Línea activa.">
+        <input id="24H" value="Monitoreo 24 horas."><input id="Puerto" value="Sin afectación puerto.">
+        <input id="Bri/Rou" value="Modo bridge/router."><input id="" value="">
+        <input id="sincronizacion" value="SINCRONIZACION"><input id="instalacion" value="INST-EQUIPO">
+        <input id="cambio" value="CAMBIO-EQUIPO"><input id="reuso" value="REUSO-ACCESO">
+        <input id="retequipo" value="RETIRO-EQUIPO"><input id="traza" value="T1g0.2021">
         <input id="IMSWEB" value="https://10.54.77.21:8543/spg/login.do?state=0&resultPage=true">
-        <input id="une" value="UNE">
-        <input id="000" value="0000000000000000000">
+        <input id="une" value="UNE"><input id="000" value="0000000000000000000">
         <input id="consulta_equipo" value="http://10.100.66.199:8082/RepEquiposDireccion.aspx">
         <input id="ubi" value="UBICGENCPE">
         <input id="SEABEL" value="http://unecrm/ecommunications_esn/start.swe?SWECmd=Start&SWEHo=unecrm">
     </div>
 
+    <script src="ProcesosJS/Data_Informacion.js"></script> 
+    <script src="ProcesosJS/NeMetro.js"></script>
+    <script src="ProcesosJS/Edatel.js"></script>
+    <script src="ProcesosJS/SearchLogic.js"></script> 
     <script src="ProcesosJS/Pantalla.js"></script>
     <script src="ProcesosJS/LocalStore.js"></script>
     <script src="ProcesosJS/procesos.js"></script>
@@ -403,16 +434,12 @@
     <script src="ProcesosJS/plantillasConware.js"></script>
     <script src="ProcesosJS/Resolucion.js"></script>
     <script src="ProcesosJS/codigo_cmi1.js"></script>
-    <script src="ProcesosJS/NeMetro.js"></script>
-    <script src="ProcesosJS/Edatel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Inicializar texto inteligente al cargar
         document.addEventListener('DOMContentLoaded', () => {
-           if(typeof actualizarDescripcionAuto === 'function') {
-               actualizarDescripcionAuto();
-           }
+           if(typeof actualizarDescripcionAuto === 'function') actualizarDescripcionAuto();
+           if(typeof actualizarResumen === 'function') actualizarResumen();
         });
     </script>
 </body>
