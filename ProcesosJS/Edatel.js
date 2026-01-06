@@ -1,24 +1,5 @@
-// Función de búsqueda de los ne edatel
-function searchData() {
-    const input = document.getElementById('search-NE').value.toLowerCase();
-    const resultList = document.getElementById('result-list');
-    resultList.innerHTML = '';  // Limpiar los resultados anteriores
-
-    // Filtrar los datos basados en la búsqueda
-    const filteredData = data.filter(item => item.name.toLowerCase().includes(input));
-
-    // Mostrar los resultados
-    filteredData.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - ${item.NE}`;
-        resultList.appendChild(li);
-    });
-}
-
-
-
-// Datos JSON de los NE edatel
-const data = [
+// Base de datos de NE EDATEL
+const edatelData = [
     { "id": 1, "name": "Medellín", "NE": "10.165.43.251" },
     { "id": 3, "name": "Apartadó", "NE": "10.165.43.250" },
     { "id": 4, "name": "Yarumal", "NE": "10.165.43.52" },
@@ -75,7 +56,3 @@ const data = [
     { "id": 55, "name": "Montería", "NE": "10.165.57.5" },
     { "id": 56, "name": "Barranquilla", "NE": "10.165.51.6" }
 ];
-
-  
-  
-  

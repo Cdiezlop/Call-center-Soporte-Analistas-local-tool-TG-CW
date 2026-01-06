@@ -25,7 +25,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="max-width: 1400px;">
+    <div class="container-fluid" style="max-width: 98%;">
         
         <div class="card-custom mb-2">
             <div class="d-flex flex-wrap justify-content-center gap-1">
@@ -46,13 +46,14 @@
             </div>
             
             <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
+                <button class="btn btn-sm btn-warning btn-macro" onclick="copiarMacLimpia()">MAC</button>
+                
                 <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
                 <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
                 <button class="btn btn-sm btn-warning btn-macro" onclick="captura('Arris')">Arris</button>
                 
                 <div class="vr mx-1"></div>
                 
-                <button class="btn btn-sm btn-dark btn-macro" onclick="reporteSeabel()">Reporte</button>
                 <button class="btn btn-sm btn-primary btn-macro" onclick="copiarFormatoWord()">Word</button>
                 <button onclick="generarTXT()" class="btn btn-sm btn-dark fw-bold btn-macro ms-2"><i class="bi bi-file-text"></i> Exportar TXT</button>
             </div>
@@ -60,7 +61,7 @@
 
         <div class="row">
             
-            <div class="col-md-6">
+            <div class="col-lg-5" style="flex: 0 0 45%; max-width: 45%;">
                 <div class="card-custom h-100" style="display: flex; flex-direction: column;">
                     <div class="card-header-custom">INFORMACIÓN DEL CASO Y CLIENTE</div>
 
@@ -236,7 +237,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-lg-7" style="flex: 0 0 55%; max-width: 55%;">
                 <div class="card-custom h-100">
                     <div class="card-header-custom">GESTIÓN Y SCRIPTS</div>
 
@@ -257,7 +258,7 @@
                             <label><input type="checkbox" id="chk_dispositivos" checked onchange="actualizarDescripcionAuto()"> Todos Disp.</label>
                         </div>
                         <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()">
-                        <textarea class="form-control form-control-sm" id="desc_auto" rows="3" readonly style="font-size: 0.8rem; background: #e9ecef;"></textarea>
+                        <textarea class="form-control form-control-sm" id="desc_auto" rows="4" style="font-size: 0.9rem; background: #e9ecef;"></textarea>
                     </div>
 
                     <div class="script-block">
@@ -265,16 +266,36 @@
                         <div class="input-group">
                             <select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
                                 <option value="">-- Selecciona una opción --</option>
-                                <optgroup label="GPON">
-                                    <option value="0">GPON - Capa3</option>
-                                    <option value="6">GPON - Online</option>
-                                    <option value="1">GPON - Lost</option>
+                                
+                                <optgroup label="--- TECNOLOGÍA GPON ---">
+                                    <option value="GPON_NO_NAVEGA_MASIVA">NO NAVEGA, TT FALLA MASIVA</option>
+                                    <option value="GPON_NO_NAVEGA_TERRENO">NO NAVEGA, POSIBLE FALLA MASIVA O TERRENO</option>
+                                    <option value="GPON_LOS_ROJO">LOS EN ROJO - TERRENO</option>
+                                    <option value="GPON_CONECTA_NO_NAVEGA">CONECTA Y NO NAVEGA</option>
+                                    <option value="GPON_INTERMITENCIA">INTERMITENCIA</option>
+                                    <option value="GPON_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
                                 </optgroup>
-                                <optgroup label="HFC">
-                                    <option value="3">HFC - Online</option>
-                                    <option value="4">HFC - Offline</option>
+
+                                <optgroup label="--- TECNOLOGÍA HFC ---">
+                                    <option value="HFC_NO_NAVEGA_MASIVA">NO NAVEGA TT DE FALLA MASIVA</option>
+                                    <option value="HFC_PERFIL_LDAP">CONECTA Y NO NAVEGA, PERFIL LDAP MAL CONFIGURADO</option>
+                                    <option value="HFC_INTERMITENCIA">INTERMITENCIA POR PARAMETROS ALARMADOS</option>
+                                    <option value="HFC_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
                                 </optgroup>
-                                <optgroup label="Otros">
+
+                                <optgroup label="--- TECNOLOGÍA FIBRA ---">
+                                    <option value="FIBRA_APERTURA_DOBLE_1">APERTURA DOBLE 1 CLIENTE</option>
+                                    <option value="FIBRA_APERTURA_EXTREMO">APERTURA DOBLE EXTREMO</option>
+                                    <option value="FIBRA_OPERATIVO_PING">SERVICIO OPERATIVO PING</option>
+                                </optgroup>
+
+                                <optgroup label="--- DIAGNÓSTICO TV ---">
+                                    <option value="TV_HFC_IMAGEN">HFC - Problemas de imagen</option>
+                                    <option value="TV_HFC_SIN_SENAL">HFC - Sin señal</option>
+                                    <option value="TV_GPON_IMAGEN">GPON - Problemas de imagen (Decos Android)</option>
+                                </optgroup>
+
+                                <optgroup label="--- OTROS ---">
                                     <option value="2">No responde</option>
                                     <option value="9">Movilidad</option>
                                     <option value="15">VOZ Escalamiento</option>
@@ -283,7 +304,7 @@
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observacionesGiones')">Copiar</button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observacionesGiones')"><i class="bi bi-trash3"></i></button>
                         </div>
-                        <textarea class="form-control" id="observacionesGiones" rows="3"></textarea>
+                        <textarea class="form-control" id="observacionesGiones" rows="7" style="font-size: 0.9rem;"></textarea>
                     </div>
 
                     <div class="script-block">
@@ -306,7 +327,7 @@
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones')">Copiar</button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones')"><i class="bi bi-trash3"></i></button>
                         </div>
-                        <textarea class="form-control" id="observaciones" rows="5"></textarea>
+                        <textarea class="form-control" id="observaciones" rows="10" style="font-size: 0.9rem;"></textarea>
                     </div>
 
                     <div class="script-block">
@@ -322,7 +343,7 @@
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones2')">Copiar</button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones2')"><i class="bi bi-trash3"></i></button>
                         </div>
-                        <textarea class="form-control" id="observaciones2" rows="4"></textarea>
+                        <textarea class="form-control" id="observaciones2" rows="5" style="font-size: 0.9rem;"></textarea>
                     </div>
 
                     <div class="text-end mt-3">

@@ -3,10 +3,10 @@
     --primary-color: #00377B; /* Azul Tigo Header */
     
     /* PALETA DE BOTONES GRISES SOLICITADA */
-    --btn-main-gray: #495057; /* Gris Oscuro (Principal: INC, Nombre, Celular) */
+    --btn-main-gray: #495057; /* Gris Oscuro */
     --btn-main-hover: #343a40;
     
-    --btn-sub-gray: #6c757d;  /* Gris Medio (Secundario: Dig, Fijo, S/N) */
+    --btn-sub-gray: #6c757d;  /* Gris Medio */
     --btn-sub-hover: #5a6268;
 
     --white: #FFFFFF;
@@ -59,6 +59,8 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     min-width: 85px; 
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 .btn-label-main:hover {
     background-color: var(--btn-main-hover);
@@ -71,21 +73,38 @@ body {
     border: 1px solid var(--btn-sub-gray);
     font-size: 0.85rem;
     min-width: 50px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 .btn-label-sub:hover {
     background-color: var(--btn-sub-hover);
     color: white;
 }
 
-/* Inputs */
+/* --- INPUTS Y TEXTAREAS (CORREGIDO) --- */
+
+/* Estilo base para todos los controles */
 .form-control {
     font-size: 0.9rem;
     border-color: #ced4da;
-    height: 34px;
 }
+
 .form-control:focus {
     border-color: var(--btn-main-gray);
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+/* Solo los INPUTS de una línea y SELECTS tienen altura fija */
+input.form-control, select.form-control {
+    height: 34px; 
+}
+
+/* Los TEXTAREAS tienen altura automática para respetar el atributo 'rows' */
+textarea.form-control {
+    height: auto; 
+    resize: vertical; /* Permite estirar si el usuario quiere más espacio */
+    line-height: 1.4; /* Mejor lectura */
+    padding: 8px;     /* Más espacio interno */
 }
 
 /* Input Groups */
@@ -123,6 +142,43 @@ body {
     margin-bottom: 4px;
 }
 
+/* Radio buttons INC/WO y Resumen */
+.type-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f3f5;
+    padding: 0 8px;
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
 /* Utilidades */
 .fw-500 { font-weight: 500; }
 .text-xs { font-size: 0.75rem; }
+
+/* Resultados de búsqueda (Offcanvas) */
+.search-results {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    display: none;
+}
+.search-results.active {
+    display: block;
+}
+.search-item {
+    padding: 6px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.search-item:hover {
+    background-color: #e9ecef;
+    color: var(--primary-color);
+}

@@ -1,24 +1,5 @@
-// Función de búsqueda de los ne edatel
-function searchData2() {
-    const input = document.getElementById('search-NE-Metro').value.toLowerCase();
-    const resultList = document.getElementById('result-list-Metro');
-    resultList.innerHTML = '';  // Limpiar los resultados anteriores
-
-    // Filtrar los datos basados en la búsqueda
-    const filteredData = data2.filter(item => item.name.toLowerCase().includes(input));
-
-    // Mostrar los resultados
-    filteredData.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name} - ${item.NE}`;
-        resultList.appendChild(li);
-    });
-}
-
-
-//
-// Datos JSON de los NE edatel 10.165.12.2 bog-sbb-ne40e-01
-const data2 = [
+// Base de datos de NE METRO
+const metroData = [
     { "id": 1, "name": "mde-ame-ne40x16-06", "NE": "10.165.43.50" },
     { "id": 3, "name": "mde-ame-ne40x16a-08", "NE": "10.165.43.43" },
     { "id": 4, "name": "mde-ame-ne40x3-rr", "NE": "10.165.41.254" },
@@ -107,7 +88,7 @@ const data2 = [
     { "id": 87, "name": "czu-sin1-ne40x16a-01", "NE": "10.45.0.15" },
     { "id": 88, "name": "vup-7ag-ne40x16a-01", "NE": "10.45.0.21" },
     { "id": 89, "name": "baq-sbo-ne40x16a-01", "NE": "10.165.51.4" },
-    { "id": 90, "name": "sma-cej-ne40x16a-01(SMR-ECE)", "NE": "10.165.55.2" },//
+    { "id": 90, "name": "sma-cej-ne40x16a-01(SMR-ECE)", "NE": "10.165.55.2" },
     { "id": 91, "name": "bga-avi-ne40x16-02", "NE": "10.165.73.1" },
     { "id": 92, "name": "bga-cab-7750SR12-01", "NE": "10.165.71.5" },
     { "id": 93, "name": "bga-fbl-NE40x3-01", "NE": "10.165.71.4" },
@@ -133,8 +114,8 @@ const data2 = [
     { "id": 113, "name": "ppn-prn-7750SR12-01", "NE": "10.165.21.42" },
     { "id": 114, "name": "pso-efu-ne40x3-01", "NE": "10.165.23.12" },
     { "id": 115, "name": "baq-sbo-ne40x16a-01", "NE": "10.165.51.4" },
-    { "id": 116, "name": "mde-lba-ne40x8-02", "NE": "10.165.43.59" },//
-    { "id": 117, "name": "", "NE": "" },//
+    { "id": 116, "name": "mde-lba-ne40x8-02", "NE": "10.165.43.59" },
+    { "id": 117, "name": "", "NE": "" },
     { "id": 118, "name": "ctg-bos-ne40x16a-01", "NE": "10.165.53.2" },
     { "id": 119, "name": "CTG-CFX-NE8000M14-01", "NE": "10.165.53.1" },
     { "id": 120, "name": "ctg-mom-ne40x2-01", "NE": "10.165.53.6" },
@@ -180,48 +161,6 @@ const data2 = [
     { "id": 160, "name": "tun-dui-cx600x8-01", "NE": "10.165.91.4" },
     { "id": 161, "name": "mde-lce-ne40x8a-01", "NE": "10.165.43.65" },
     { "id": 162, "name": "mzl-ene-cx600x16-01", "NE": "10.165.60.6" },
-    { "id": 163, "name": "", "NE": "" },
-    { "id": 164, "name": "", "NE": "" },
-    { "id": 165, "name": "", "NE": "" },
-    { "id": 166, "name": "", "NE": "" },
-    { "id": 167, "name": "", "NE": "" },
-    { "id": 168, "name": "", "NE": "" },
-    { "id": 169, "name": "", "NE": "" },
-    { "id": 170, "name": "", "NE": "" },
-    { "id": 171, "name": "", "NE": "" },
-    { "id": 172, "name": "", "NE": "" },
-    { "id": 173, "name": "", "NE": "" },
-    { "id": 174, "name": "", "NE": "" },
-    { "id": 175, "name": "", "NE": "" },
-    { "id": 176, "name": "", "NE": "" },
-    { "id": 177, "name": "", "NE": "" },
-    { "id": 178, "name": "", "NE": "" },
-    { "id": 179, "name": "", "NE": "" },
-    { "id": 180, "name": "", "NE": "" },
-    { "id": 181, "name": "", "NE": "" },
-    { "id": 182, "name": "", "NE": "" },
-    { "id": 183, "name": "", "NE": "" },
-    { "id": 184, "name": "", "NE": "" },
-    { "id": 185, "name": "", "NE": "" },
-    { "id": 186, "name": "", "NE": "" },
-    { "id": 187, "name": "", "NE": "" },
-    { "id": 188, "name": "", "NE": "" },
-    { "id": 189, "name": "", "NE": "" },
-    { "id": 190, "name": "", "NE": "" },
-    { "id": 191, "name": "", "NE": "" },
-    { "id": 192, "name": "", "NE": "" },
-    { "id": 193, "name": "", "NE": "" },
-    { "id": 194, "name": "", "NE": "" },
-    { "id": 195, "name": "", "NE": "" },
-    { "id": 196, "name": "", "NE": "" },
-    { "id": 197, "name": "", "NE": "" },
-    { "id": 198, "name": "", "NE": "" },
-    { "id": 199, "name": "", "NE": "" },
     { "id": 200, "name": "", "NE": "" }
-
-
 ];
-
-  
-  
   
