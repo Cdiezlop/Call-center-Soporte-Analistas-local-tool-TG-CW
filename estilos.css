@@ -2,7 +2,7 @@
     --bg-body: #9ec8ff; /* Fondo original */
     --primary-color: #00377B; /* Azul Tigo Header */
     
-    /* PALETA DE BOTONES GRISES SOLICITADA */
+    /* PALETA DE BOTONES GRISES */
     --btn-main-gray: #495057; /* Gris Oscuro */
     --btn-main-hover: #343a40;
     
@@ -11,9 +11,9 @@
 
     --white: #FFFFFF;
 
-    /* COLORES DE ESTADO (Sutiles) */
-    --bg-empty: #fff5f5; /* Rojo muy claro */
-    --bg-filled: #f0fff4; /* Verde muy claro */
+    /* COLORES DE ESTADO (MONITOR) */
+    --bg-empty: #fff5f5; /* Rojo muy claro (Vacío) */
+    --bg-filled: #f0fff4; /* Verde muy claro (Lleno) */
     --border-empty: #ffc9c9;
     --border-filled: #c3e6cb;
 }
@@ -89,7 +89,7 @@ body {
 
 /* --- INPUTS Y TEXTAREAS --- */
 
-/* Estilo base para todos los controles */
+/* Estilo base */
 .form-control {
     font-size: 0.9rem;
     border-color: #ced4da;
@@ -99,15 +99,15 @@ body {
 .form-control:focus {
     border-color: var(--btn-main-gray);
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
-    background-color: #fff; /* Al enfocar vuelve a blanco para escribir cómodo */
+    background-color: #fff !important; /* Al enfocar siempre blanco */
 }
 
-/* Solo los INPUTS de una línea y SELECTS tienen altura fija */
+/* Inputs de una línea */
 input.form-control, select.form-control {
     height: 34px; 
 }
 
-/* Los TEXTAREAS tienen altura automática para respetar el atributo 'rows' */
+/* Textareas (Altura dinámica según atributo rows) */
 textarea.form-control {
     height: auto; 
     resize: vertical; 
@@ -115,7 +115,7 @@ textarea.form-control {
     padding: 8px;     
 }
 
-/* ESTADOS DE VALIDACIÓN VISUAL (Para inputs de la izquierda) */
+/* ESTADOS DE VALIDACIÓN VISUAL */
 .status-monitor.is-empty {
     background-color: var(--bg-empty);
     border-color: var(--border-empty);
@@ -126,7 +126,7 @@ textarea.form-control {
     border-color: var(--border-filled);
 }
 
-/* Input Groups */
+/* Input Groups y Botones Pequeños */
 .input-group {
     margin-bottom: 6px;
 }
@@ -172,21 +172,6 @@ textarea.form-control {
     border-right: none;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
-}
-
-/* Area de Carga de Archivos (Drag & Drop visual) */
-.file-drop-area {
-    border: 2px dashed #ccc;
-    border-radius: 6px;
-    padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s;
-    cursor: pointer;
-}
-.file-drop-area:hover {
-    border-color: var(--primary-color);
-    background-color: #eef4ff;
 }
 
 /* Utilidades */

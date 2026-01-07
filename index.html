@@ -16,9 +16,10 @@
     <nav class="navbar navbar-custom d-flex justify-content-between align-items-center sticky-top">
         <h1 class="navbar-title">Registro y gestión de casos – Analistas de Conectividad Tg B2B</h1>
         <div>
-            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasConfig" title="Configuración y Dataframe">
+            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasConfig" title="Configuración / Importar Dataframe">
                 <i class="bi bi-gear-fill"></i>
             </button>
+            
             <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
                 <i class="bi bi-search"></i> Ayuda
             </button>
@@ -50,6 +51,7 @@
             
             <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
                 <button class="btn btn-sm btn-warning btn-macro" onclick="copiarMacLimpia()">MAC</button>
+                
                 <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
                 <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
                 <button class="btn btn-sm btn-warning btn-macro" onclick="captura('Arris')">Arris</button>
@@ -188,10 +190,11 @@
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">Switch</button>
-                        <input type="text" class="form-control status-monitor" id="switch1" placeholder="Nombre Switch" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="switch1" placeholder="Serial equipo cliente" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
                         <input type="text" class="form-control status-monitor" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
+                        
                         <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV (Dataframe)"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
 
@@ -464,7 +467,8 @@
         <input id="SEABEL" value="http://unecrm/ecommunications_esn/start.swe?SWECmd=Start&SWEHo=unecrm">
     </div>
 
-    <script src="ProcesosJS/ProcesarDataframe.js"></script> <script src="ProcesosJS/Data_Informacion.js"></script> 
+    <script src="ProcesosJS/ProcesarDataframe.js"></script> 
+    <script src="ProcesosJS/Data_Informacion.js"></script> 
     <script src="ProcesosJS/NeMetro.js"></script>
     <script src="ProcesosJS/Edatel.js"></script>
     <script src="ProcesosJS/SearchLogic.js"></script> 
@@ -483,11 +487,11 @@
            if(typeof actualizarDescripcionAuto === 'function') actualizarDescripcionAuto();
            if(typeof actualizarResumen === 'function') actualizarResumen();
            
-           // Inicializar colores de campos (Rojo/Verde)
+           // Inicializar monitoreo de colores
            monitorFields();
         });
 
-        // Script para monitorizar el estado de los campos (Vacío/Lleno)
+        // Script visual: Rojo (vacío) / Verde (lleno)
         function monitorFields() {
             const fields = document.querySelectorAll('.status-monitor');
             
@@ -502,7 +506,7 @@
             };
 
             fields.forEach(el => {
-                updateClass(el); // Estado inicial
+                updateClass(el); 
                 el.addEventListener('input', () => updateClass(el));
             });
         }

@@ -6,15 +6,15 @@ function selecionGuiones() {
     var cod = document.getElementById("guionesGuion").value;
     var texto = "";
 
-    // 1. Obtener Variables del Formulario
+    // 1. Obtener Variables
     var idServ = document.getElementById("Legado").value.trim();
     var acp = document.getElementById("acp").value.trim();
-    var sn = document.getElementById("Legado2").value.trim(); // Campo S/N (Equipo)
+    var sn = document.getElementById("Legado2").value.trim(); // S/N (Serial equipo)
     var ne = document.getElementById("NE").value.trim();
     var switchName = document.getElementById("switch1").value.trim();
     var anillo = document.getElementById("anillo").value.trim();
 
-    // 2. Lógica ID Compuesto: ID + ACP
+    // 2. ID Compuesto
     var identificadorServicio = idServ;
     if (idServ !== "" && acp !== "") {
         identificadorServicio = idServ + " / " + acp;
@@ -22,7 +22,7 @@ function selecionGuiones() {
         identificadorServicio = acp;
     }
     
-    // Validaciones de vacíos para presentación
+    // Validaciones visuales
     if (identificadorServicio === "") identificadorServicio = "__________";
     if (sn === "") sn = "__________";
     if (ne === "") ne = "__________";
@@ -30,7 +30,7 @@ function selecionGuiones() {
     if (anillo === "") anillo = "__________";
 
     /* =========================================
-       TEXTOS DE PLANTILLA (BASE DE CONOCIMIENTO)
+       TEXTOS BASE
        ========================================= */
     switch (cod) {
         
@@ -86,7 +86,9 @@ function selecionGuiones() {
             break;
 
         case "FIBRA_OPERATIVO_PING":
-            texto = `Se verificó que el servicio ${identificadorServicio} está activo, se tiene gestión del switch ${switchName}, se ingresa al NE ${ne} en el cual se evidencia levantamiento en capa 3. Se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
+            // CORRECCIÓN SOLICITADA: "se tiene gestión del switch [S/N]"
+            // Usamos la variable 'sn' en lugar de 'switchName' para el switch gestionado
+            texto = `Se verificó que el servicio ${identificadorServicio} está activo, se tiene gestión del switch ${sn}, se ingresa al NE ${ne} en el cual se evidencia levantamiento en capa 3. Se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
             break;
 
         // --- DIAGNÓSTICO TV ---
@@ -100,7 +102,7 @@ function selecionGuiones() {
             texto = `Servicio con ID ${identificadorServicio} activo. Deco con serial ${sn} activo en plataforma Verimatrix con paquetes asignados. Conectividad IP ___ (óptima/con pérdida). Se envían registros y se realiza reinicio/restablecimiento de fábrica del deco. Cliente confirma mejora en la calidad de imagen. Se procede a ___.`;
             break;
 
-        // --- OTROS (Casos legados mantenidos) ---
+        // --- OTROS ---
         case "2":
             texto = "Cliente no responde a los llamados realizados a los teléfonos de contacto.";
             break;
@@ -115,6 +117,6 @@ function selecionGuiones() {
             texto = "";
     }
 
-    // Insertar el texto generado en el campo de Guión Rápido
+    // Insertar
     document.getElementById("observacionesGiones").value = texto;
 }

@@ -26,13 +26,10 @@ function copyToClipBoard(id) {
 
 /* Captura para botones del Header (CPE, Arris, Macros) */
 function captura(parametro) {
-    // Lógica especial para Arris
     if (parametro === 'Arris') {
         generarPassArris();
         return;
     }
-    
-    // Lógica estándar (Copia value de inputs ocultos)
     var elemento = document.getElementById(parametro);
     if (elemento) {
         navigator.clipboard.writeText(elemento.value);
@@ -57,13 +54,12 @@ function actualizarDescripcionAuto() {
     let nombre = document.getElementById("Nombre").value.trim();
     let tiempo = document.getElementById("TiempoSinServicio").value.trim();
     
-    // Obtener Servicio Marcado (Radio Buttons)
+    // Obtener Servicio
     let servicio = "servicio";
     let radiosServicio = document.getElementsByName("res_servicio");
     for(let i = 0; i < radiosServicio.length; i++) {
         if(radiosServicio[i].checked) {
             servicio = radiosServicio[i].value;
-            // Ajustes gramaticales
             if(servicio === 'Television') servicio = 'televisión';
             if(servicio === 'Telefonia') servicio = 'telefonía';
             if(servicio === 'Movilidad') servicio = 'datos móviles';
@@ -73,15 +69,14 @@ function actualizarDescripcionAuto() {
 
     let sujeto = (tratamiento === 'Sr') ? 'el señor' : 'la señora';
     let nombrePila = (nombre === "") ? "_______" : nombre; 
-    
     if (tiempo === "") tiempo = "_______";
 
     let texto = `Se comunica ${sujeto} ${nombrePila} indicando que se encuentra sin servicio de ${servicio.toLowerCase()} desde hace ${tiempo}, `;
 
-    // Flags (Checkbox desmarcado = Falla)
+    // Flags (CORRECCIÓN: Minúsculas en la negación)
     let cambios = document.getElementById("chk_cambios").checked ? "sin cambios recientes" : "con cambios recientes";
-    let reinicio = document.getElementById("chk_reinicio").checked ? "reinició módem y equipos" : "NO ha reiniciado módem y equipos";
-    let conexiones = document.getElementById("chk_conexiones").checked ? "revisó conexiones físicas" : "NO ha revisado conexiones físicas";
+    let reinicio = document.getElementById("chk_reinicio").checked ? "reinició módem y equipos" : "no ha reiniciado módem y equipos";
+    let conexiones = document.getElementById("chk_conexiones").checked ? "revisó conexiones físicas" : "no ha revisado conexiones físicas";
     let electricas = document.getElementById("chk_electricas").checked ? "sin fallas eléctricas" : "reporta fallas eléctricas";
     let disp = document.getElementById("chk_dispositivos").checked ? "afecta a todos los dispositivos" : "no afecta a todos los dispositivos";
 
@@ -96,7 +91,6 @@ function actualizarDescripcionAuto() {
    ========================================== */
 
 function limpiarMac(texto) {
-    // Elimina dos puntos, guiones, puntos y espacios
     return texto.replace(/[:\-\.\s]/g, "").toUpperCase();
 }
 
@@ -112,7 +106,6 @@ function copiarMacLimpia() {
 
 function generarCpeOnt(prefijo) {
     let sn = document.getElementById("Legado2").value.trim();
-    // Limpiar primero para asegurar que contamos bien los últimos 6
     let snLimpio = limpiarMac(sn);
     
     if (snLimpio.length < 6) {
@@ -124,19 +117,16 @@ function generarCpeOnt(prefijo) {
     navigator.clipboard.writeText(resultado);
 }
 
-// Botón Arris (Requiere arris.js con array 'claves')
+// Botón Arris
 function generarPassArris() {
     if (typeof claves === 'undefined') {
         alert("Error: No se encontró la base de datos de claves Arris.");
         return;
     }
-
     var fecha = new Date();
     var dia = fecha.getDate();
     var mes = fecha.getMonth() + 1;
     var anio = fecha.getFullYear();
-    
-    // Formato d/m/aaaa (ajustar si arris.js usa otro formato)
     var fechaBusqueda = dia + "/" + mes + "/" + anio;
 
     var claveEncontrada = claves.find(item => item.fecha === fechaBusqueda);
@@ -148,7 +138,7 @@ function generarPassArris() {
     }
 }
 
-// Listeners para botones dinámicos
+// Listeners
 document.addEventListener("DOMContentLoaded", function() {
     if (document.getElementById("btnMac")) {
         document.getElementById("btnMac").onclick = function() { generarCpeOnt("CPE"); };
@@ -159,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* ==========================================
-   GENERADOR DE RESUMEN (Causa-Servicio-Tecnología)
+   GENERADOR DE RESUMEN
    ========================================== */
 function actualizarResumen() {
     let causa = getRadioValue("res_causa") || "Falla";
@@ -179,16 +169,31 @@ function getRadioValue(name) {
 }
 
 /* ==========================================
-   LIMPIEZA DE FORMULARIO
+   LIMPIEZA DE FORMULARIO (Actualizada)
    ========================================== */
 function deliteTextbox(id1, id2 = null) {
-    if (document.getElementById(id1)) document.getElementById(id1).value = "";
-    if (id2 && document.getElementById(id2)) document.getElementById(id2).value = "";
+    if (document.getElementById(id1)) {
+        let el = document.getElementById(id1);
+        el.value = "";
+        // Actualizar visualmente si es un campo monitoreado
+        if(el.classList.contains('status-monitor')) {
+            el.classList.remove('is-filled');
+            el.classList.add('is-empty');
+        }
+    }
+    if (id2 && document.getElementById(id2)) {
+        let el2 = document.getElementById(id2);
+        el2.value = "";
+        if(el2.classList.contains('status-monitor')) {
+            el2.classList.remove('is-filled');
+            el2.classList.add('is-empty');
+        }
+    }
 }
 
 function borrarTodoConConfirmacion() {
     if (confirm("¿Limpiar todo el formulario?")) {
-        // Lista exhaustiva de IDs a limpiar
+        // 1. Limpiar Inputs
         const ids = [
             "Caso", "Nombre", "Apellido", "dian1", "dian2", "IdLlamada", 
             "Celular", "Fijo", "Correo", "Direccion", "Empresa", "Ciudad", 
@@ -202,7 +207,21 @@ function borrarTodoConConfirmacion() {
             if (el) el.value = "";
         });
 
-        // Reset Checks y Radios
+        // 2. Resetear Menús Desplegables (Derecha)
+        if(document.getElementById("guionesGuion")) document.getElementById("guionesGuion").selectedIndex = 0;
+        if(document.getElementById("guiones")) document.getElementById("guiones").selectedIndex = 0;
+        if(document.getElementById("guiones2")) document.getElementById("guiones2").selectedIndex = 0;
+        if(document.getElementById("AreaConware")) document.getElementById("AreaConware").selectedIndex = 0;
+        if(document.getElementById("tipo_caso")) document.getElementById("tipo_caso").selectedIndex = 0;
+
+        // 3. Resetear Estado Visual (Rojo/Verde)
+        const monitors = document.querySelectorAll('.status-monitor');
+        monitors.forEach(el => {
+            el.classList.remove('is-filled');
+            el.classList.add('is-empty'); // Volver a rojo
+        });
+
+        // 4. Reset Checks y Radios
         document.getElementById("chkContactoActualizado").checked = false;
         
         uncheckRadios("res_causa");
