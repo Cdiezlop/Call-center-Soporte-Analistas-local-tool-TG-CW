@@ -6,23 +6,41 @@ function selecion() {
     var cod = document.getElementById("guiones").value; // Selector Diagnóstico
     var texto = "";
 
-    // 1. Obtener Título de la Tipificación (Capitalizado)
+    // 1. OBTENER INFORMACIÓN GENERAL
+    
+    // Título de la Tipificación (Para Diagnóstico/Reprueba)
     var comboTipificacion = document.getElementById("guionesGuion");
     var tituloTipificacion = "";
-    
     if(comboTipificacion.selectedIndex > 0) {
         tituloTipificacion = comboTipificacion.options[comboTipificacion.selectedIndex].text;
-        // Capitalizar solo la primera letra (Ej: "NO NAVEGA" -> "No navega")
         tituloTipificacion = capitalizeFirstOnly(tituloTipificacion);
     } else {
         tituloTipificacion = "Sin tipificación seleccionada";
     }
 
-    // 2. Obtener Contenido Generado (Del paso 2)
+    // Contenido Generado en Tipificación (Para Diagnóstico/Reprueba)
     var contenidoDiagnostico = document.getElementById("observacionesGiones").value.trim();
     if (contenidoDiagnostico === "") {
         contenidoDiagnostico = "No se ha generado guión rápido.";
     }
+
+    // VARIABLES ESPECÍFICAS PARA LLAMADAS (Entrante/Saliente)
+    // Nombre Completo
+    var trat = document.getElementById("Tratamiento").value;
+    var nom = document.getElementById("Nombre").value.trim();
+    var ape = document.getElementById("Apellido").value.trim();
+    var nombreCompleto = `${trat} ${nom} ${ape}`.trim();
+
+    // Teléfono (ANI/TEL - Campo Fijo)
+    var telefono = document.getElementById("Fijo").value.trim();
+    if (telefono === "") telefono = "__________";
+
+    // Avance (Descripción Automática)
+    var avance = document.getElementById("desc_auto").value.trim();
+    if (avance === "") avance = "Se valida estado del servicio...";
+
+    // ID Llamada
+    var idCall = document.getElementById("IdLlamada").value.trim();
 
     /* =========================================
        CONSTRUCCIÓN DE PLANTILLAS
@@ -38,14 +56,26 @@ function selecion() {
             texto += `S3GU1M13NT0_N1:d1agnostico`;
             break;
 
-        // 3. LLAMADA ENTRANTE (Public)
+        // 3. LLAMADA ENTRANTE (Public) - ACTUALIZADO
         case "3":
-            texto = "Se recibe llamada del cliente, se valida titularidad. Se procede a realizar validaciones de seguridad y soporte técnico.";
+            texto = `De acuerdo a la comunicación establecida, se ha registrado la llamada.\n`;
+            texto += `Nombre: ${nombreCompleto}\n`;
+            texto += `Teléfono: ${telefono}\n`;
+            texto += `Avance: ${avance}\n\n`;
+            texto += `Seguiremos gestionando su caso en pro de una solución oportuna.\n\n`;
+            texto += `ID llamada: ${idCall}\n\n`;
+            texto += `S3GU1M13NT0_N1:llamadadelcliente`;
             break;
             
-        // 4. LLAMADA SALIENTE (Public)
+        // 4. LLAMADA SALIENTE (Public) - ACTUALIZADO
         case "4":
-            texto = "Se realiza llamada al cliente para validar estado del servicio y confirmar operatividad.";
+            texto = `De acuerdo a la comunicación establecida, hemos registrado su llamada.\n`;
+            texto += `Nombre: ${nombreCompleto}\n`;
+            texto += `Teléfono: ${telefono}\n`;
+            texto += `Avance: ${avance}\n\n`;
+            texto += `Seguiremos gestionando su caso en pro de una solución oportuna.\n\n`;
+            texto += `ID llamada: ${idCall}\n\n`;
+            texto += `S3GU1M13NT0_N1:llamadaallcliente`;
             break;
 
         // 5. REPRUEBA (Interno)

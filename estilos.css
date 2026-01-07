@@ -10,6 +10,12 @@
     --btn-sub-hover: #5a6268;
 
     --white: #FFFFFF;
+
+    /* COLORES DE ESTADO (Sutiles) */
+    --bg-empty: #fff5f5; /* Rojo muy claro */
+    --bg-filled: #f0fff4; /* Verde muy claro */
+    --border-empty: #ffc9c9;
+    --border-filled: #c3e6cb;
 }
 
 body {
@@ -81,17 +87,19 @@ body {
     color: white;
 }
 
-/* --- INPUTS Y TEXTAREAS (CORREGIDO) --- */
+/* --- INPUTS Y TEXTAREAS --- */
 
 /* Estilo base para todos los controles */
 .form-control {
     font-size: 0.9rem;
     border-color: #ced4da;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .form-control:focus {
     border-color: var(--btn-main-gray);
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+    background-color: #fff; /* Al enfocar vuelve a blanco para escribir cómodo */
 }
 
 /* Solo los INPUTS de una línea y SELECTS tienen altura fija */
@@ -102,9 +110,20 @@ input.form-control, select.form-control {
 /* Los TEXTAREAS tienen altura automática para respetar el atributo 'rows' */
 textarea.form-control {
     height: auto; 
-    resize: vertical; /* Permite estirar si el usuario quiere más espacio */
-    line-height: 1.4; /* Mejor lectura */
-    padding: 8px;     /* Más espacio interno */
+    resize: vertical; 
+    line-height: 1.4; 
+    padding: 8px;     
+}
+
+/* ESTADOS DE VALIDACIÓN VISUAL (Para inputs de la izquierda) */
+.status-monitor.is-empty {
+    background-color: var(--bg-empty);
+    border-color: var(--border-empty);
+}
+
+.status-monitor.is-filled {
+    background-color: var(--bg-filled);
+    border-color: var(--border-filled);
 }
 
 /* Input Groups */
@@ -153,6 +172,21 @@ textarea.form-control {
     border-right: none;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+}
+
+/* Area de Carga de Archivos (Drag & Drop visual) */
+.file-drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+.file-drop-area:hover {
+    border-color: var(--primary-color);
+    background-color: #eef4ff;
 }
 
 /* Utilidades */

@@ -16,6 +16,9 @@
     <nav class="navbar navbar-custom d-flex justify-content-between align-items-center sticky-top">
         <h1 class="navbar-title">Registro y gestión de casos – Analistas de Conectividad Tg B2B</h1>
         <div>
+            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasConfig" title="Configuración y Dataframe">
+                <i class="bi bi-gear-fill"></i>
+            </button>
             <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
                 <i class="bi bi-search"></i> Ayuda
             </button>
@@ -47,7 +50,6 @@
             
             <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
                 <button class="btn btn-sm btn-warning btn-macro" onclick="copiarMacLimpia()">MAC</button>
-                
                 <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
                 <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
                 <button class="btn btn-sm btn-warning btn-macro" onclick="captura('Arris')">Arris</button>
@@ -78,7 +80,7 @@
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Caso')">#CASO</button>
-                        <input type="text" class="form-control" id="Caso" placeholder="INC*** / WO***" onkeyup="mayus(this)">
+                        <input type="text" class="form-control status-monitor" id="Caso" placeholder="INC*** / WO***" onkeyup="mayus(this)">
                         <select class="form-select bg-light" id="tipoIncTxt" style="max-width: 110px; font-size: 0.85rem;">
                             <option value="AVANCE">AVANCE</option>
                             <option value="CREAR">CREAR</option>
@@ -88,7 +90,7 @@
 
                     <div class="input-group mb-1">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Nombre')">Nombre</button>
-                        <input type="text" class="form-control" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                        <input type="text" class="form-control status-monitor" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
                         <select class="form-select" id="Tratamiento" style="max-width: 75px;" onchange="actualizarDescripcionAuto()">
                             <option value="Sr">Sr</option>
                             <option value="Sra">Sra</option>
@@ -98,7 +100,7 @@
 
                     <div class="input-group mb-1">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Apellido')">Apellido</button>
-                        <input type="text" class="form-control" id="Apellido" placeholder="Apellido" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
+                        <input type="text" class="form-control status-monitor" id="Apellido" placeholder="Apellido" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Apellido')"><i class="bi bi-trash3"></i></button>
                     </div>
 
@@ -111,7 +113,7 @@
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('dian1')">NIT</button>
                         <button class="btn btn-label-sub" onclick="cm1_c1c()">Dig</button>
-                        <input type="text" class="form-control" id="dian1" placeholder="Cédula / NIT" onkeyup="cm1_tecla2()">
+                        <input type="text" class="form-control status-monitor" id="dian1" placeholder="Cédula / NIT" onkeyup="cm1_tecla2()">
                         <input type="text" id="dian2" class="form-control text-center bg-light" style="max-width: 60px;" readonly>
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('dian1','dian2')"><i class="bi bi-trash3"></i></button>
                         <input type="hidden" id="dian3">
@@ -119,7 +121,7 @@
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('IdLlamada')">ID Llam</button>
-                        <input type="text" class="form-control" id="IdLlamada" placeholder="ID de Avaya / Genesys" oninput="actualizarTitulo()">
+                        <input type="text" class="form-control status-monitor" id="IdLlamada" placeholder="ID de Avaya / Genesys" oninput="actualizarTitulo()">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('IdLlamada')"><i class="bi bi-trash3"></i></button>
                     </div>
 
@@ -127,20 +129,20 @@
                         <div class="col-6">
                             <div class="input-group m-0">
                                 <button class="btn btn-label-main" onclick="copyToClipBoard('Celular')" style="min-width: 70px;">Celular</button>
-                                <input type="text" class="form-control" id="Celular" placeholder="Móvil">
+                                <input type="text" class="form-control status-monitor" id="Celular" placeholder="Móvil">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="input-group m-0">
                                 <button class="btn btn-label-sub" onclick="copyToClipBoard('Fijo')" style="min-width: 60px;">ANI/Tel</button>
-                                <input type="text" class="form-control" id="Fijo" placeholder="Fijo/ANI">
+                                <input type="text" class="form-control status-monitor" id="Fijo" placeholder="Fijo/ANI">
                             </div>
                         </div>
                     </div>
 
                     <div class="input-group mb-1">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Correo')">Correo</button>
-                        <input type="text" class="form-control" id="Correo" placeholder="email@dominio.com" onkeyup="minus(this);">
+                        <input type="text" class="form-control status-monitor" id="Correo" placeholder="email@dominio.com" onkeyup="minus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Correo')"><i class="bi bi-trash3"></i></button>
                     </div>
                     
@@ -155,42 +157,42 @@
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Direccion')">Dirección</button>
-                        <input type="text" class="form-control" id="Direccion" placeholder="DIRECCIÓN DEL SITIO" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="Direccion" placeholder="DIRECCIÓN DEL SITIO" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Direccion')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Empresa')">Empresa</button>
-                        <input type="text" class="form-control" id="Empresa" placeholder="Empresa" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="Empresa" placeholder="Empresa" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Ciudad')">Ciudad</button>
-                        <input type="text" class="form-control" id="Ciudad" placeholder="Ciudad" onkeyup="capitalizar(this);">
+                        <input type="text" class="form-control status-monitor" id="Ciudad" placeholder="Ciudad" onkeyup="capitalizar(this);">
                     </div>
 
                     <hr class="my-3">
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Legado')">ID Serv</button>
-                        <input type="text" class="form-control" id="Legado" placeholder="ID Servicio" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="Legado" placeholder="ID Servicio" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Legado2')">S/N</button>
-                        <input type="text" class="form-control" id="Legado2" placeholder="SERIAL / MAC / SW" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="Legado2" placeholder="SERIAL / MAC / SW" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('Legado','Legado2')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('acp')">ACP-</button>
-                        <input type="text" class="form-control" id="acp" placeholder="XXXX" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="acp" placeholder="XXXX" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('anillo')">Anillo</button>
-                        <input type="text" class="form-control" id="anillo" placeholder="Anillo" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="anillo" placeholder="Anillo" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('acp','anillo')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="input-group">
                         <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">Switch</button>
-                        <input type="text" class="form-control" id="switch1" placeholder="Nombre Switch" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="switch1" placeholder="Nombre Switch" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
-                        <input type="text" class="form-control" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
+                        <input type="text" class="form-control status-monitor" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
-                        <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV"><i class="bi bi-arrow-clockwise"></i></button>
+                        <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV (Dataframe)"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
 
                     <div class="mt-3 mb-3 p-2 border rounded bg-light">
@@ -220,7 +222,7 @@
 
                         <div class="input-group mt-2">
                             <button class="btn-label-main" onclick="copyToClipBoard('ResumenGenerado')">Resumen</button>
-                            <input type="text" class="form-control" id="ResumenGenerado" readonly placeholder="Se genera automáticamente...">
+                            <input type="text" class="form-control" id="ResumenGenerado" placeholder="Se genera automáticamente...">
                         </div>
                     </div>
                     <div class="mt-auto">
@@ -356,6 +358,25 @@
         </div>
     </div>
 
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasConfig">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title"><i class="bi bi-gear-fill"></i> Configuración</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6 class="border-bottom pb-2 mb-3">Importar Dataframe (CSV)</h6>
+            
+            <div class="mb-3">
+                <label class="form-label small text-muted">Seleccione el archivo CSV para cargar la base de datos de NEs.</label>
+                <input type="file" id="fileDataframe" accept=".csv" class="form-control" onchange="manejarCargaDataframe(event)">
+            </div>
+
+            <div class="alert alert-info small">
+                <strong>Nota:</strong> El archivo debe tener separadores de punto y coma (;) y contener columnas como 'IDENTIFICADOR', 'IP Gestion NE', etc.
+            </div>
+        </div>
+    </div>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Credenciales de Usuario</h5>
@@ -443,7 +464,7 @@
         <input id="SEABEL" value="http://unecrm/ecommunications_esn/start.swe?SWECmd=Start&SWEHo=unecrm">
     </div>
 
-    <script src="ProcesosJS/Data_Informacion.js"></script> 
+    <script src="ProcesosJS/ProcesarDataframe.js"></script> <script src="ProcesosJS/Data_Informacion.js"></script> 
     <script src="ProcesosJS/NeMetro.js"></script>
     <script src="ProcesosJS/Edatel.js"></script>
     <script src="ProcesosJS/SearchLogic.js"></script> 
@@ -461,7 +482,30 @@
         document.addEventListener('DOMContentLoaded', () => {
            if(typeof actualizarDescripcionAuto === 'function') actualizarDescripcionAuto();
            if(typeof actualizarResumen === 'function') actualizarResumen();
+           
+           // Inicializar colores de campos (Rojo/Verde)
+           monitorFields();
         });
+
+        // Script para monitorizar el estado de los campos (Vacío/Lleno)
+        function monitorFields() {
+            const fields = document.querySelectorAll('.status-monitor');
+            
+            const updateClass = (el) => {
+                if(el.value.trim() !== "") {
+                    el.classList.add('is-filled');
+                    el.classList.remove('is-empty');
+                } else {
+                    el.classList.add('is-empty');
+                    el.classList.remove('is-filled');
+                }
+            };
+
+            fields.forEach(el => {
+                updateClass(el); // Estado inicial
+                el.addEventListener('input', () => updateClass(el));
+            });
+        }
     </script>
 </body>
 </html>

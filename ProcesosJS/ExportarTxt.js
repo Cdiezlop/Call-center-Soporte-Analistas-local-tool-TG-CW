@@ -3,11 +3,24 @@
    ========================================================================== */
 
 function generarTXT() {
-    // 1. Validar Flag de Contacto Actualizado (Obligatorio)
+    // ---------------------------------------------------------
+    // 1. VALIDACIONES DE SEGURIDAD
+    // ---------------------------------------------------------
+    
+    // Validación A: Contacto Actualizado
     const chkContacto = document.getElementById("chkContactoActualizado");
     if (!chkContacto.checked) {
         alert("⚠️ DEBE MARCAR LA CASILLA 'CONTACTO ACTUALIZADO' PARA EXPORTAR.");
-        return; // Detiene la ejecución
+        return; 
+    }
+
+    // Validación B: Campo #CASO Obligatorio (Nuevo Requerimiento)
+    let numeroCasoRaw = document.getElementById("Caso").value.trim();
+    // Validamos que no esté vacío y que no sea el placeholder por defecto si el usuario no lo cambió
+    if (numeroCasoRaw === "" || numeroCasoRaw === "0000000" || numeroCasoRaw === "INC0000000") {
+        alert("⚠️ EL CAMPO #CASO (INC/WO) ES OBLIGATORIO.\nPor favor ingrese el número del incidente antes de exportar.");
+        document.getElementById("Caso").focus();
+        return;
     }
 
     // ---------------------------------------------------------
@@ -15,22 +28,20 @@ function generarTXT() {
     // ---------------------------------------------------------
 
     // A. Datos del Caso (INC/WO)
-    let numeroCaso = document.getElementById("Caso").value.trim() || "0000000";
-    // Detectar si el usuario ya escribió INC o WO, si no, agregar el seleccionado en el radio
     let prefix = "INC";
     if (document.getElementById("radWO") && document.getElementById("radWO").checked) {
         prefix = "WO";
     }
-    let fullIncString = numeroCaso.toUpperCase();
+    
+    let fullIncString = numeroCasoRaw.toUpperCase();
+    // Si el usuario ya escribió el prefijo, no lo duplicamos
     if (!fullIncString.startsWith("INC") && !fullIncString.startsWith("WO")) {
-        fullIncString = `${prefix}${numeroCaso}`;
+        fullIncString = `${prefix}${numeroCasoRaw}`;
     }
 
     let tipoGestion = document.getElementById("tipoIncTxt").value; // AVANCE o CREAR
 
     // B. Limpieza del Resumen para el Título
-    // Ejemplo entrada: "Sin servicio–Internet–GPON*"
-    // Ejemplo salida: "Sin servicio Internet GPON"
     let resumenRaw = document.getElementById("ResumenGenerado").value.trim();
     let resumenClean = resumenRaw
                         .replace(/\*/g, '')       // Quitar asterisco
@@ -38,8 +49,7 @@ function generarTXT() {
                         .replace(/-/g, ' ')       // Reemplazar guion corto por espacio
                         .trim();
 
-    // C. Construcción del Título Unificado (Para Nombre de archivo y Cabecera)
-    // Formato: INC000000xxx-CREAR/AVANCE-RESUMEN
+    // C. Título del Archivo
     let tituloCompleto = `${fullIncString}-${tipoGestion}`;
     if (resumenClean) {
         tituloCompleto += `-${resumenClean}`;
@@ -76,12 +86,12 @@ function generarTXT() {
     
     let snMac = document.getElementById("Legado2").value.trim();
 
-    // F. Secciones de Texto (Scripts)
+    // F. Secciones de Texto
     let notasAdicionales = document.getElementById("nota").value.trim();
     let descLlamada = document.getElementById("desc_auto").value.trim();
-    let gestionTipificacion = document.getElementById("observacionesGiones").value.trim(); // 2. Tipificación
-    let resolucion = document.getElementById("observaciones2").value.trim(); // 4. Resolución
-    let diagnostico = document.getElementById("observaciones").value.trim(); // 3. Diagnóstico
+    let gestionTipificacion = document.getElementById("observacionesGiones").value.trim(); 
+    let resolucion = document.getElementById("observaciones2").value.trim(); 
+    let diagnostico = document.getElementById("observaciones").value.trim(); 
 
     // ---------------------------------------------------------
     // 3. CONSTRUCCIÓN DE LA PLANTILLA
@@ -101,10 +111,10 @@ function generarTXT() {
     contenido += `IDENTIFICADOR: ${identificadorLine}\n`;
     contenido += `SN/MAC/SW: ${snMac}\n\n`;
 
-    // Secciones fijas (Siempre aparecen, aunque estén vacías)
+    // Secciones fijas
     
     contenido += `---------- Notas adicionales ----------\n`;
-    contenido += `${notasAdicionales}\n\n\n`; // Espacios extras para separar
+    contenido += `${notasAdicionales}\n\n\n`; 
 
     contenido += `---------- Descripción de Llamada ----------\n`;
     contenido += `${descLlamada}\n\n\n`;
