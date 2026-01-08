@@ -16,10 +16,9 @@
     <nav class="navbar navbar-custom d-flex justify-content-between align-items-center sticky-top">
         <h1 class="navbar-title">Registro y gestión de casos – Analistas de Conectividad Tg B2B</h1>
         <div>
-            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasConfig" title="Configuración / Importar Dataframe">
+            <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasConfig" title="Configuración y Dataframe">
                 <i class="bi bi-gear-fill"></i>
             </button>
-            
             <button class="btn btn-sm btn-outline-light me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch">
                 <i class="bi bi-search"></i> Ayuda
             </button>
@@ -29,7 +28,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="max-width: 98%;">
+    <div class="container-fluid-custom">
         
         <div class="card-custom mb-2">
             <div class="d-flex flex-wrap justify-content-center gap-1">
@@ -51,7 +50,6 @@
             
             <div class="d-flex flex-wrap justify-content-center gap-1 mt-2">
                 <button class="btn btn-sm btn-warning btn-macro" onclick="copiarMacLimpia()">MAC</button>
-                
                 <button class="btn btn-sm btn-warning btn-macro" id="btnMac">CPE#</button>
                 <button class="btn btn-sm btn-warning btn-macro" id="btnCpe">ONT#</button>
                 <button class="btn btn-sm btn-warning btn-macro" onclick="captura('Arris')">Arris</button>
@@ -71,11 +69,11 @@
 
                     <div class="mb-1 d-flex gap-3 ps-1">
                         <div class="form-check form-check-inline m-0">
-                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" checked>
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" onclick="seleccionarTipoCaso('INC')">
                             <label class="form-check-label fw-bold small" for="radINC">INC</label>
                         </div>
                         <div class="form-check form-check-inline m-0">
-                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radWO" value="WO">
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radWO" value="WO" onclick="seleccionarTipoCaso('WO')">
                             <label class="form-check-label fw-bold small" for="radWO">WO</label>
                         </div>
                     </div>
@@ -194,8 +192,7 @@
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
                         <input type="text" class="form-control status-monitor" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
-                        
-                        <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV (Dataframe)"><i class="bi bi-arrow-clockwise"></i></button>
+                        <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV"><i class="bi bi-arrow-clockwise"></i></button>
                     </div>
 
                     <div class="mt-3 mb-3 p-2 border rounded bg-light">
@@ -228,11 +225,13 @@
                             <input type="text" class="form-control" id="ResumenGenerado" placeholder="Se genera automáticamente...">
                         </div>
                     </div>
-                    <div class="mt-auto">
+
+                    <div class="mt-auto pt-2">
                         <div class="d-flex justify-content-between align-items-center mb-1">
                             <span class="script-title text-primary"><i class="bi bi-journal-text"></i> Notas adicionales</span>
                             <div>
-                                <button class="btn btn-sm btn-success py-0" onclick="copyToClipBoard('nota')"><i class="bi bi-clipboard"></i></button>
+                                <button class="btn-tool" title="Ampliar nota" onclick="ampliarNota('nota')"><i class="bi bi-arrows-angle-expand"></i></button>
+                                <button class="btn btn-sm btn-success py-0 ms-1" onclick="copyToClipBoard('nota')"><i class="bi bi-clipboard"></i></button>
                                 <button class="btn btn-sm btn-outline-danger py-0" onclick="deliteTextbox('nota')"><i class="bi bi-trash3"></i></button>
                             </div>
                         </div>
@@ -249,8 +248,19 @@
                     <div class="script-block">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                              <span class="script-title">1. Descripción Automática de Llamada</span>
-                             <div class="btn-group">
+                             <div class="d-flex gap-1">
+                                <select class="form-select form-select-sm py-0" id="sel_plantilla_desc" onchange="actualizarDescripcionAuto()" style="width: auto; font-size: 0.75rem;">
+                                    <option value="REGISTRAR">REGISTRAR</option>
+                                    <option value="AVANCE_MASIVA">Avance: Falla masiva</option>
+                                    <option value="AVANCE_INFRA">Avance: Escalado Infra</option>
+                                    <option value="AVANCE_TERRENO_VISITA">Avance: Terreno (Visita)</option>
+                                    <option value="AVANCE_TERRENO_CONFIRMAR">Avance: Terreno (Confirmar)</option>
+                                    <option value="AVANCE_N2">Avance: Escalado N2</option>
+                                    <option value="AVANCE_SEGUIMIENTO">Avance: Seguimiento General</option>
+                                    <option value="SALIDA">Avance: Llamada Salida</option>
+                                </select>
                                 <button class="btn btn-success btn-sm py-0" onclick="copyToClipBoard('desc_auto')">Copiar</button>
+                                <button class="btn btn-primary btn-sm py-0" onclick="moverContenidoANotas('desc_auto')" title="Mover a Notas Adicionales"><i class="bi bi-arrow-down-left-square"></i></button>
                                 <button class="btn btn-outline-danger btn-sm py-0" onclick="deliteTextbox('desc_auto')"><i class="bi bi-trash3"></i></button>
                              </div>
                         </div>
@@ -271,7 +281,6 @@
                         <div class="input-group">
                             <select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
                                 <option value="">-- Selecciona una opción --</option>
-                                
                                 <optgroup label="--- TECNOLOGÍA GPON ---">
                                     <option value="GPON_NO_NAVEGA_MASIVA">NO NAVEGA, TT FALLA MASIVA</option>
                                     <option value="GPON_NO_NAVEGA_TERRENO">NO NAVEGA, POSIBLE FALLA MASIVA O TERRENO</option>
@@ -280,26 +289,22 @@
                                     <option value="GPON_INTERMITENCIA">INTERMITENCIA</option>
                                     <option value="GPON_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
                                 </optgroup>
-
                                 <optgroup label="--- TECNOLOGÍA HFC ---">
                                     <option value="HFC_NO_NAVEGA_MASIVA">NO NAVEGA TT DE FALLA MASIVA</option>
                                     <option value="HFC_PERFIL_LDAP">CONECTA Y NO NAVEGA, PERFIL LDAP MAL CONFIGURADO</option>
                                     <option value="HFC_INTERMITENCIA">INTERMITENCIA POR PARAMETROS ALARMADOS</option>
                                     <option value="HFC_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
                                 </optgroup>
-
                                 <optgroup label="--- TECNOLOGÍA FIBRA ---">
                                     <option value="FIBRA_APERTURA_DOBLE_1">APERTURA DOBLE 1 CLIENTE</option>
                                     <option value="FIBRA_APERTURA_EXTREMO">APERTURA DOBLE EXTREMO</option>
                                     <option value="FIBRA_OPERATIVO_PING">SERVICIO OPERATIVO PING</option>
                                 </optgroup>
-
                                 <optgroup label="--- DIAGNÓSTICO TV ---">
                                     <option value="TV_HFC_IMAGEN">HFC - Problemas de imagen</option>
                                     <option value="TV_HFC_SIN_SENAL">HFC - Sin señal</option>
-                                    <option value="TV_GPON_IMAGEN">GPON - Problemas de imagen (Decos Android)</option>
+                                    <option value="TV_GPON_IMAGEN">GPON - Problemas de imagen</option>
                                 </optgroup>
-
                                 <optgroup label="--- OTROS ---">
                                     <option value="2">No responde</option>
                                     <option value="9">Movilidad</option>
@@ -307,6 +312,7 @@
                                 </optgroup>
                             </select>
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observacionesGiones')">Copiar</button>
+                            <button class="btn btn-primary btn-sm" onclick="moverContenidoANotas('observacionesGiones')" title="Mover a Notas Adicionales"><i class="bi bi-arrow-down-left-square"></i></button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observacionesGiones')"><i class="bi bi-trash3"></i></button>
                         </div>
                         <textarea class="form-control" id="observacionesGiones" rows="7" style="font-size: 0.9rem;"></textarea>
@@ -328,8 +334,10 @@
                                 <option value="3">LLAMADA-ENTRANTE</option>
                                 <option value="4">LLAMADA-SALIENTE</option>
                                 <option value="5">REPRUEBA</option>
+                                <option value="6">CORREO ENTRANTE</option>
                             </select>
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones')">Copiar</button>
+                            <button class="btn btn-primary btn-sm" onclick="moverContenidoANotas('observaciones')" title="Mover a Notas Adicionales"><i class="bi bi-arrow-down-left-square"></i></button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones')"><i class="bi bi-trash3"></i></button>
                         </div>
                         <textarea class="form-control" id="observaciones" rows="10" style="font-size: 0.9rem;"></textarea>
@@ -341,11 +349,19 @@
                             <select class="form-select form-select-sm" id="guiones2" onchange="selecion2()">
                                 <option value="s">-- Resolución --</option>
                                 <option value="0" style="color:red; font-weight:bold;">RESOLUCIÓN CAPA3</option>
-                                <option value="1">AGENDAMIENTO</option>
+                                <option value="AGENDAMIENTO">AGENDAMIENTO</option>
                                 <option value="2">Resolución (Blanco)</option>
                                 <option value="3">Sin Respuesta</option>
+                                <optgroup label="--- INFRAESTRUCTURA ---">
+                                    <option value="APERTURA_DOBLE_1">APERTURA DOBLE 1 CLIENTE</option>
+                                    <option value="APERTURA_DOBLE_2">APERTURA DOBLE >2 CLIENTES</option>
+                                    <option value="APERTURA_SIMPLE">APERTURA SIMPLE O PREVENTIVO</option>
+                                    <option value="RETIRO_EMPALME">RETIRO DESDE EMPALME</option>
+                                    <option value="REINGRESO_EMPALME">REINGRESO DE EMPALME</option>
+                                </optgroup>
                             </select>
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observaciones2')">Copiar</button>
+                            <button class="btn btn-primary btn-sm" onclick="moverContenidoANotas('observaciones2')" title="Mover a Notas Adicionales"><i class="bi bi-arrow-down-left-square"></i></button>
                             <button class="btn btn-outline-danger btn-sm btn-trash" onclick="deliteTextbox('observaciones2')"><i class="bi bi-trash3"></i></button>
                         </div>
                         <textarea class="form-control" id="observaciones2" rows="5" style="font-size: 0.9rem;"></textarea>
@@ -359,6 +375,10 @@
                 </div>
             </div>
         </div>
+        
+        <footer class="footer-custom">
+            &copy; 2026 Desarrollado por cdiezlop
+        </footer>
     </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasConfig">
@@ -367,57 +387,30 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-            <h6 class="border-bottom pb-2 mb-3">Importar Dataframe (CSV)</h6>
-            
+            <h6 class="border-bottom pb-2 mb-3">Dataframe (CSV)</h6>
             <div class="mb-3">
-                <label class="form-label small text-muted">Seleccione el archivo CSV para cargar la base de datos de NEs.</label>
+                <label class="form-label small text-muted">Cargar archivo CSV de NEs.</label>
                 <input type="file" id="fileDataframe" accept=".csv" class="form-control" onchange="manejarCargaDataframe(event)">
             </div>
-
-            <div class="alert alert-info small">
-                <strong>Nota:</strong> El archivo debe tener separadores de punto y coma (;) y contener columnas como 'IDENTIFICADOR', 'IP Gestion NE', etc.
-            </div>
+            <button class="btn btn-outline-secondary btn-sm w-100" onclick="refrescarDataframe()"><i class="bi bi-arrow-clockwise"></i> Refrescar Memoria CSV</button>
         </div>
     </div>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfile">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Credenciales de Usuario</h5>
+            <h5 class="offcanvas-title">Credenciales</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
-            <div class="mb-3">
-                <label class="form-label small fw-bold">Usuario</label>
-                <input type="text" id="user" class="form-control form-control-sm">
-            </div>
-            <div class="mb-3">
-                <label class="form-label small fw-bold">ID Avaya</label>
-                <input type="text" id="avaya" class="form-control form-control-sm">
-            </div>
+            <div class="mb-3"><label class="form-label small fw-bold">Usuario</label><input type="text" id="user" class="form-control form-control-sm"></div>
+            <div class="mb-3"><label class="form-label small fw-bold">ID Avaya</label><input type="text" id="avaya" class="form-control form-control-sm"></div>
             <hr>
-            <div class="mb-2">
-                <label class="form-label small">Pass RED <i class="bi bi-key"></i></label>
-                <input type="password" id="passRed" class="form-control form-control-sm">
-            </div>
-            <div class="mb-2">
-                <label class="form-label small">Pass EDATEL <i class="bi bi-key"></i></label>
-                <input type="password" id="passEda" class="form-control form-control-sm">
-            </div>
-            <div class="mb-2">
-                <label class="form-label small">Pass ETP <i class="bi bi-key"></i></label>
-                <input type="password" id="passEtp" class="form-control form-control-sm">
-            </div>
-             <div class="mb-2">
-                <label class="form-label small">Pass ELITE <i class="bi bi-key"></i></label>
-                <input type="password" id="passElite" class="form-control form-control-sm">
-            </div>
-             <div class="mb-2">
-                <label class="form-label small">Pass FENIX <i class="bi bi-key"></i></label>
-                <input type="password" id="passFenix" class="form-control form-control-sm">
-            </div>
-            <div class="d-grid mt-3">
-                <button class="btn btn-primary btn-sm" id="btSavePass">Guardar Credenciales</button>
-            </div>
+            <div class="mb-2"><label class="form-label small">Pass RED</label><input type="password" id="passRed" class="form-control form-control-sm"></div>
+            <div class="mb-2"><label class="form-label small">Pass EDATEL</label><input type="password" id="passEda" class="form-control form-control-sm"></div>
+            <div class="mb-2"><label class="form-label small">Pass ETP</label><input type="password" id="passEtp" class="form-control form-control-sm"></div>
+            <div class="mb-2"><label class="form-label small">Pass ELITE</label><input type="password" id="passElite" class="form-control form-control-sm"></div>
+            <div class="mb-2"><label class="form-label small">Pass FENIX</label><input type="password" id="passFenix" class="form-control form-control-sm"></div>
+            <div class="d-grid mt-3"><button class="btn btn-primary btn-sm" id="btSavePass">Guardar</button></div>
         </div>
     </div>
 
@@ -429,17 +422,13 @@
         <div class="offcanvas-body">
             <div class="mb-4">
                 <h6 class="fw-bold border-bottom pb-1">Buscar NE Edatel / Metro</h6>
-                <input type="text" class="form-control form-control-sm mb-1" id="search-NE" placeholder="Escriba para buscar..." onkeyup="searchData()">
-                <div id="result-container" class="search-results">
-                    <ul id="result-list" class="list-unstyled m-0"></ul>
-                </div>
+                <input type="text" class="form-control form-control-sm mb-1" id="search-NE" placeholder="Buscar..." onkeyup="searchData()">
+                <div id="result-container" class="search-results"><ul id="result-list" class="list-unstyled m-0"></ul></div>
             </div>
-
             <div class="mb-4">
-                <h6 class="fw-bold border-bottom pb-1">Buscar en Notas / Procedimientos</h6>
-                <input type="text" class="form-control form-control-sm mb-1" id="search-INFO" placeholder="Buscar en base de conocimiento..." onkeyup="searchInformation()">
-                <div id="result-info" class="search-results" style="max-height: 400px; white-space: pre-wrap; font-family: monospace; font-size: 0.75rem;">
-                </div>
+                <h6 class="fw-bold border-bottom pb-1">Notas / Procedimientos</h6>
+                <input type="text" class="form-control form-control-sm mb-1" id="search-INFO" placeholder="Buscar en base..." onkeyup="searchInformation()">
+                <div id="result-info" class="search-results" style="max-height: 400px; white-space: pre-wrap; font-family: monospace; font-size: 0.75rem;"></div>
             </div>
         </div>
     </div>
@@ -479,6 +468,7 @@
     <script src="ProcesosJS/guiones.js"></script>
     <script src="ProcesosJS/plantillasConware.js"></script>
     <script src="ProcesosJS/Resolucion.js"></script>
+    <script src="ProcesosJS/CrearTT.js"></script>
     <script src="ProcesosJS/codigo_cmi1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -486,29 +476,75 @@
         document.addEventListener('DOMContentLoaded', () => {
            if(typeof actualizarDescripcionAuto === 'function') actualizarDescripcionAuto();
            if(typeof actualizarResumen === 'function') actualizarResumen();
-           
-           // Inicializar monitoreo de colores
            monitorFields();
         });
 
-        // Script visual: Rojo (vacío) / Verde (lleno)
+        // Script Monitor Visual (Rojo/Verde)
         function monitorFields() {
             const fields = document.querySelectorAll('.status-monitor');
-            
             const updateClass = (el) => {
                 if(el.value.trim() !== "") {
-                    el.classList.add('is-filled');
-                    el.classList.remove('is-empty');
+                    el.classList.add('is-filled'); el.classList.remove('is-empty');
                 } else {
-                    el.classList.add('is-empty');
-                    el.classList.remove('is-filled');
+                    el.classList.add('is-empty'); el.classList.remove('is-filled');
                 }
             };
-
             fields.forEach(el => {
                 updateClass(el); 
                 el.addEventListener('input', () => updateClass(el));
             });
+        }
+
+        // Función para mover contenido a Notas Adicionales
+        function moverContenidoANotas(sourceId) {
+            let origen = document.getElementById(sourceId);
+            let notas = document.getElementById("nota");
+            if (origen && notas && origen.value.trim() !== "") {
+                if (notas.value.trim() !== "") {
+                    notas.value += "\n\n"; 
+                }
+                notas.value += origen.value;
+            }
+        }
+
+        // Script Ampliar Nota con Guardado (Bidireccional)
+        function ampliarNota(idCampo) {
+            let notaElement = document.getElementById(idCampo);
+            let textoInicial = notaElement.value;
+            
+            let ventana = window.open("", "Nota Ampliada", "width=600,height=500");
+            
+            let htmlContent = `
+                <html>
+                <head>
+                    <title>Edición de Notas</title>
+                    <style>
+                        body { font-family: sans-serif; padding: 15px; display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; margin: 0; background-color: #f4f4f4; }
+                        textarea { flex: 1; padding: 10px; font-size: 14px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; resize: none; font-family: monospace; }
+                        .btn-save { padding: 10px 20px; background-color: #00377B; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; width: 100%; }
+                        .btn-save:hover { background-color: #002a5e; }
+                    </style>
+                </head>
+                <body>
+                    <h3 style="margin-top:0; color:#333;">Edición de Nota</h3>
+                    <textarea id="textoAmpliado">${textoInicial}</textarea>
+                    <button class="btn-save" onclick="guardarYcerrar()">Guardar Cambios y Cerrar</button>
+                    
+                    <script>
+                        function guardarYcerrar() {
+                            let nuevoTexto = document.getElementById('textoAmpliado').value;
+                            if (window.opener && !window.opener.closed) {
+                                window.opener.document.getElementById("${idCampo}").value = nuevoTexto;
+                            }
+                            window.close();
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+            
+            ventana.document.write(htmlContent);
+            ventana.document.close();
         }
     </script>
 </body>
