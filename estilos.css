@@ -21,6 +21,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 /* Navbar */
@@ -29,13 +30,15 @@ body {
     color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-bottom: 15px;
-    padding: 8px 15px;
+    padding: 8px 20px;
 }
 .navbar-title { font-size: 1rem; font-weight: 500; margin: 0; }
 
-/* Contenedor fluido */
+/* Contenedor fluido (OCUPA TODA LA PANTALLA) */
 .container-fluid-custom {
-    max-width: 98%;
+    width: 100%;       /* Ancho total */
+    max-width: 100%;   /* Asegura que no se limite */
+    padding: 0 15px;   /* Pequeño margen interno para que no pegue al borde */
     margin: 0 auto;
     flex: 1;
 }
@@ -48,6 +51,7 @@ body {
     box-shadow: 0 3px 6px rgba(0,0,0,0.08);
     border: 1px solid #dcdcdc;
     margin-bottom: 12px;
+    width: 100%; /* Asegura que la tarjeta use todo el espacio disponible */
 }
 .card-header-custom {
     font-size: 0.85rem;
@@ -176,6 +180,7 @@ textarea.form-control {
     color: #666;
     margin-top: auto;
     background-color: rgba(255,255,255,0.5);
+    width: 100%;
 }
 
 /* Utilidades */

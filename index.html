@@ -61,15 +61,15 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row g-2">
             
-            <div class="col-lg-5" style="flex: 0 0 45%; max-width: 45%;">
+            <div class="col-12 col-xl-5">
                 <div class="card-custom h-100" style="display: flex; flex-direction: column;">
                     <div class="card-header-custom">INFORMACIÓN DEL CASO Y CLIENTE</div>
 
                     <div class="mb-1 d-flex gap-3 ps-1">
                         <div class="form-check form-check-inline m-0">
-                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" onclick="seleccionarTipoCaso('INC')">
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" onclick="seleccionarTipoCaso('INC')" checked>
                             <label class="form-check-label fw-bold small" for="radINC">INC</label>
                         </div>
                         <div class="form-check form-check-inline m-0">
@@ -241,7 +241,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-7" style="flex: 0 0 55%; max-width: 55%;">
+            <div class="col-12 col-xl-7">
                 <div class="card-custom h-100">
                     <div class="card-header-custom">GESTIÓN Y SCRIPTS</div>
 
@@ -485,7 +485,6 @@
     <script src="ProcesosJS/pizzip.js"></script>
     <script src="ProcesosJS/docxtemplater.js"></script>
     <script src="ProcesosJS/FileSaver.js"></script>
-
     <script src="ProcesosJS/GenerarWord.js"></script>
 
     <script>
@@ -494,7 +493,6 @@
            if(typeof actualizarResumen === 'function') actualizarResumen();
            if(typeof monitorFields === 'function') monitorFields();
            
-           // Pequeña validación de plantilla cargada
            const estado = document.getElementById('estadoPlantilla');
            if(estado && localStorage.getItem('plantillaWordBase64')) {
                estado.innerText = "✓ Plantilla cargada en memoria";
@@ -502,7 +500,7 @@
            }
         });
 
-        // Script Monitor Visual (El que tenías embebido, lo dejo aquí por si acaso no está en ProcesosJS)
+        // Script Monitor Visual
         function monitorFields() {
             const fields = document.querySelectorAll('.status-monitor');
             const updateClass = (el) => {
@@ -518,7 +516,7 @@
             });
         }
 
-        // Script para ampliar notas (El que tenías embebido)
+        // Script para ampliar notas
         function ampliarNota(idCampo) {
             let notaElement = document.getElementById(idCampo);
             let textoInicial = notaElement.value;
@@ -545,7 +543,6 @@
             ventana.document.close();
         }
         
-        // La función moverContenidoANotas la incluyo también para que no se pierda
         function moverContenidoANotas(sourceId) {
             let origen = document.getElementById(sourceId);
             let notas = document.getElementById("nota");
