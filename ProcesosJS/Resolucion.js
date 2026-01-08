@@ -19,7 +19,7 @@ function selecion2() {
     // LÓGICA ESTÁNDAR (Resoluciones simples)
     switch (cod) {
         
-        case "0": // RESOLUCIÓN CAPA 3 (Actualizada)
+        case "0": // RESOLUCIÓN CAPA 3
             texto = `La causa fue: No se evidencia falla en la red de Tigo.\n\n`;
             texto += `La solución fue: Se confirma servicio con parámetros óptimos, no se evidencia falla por parte de Tigo, se confirma servicio operativo. Se recomienda validar equipos y conexiones internas.`;
             break;
@@ -31,6 +31,12 @@ function selecion2() {
         case "3": // Sin Respuesta
             texto = "La causa fue: Sin comunicacion con el cliente. \n\nLa solución fue: Se realizaron intentos de contacto sin éxito. Se cierra el caso por falta de comunicación.";
             break;
+
+        case "NovComercial": // Novedad comercial
+            texto = "La causa fue: Novedad comercial. \n\nLa solución fue: Se valida el estado del servicio, el cual presenta una novedad comercial, se transfiere al área de atención al cliente para más información.\n\n";
+            break;
+
+        
 
         // Agregar más casos simples aquí si es necesario
         
