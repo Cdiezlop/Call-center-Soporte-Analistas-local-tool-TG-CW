@@ -1,19 +1,15 @@
 :root {
-    --bg-body: #9ec8ff; /* Fondo original */
-    --primary-color: #00377B; /* Azul Tigo Header */
-    
-    /* PALETA DE BOTONES GRISES */
-    --btn-main-gray: #495057; /* Gris Oscuro */
+    --bg-body: #9ec8ff; 
+    --primary-color: #00377B; 
+    --btn-main-gray: #495057; 
     --btn-main-hover: #343a40;
-    
-    --btn-sub-gray: #6c757d;  /* Gris Medio */
+    --btn-sub-gray: #6c757d;  
     --btn-sub-hover: #5a6268;
-
     --white: #FFFFFF;
 
-    /* COLORES DE ESTADO (MONITOR) */
-    --bg-empty: #fff5f5; /* Rojo muy claro (Vacío) */
-    --bg-filled: #f0fff4; /* Verde muy claro (Lleno) */
+    /* COLORES DE ESTADO (Sutiles) */
+    --bg-empty: #fff5f5; 
+    --bg-filled: #f0fff4; 
     --border-empty: #ffc9c9;
     --border-filled: #c3e6cb;
 }
@@ -22,6 +18,9 @@ body {
     background-color: var(--bg-body);
     font-family: 'Roboto', sans-serif !important;
     padding-bottom: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -32,10 +31,13 @@ body {
     margin-bottom: 15px;
     padding: 8px 15px;
 }
-.navbar-title {
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0;
+.navbar-title { font-size: 1rem; font-weight: 500; margin: 0; }
+
+/* Contenedor fluido */
+.container-fluid-custom {
+    max-width: 98%;
+    margin: 0 auto;
+    flex: 1;
 }
 
 /* Tarjetas */
@@ -68,10 +70,7 @@ body {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.btn-label-main:hover {
-    background-color: var(--btn-main-hover);
-    color: white;
-}
+.btn-label-main:hover { background-color: var(--btn-main-hover); }
 
 .btn-label-sub {
     background-color: var(--btn-sub-gray);
@@ -82,14 +81,10 @@ body {
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.btn-label-sub:hover {
-    background-color: var(--btn-sub-hover);
-    color: white;
-}
+.btn-label-sub:hover { background-color: var(--btn-sub-hover); }
 
 /* --- INPUTS Y TEXTAREAS --- */
 
-/* Estilo base */
 .form-control {
     font-size: 0.9rem;
     border-color: #ced4da;
@@ -99,15 +94,13 @@ body {
 .form-control:focus {
     border-color: var(--btn-main-gray);
     box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
-    background-color: #fff !important; /* Al enfocar siempre blanco */
+    background-color: #fff !important;
 }
 
 /* Inputs de una línea */
-input.form-control, select.form-control {
-    height: 34px; 
-}
+input.form-control, select.form-control { height: 34px; }
 
-/* Textareas (Altura dinámica según atributo rows) */
+/* Textareas: Altura automática para respetar el atributo 'rows' del HTML */
 textarea.form-control {
     height: auto; 
     resize: vertical; 
@@ -116,34 +109,29 @@ textarea.form-control {
 }
 
 /* ESTADOS DE VALIDACIÓN VISUAL */
-.status-monitor.is-empty {
-    background-color: var(--bg-empty);
-    border-color: var(--border-empty);
-}
+.status-monitor.is-empty { background-color: var(--bg-empty); border-color: var(--border-empty); }
+.status-monitor.is-filled { background-color: var(--bg-filled); border-color: var(--border-filled); }
 
-.status-monitor.is-filled {
-    background-color: var(--bg-filled);
-    border-color: var(--border-filled);
-}
+/* Input Groups */
+.input-group { margin-bottom: 6px; }
 
-/* Input Groups y Botones Pequeños */
-.input-group {
-    margin-bottom: 6px;
+.btn-trash { border-color: #dc3545; color: #dc3545; }
+.btn-trash:hover { background-color: #dc3545; color: white; }
+
+/* Botones Herramientas (Pequeños) */
+.btn-tool {
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    border: 1px solid #ced4da;
+    background: #f8f9fa;
+    color: #555;
+    border-radius: 4px;
+    margin-left: 2px;
 }
-.btn-trash {
-    border-color: #dc3545;
-    color: #dc3545;
-}
-.btn-trash:hover {
-    background-color: #dc3545;
-    color: white;
-}
+.btn-tool:hover { background: #e2e6ea; color: #333; }
 
 /* Botones Macros Superiores */
-.btn-macro {
-    font-size: 0.8rem;
-    padding: 4px 8px;
-}
+.btn-macro { font-size: 0.8rem; padding: 4px 8px; }
 
 /* Sección Scripts */
 .script-block {
@@ -153,15 +141,9 @@ textarea.form-control {
     margin-bottom: 10px;
     border-radius: 4px;
 }
-.script-title {
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #444;
-    display: block;
-    margin-bottom: 4px;
-}
+.script-title { font-size: 0.8rem; font-weight: bold; color: #444; display: block; margin-bottom: 4px; }
 
-/* Radio buttons INC/WO y Resumen */
+/* Selectores */
 .type-selector {
     display: flex;
     align-items: center;
@@ -174,11 +156,33 @@ textarea.form-control {
     border-bottom-left-radius: 4px;
 }
 
+/* Area de Carga */
+.file-drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+.file-drop-area:hover { border-color: var(--primary-color); background-color: #eef4ff; }
+
+/* Footer */
+.footer-custom {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: auto;
+    background-color: rgba(255,255,255,0.5);
+}
+
 /* Utilidades */
 .fw-500 { font-weight: 500; }
 .text-xs { font-size: 0.75rem; }
 
-/* Resultados de búsqueda (Offcanvas) */
+/* Resultados de búsqueda */
 .search-results {
     max-height: 200px;
     overflow-y: auto;
@@ -188,16 +192,11 @@ textarea.form-control {
     padding: 5px;
     display: none;
 }
-.search-results.active {
-    display: block;
-}
+.search-results.active { display: block; }
 .search-item {
     padding: 6px;
     border-bottom: 1px solid #eee;
     font-size: 0.8rem;
     cursor: pointer;
 }
-.search-item:hover {
-    background-color: #e9ecef;
-    color: var(--primary-color);
-}
+.search-item:hover { background-color: #e9ecef; color: var(--primary-color); }
