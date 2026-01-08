@@ -36,7 +36,7 @@ function captura(parametro) {
     }
 }
 
-// FORMATO DE FECHA ACTUALIZADO: DD/MM/AAAA HH:MM
+// FORMATO DE FECHA: DD/MM/AAAA HH:MM
 function fecha() {
     var fecha = new Date();
     var year = fecha.getFullYear();
@@ -64,9 +64,15 @@ function copiarNombreCompleto() {
 function seleccionarTipoCaso(tipo) {
     let inputCaso = document.getElementById("Caso");
     if(tipo === 'INC') {
-        inputCaso.value = "INC000000";
+        // Solo sobrescribe si está vacío o tiene el valor por defecto
+        if(inputCaso.value === "" || inputCaso.value.startsWith("WO")) inputCaso.value = "INC000000";
     } else if (tipo === 'WO') {
-        inputCaso.value = "WO0000000";
+        if(inputCaso.value === "" || inputCaso.value.startsWith("INC")) inputCaso.value = "WO0000000";
+    }
+    // Actualizar monitor de color
+    if(inputCaso.classList.contains('status-monitor')) {
+        inputCaso.classList.remove('is-empty');
+        inputCaso.classList.add('is-filled');
     }
 }
 
@@ -82,8 +88,10 @@ function actualizarDescripcionAuto() {
     // 2. Obtener Datos Básicos
     let tratamiento = document.getElementById("Tratamiento").value; 
     let nombre = document.getElementById("Nombre").value.trim();
+    let apellido = document.getElementById("Apellido").value.trim();
+    
     let sujeto = (tratamiento === 'Sr') ? 'el señor' : 'la señora';
-    let nombrePila = (nombre === "") ? "_______" : nombre; 
+    let nombrePila = (nombre === "") ? "_______" : nombre; // Solo nombre en el saludo, apellido opcional si se quiere agregar
 
     let texto = "";
 
@@ -91,7 +99,7 @@ function actualizarDescripcionAuto() {
     switch(tipoPlantilla) {
         
         case "REGISTRAR":
-            // Obtener Causa y Servicio de la izquierda
+            // Obtener Causa y Servicio de la izquierda (Radio Buttons)
             let causa = getRadioValue("res_causa"); // Sin servicio, Lentitud, Intermitencia
             let servicio = getRadioValue("res_servicio"); // Internet, Television, Telefonia, Movilidad
             let tiempo = document.getElementById("TiempoSinServicio").value.trim();
@@ -127,9 +135,9 @@ function actualizarDescripcionAuto() {
             }
 
             // Construir frase base
-            texto = `Se comunica ${sujeto} ${nombrePila} indicando que ${estadoServicio} desde ${tiempo}. `;
+            texto = `Se comunica ${sujeto} ${nombrePila} indicando que ${estadoServicio} desde hace ${tiempo}. `;
 
-            // Agregar Flags (Estado técnico)
+            // Agregar Flags (Estado técnico - CORREGIDO A MINÚSCULAS)
             texto += `Confirma que `;
             
             let cambios = document.getElementById("chk_cambios").checked ? "no se han realizado cambios recientes" : "se han realizado cambios recientes";
@@ -188,12 +196,6 @@ function getRadioValue(name) {
    UTILIDADES VARIAS (Mover Notas, Refrescar Dataframe)
    ========================================== */
 
-function moverNota() {
-    let notaCampo = document.getElementById("nota"); // Textarea de Notas Adicionales
-    let inputRapido = document.getElementById("inputNotaRapida"); // (Si existe)
-    // También revisar si viene de moverContenidoANotas
-}
-
 function refrescarDataframe() {
     // Limpia la variable global y resetea el input file
     if (typeof globalDataframe !== 'undefined') {
@@ -208,6 +210,7 @@ function refrescarDataframe() {
    BOTONES CPE# / ONT# / ARRIS / MAC
    ========================================== */
 function limpiarMac(texto) {
+    // Elimina dos puntos, guiones, puntos y espacios
     return texto.replace(/[:\-\.\s]/g, "").toUpperCase();
 }
 
@@ -286,7 +289,7 @@ function borrarTodoConConfirmacion() {
             "Celular", "Fijo", "Correo", "Direccion", "Empresa", "Ciudad", 
             "Legado", "Legado2", "acp", "anillo", "switch1", "NE", 
             "TiempoSinServicio", "desc_auto", "observaciones", "observacionesGiones", 
-            "observaciones2", "nota", "ResumenGenerado", "inputNotaRapida"
+            "observaciones2", "nota", "ResumenGenerado"
         ];
         
         ids.forEach(id => {
@@ -295,12 +298,14 @@ function borrarTodoConConfirmacion() {
         });
 
         // Reset Menús
-        let selects = ["guionesGuion", "guiones", "guiones2", "AreaConware", "tipoIncTxt", "sel_plantilla_desc", "sel_plantilla_res"];
+        let selects = ["guionesGuion", "guiones", "guiones2", "AreaConware", "tipoIncTxt", "sel_plantilla_desc"];
         selects.forEach(id => { if(document.getElementById(id)) document.getElementById(id).selectedIndex = 0; });
 
         // Reset Radios INC/WO
         let radiosTipo = document.getElementsByName("radioTipoCaso");
         for(let r of radiosTipo) r.checked = false;
+        // Opcional: Dejar marcado INC por defecto
+        if (document.getElementById("radINC")) document.getElementById("radINC").checked = true;
 
         // Reset Colores
         const monitors = document.querySelectorAll('.status-monitor');
@@ -328,4 +333,77 @@ function borrarTodoConConfirmacion() {
 function uncheckRadios(name) {
     let radios = document.getElementsByName(name);
     for(let i=0; i<radios.length; i++) radios[i].checked = false;
+}
+
+/* ==========================================
+   INICIALIZACIÓN Y UTILIDADES UI (Movidas de Index)
+   ========================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(typeof actualizarDescripcionAuto === 'function') actualizarDescripcionAuto();
+    if(typeof actualizarResumen === 'function') actualizarResumen();
+    if(typeof monitorFields === 'function') monitorFields();
+    
+    const estado = document.getElementById('estadoPlantilla');
+    if(estado && localStorage.getItem('plantillaWordBase64')) {
+        estado.innerText = "✓ Plantilla cargada en memoria";
+        estado.style.color = "#0d6efd";
+    }
+});
+
+// Script Monitor Visual
+function monitorFields() {
+    const fields = document.querySelectorAll('.status-monitor');
+    const updateClass = (el) => {
+        if(el.value.trim() !== "") {
+            el.classList.add('is-filled'); el.classList.remove('is-empty');
+        } else {
+            el.classList.add('is-empty'); el.classList.remove('is-filled');
+        }
+    };
+    fields.forEach(el => {
+        updateClass(el); 
+        el.addEventListener('input', () => updateClass(el));
+    });
+}
+
+// Script para ampliar notas
+function ampliarNota(idCampo) {
+    let notaElement = document.getElementById(idCampo);
+    let textoInicial = notaElement.value;
+    let ventana = window.open("", "Nota Ampliada", "width=600,height=500");
+    let htmlContent = `
+        <html><head><title>Edición de Notas</title><style>
+            body { font-family: sans-serif; padding: 15px; display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; margin: 0; background-color: #f4f4f4; }
+            textarea { flex: 1; padding: 10px; font-size: 14px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; resize: none; font-family: monospace; }
+            .btn-save { padding: 10px 20px; background-color: #00377B; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px; width: 100%; }
+            .btn-save:hover { background-color: #002a5e; }
+        </style></head><body>
+            <h3 style="margin-top:0; color:#333;">Edición de Nota</h3>
+            <textarea id="textoAmpliado">${textoInicial}</textarea>
+            <button class="btn-save" onclick="guardarYcerrar()">Guardar Cambios y Cerrar</button>
+            <script>
+                function guardarYcerrar() {
+                    let nuevoTexto = document.getElementById('textoAmpliado').value;
+                    if (window.opener && !window.opener.closed) { 
+                        window.opener.document.getElementById("${idCampo}").value = nuevoTexto;
+                        // Disparar evento para actualizar colores
+                        let event = new Event('input');
+                        window.opener.document.getElementById("${idCampo}").dispatchEvent(event);
+                    }
+                    window.close();
+                }
+            <\/script>
+        </body></html>`;
+    ventana.document.write(htmlContent);
+    ventana.document.close();
+}
+
+function moverContenidoANotas(sourceId) {
+    let origen = document.getElementById(sourceId);
+    let notas = document.getElementById("nota");
+    if (origen && notas && origen.value.trim() !== "") {
+        if (notas.value.trim() !== "") { notas.value += "\n\n"; }
+        notas.value += origen.value;
+    }
 }

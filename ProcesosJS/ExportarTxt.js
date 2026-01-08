@@ -10,7 +10,7 @@ function generarTXT() {
     // Validación A: Contacto Actualizado
     const chkContacto = document.getElementById("chkContactoActualizado");
     if (!chkContacto.checked) {
-        alert("⚠️ DEBE MARCAR LA CASILLA 'CONTACTO ACTUALIZADO' PARA EXPORTAR.");
+        alert(" DEBE MARCAR LA CASILLA 'CONTACTO ACTUALIZADO' PARA EXPORTAR.");
         return; 
     }
 
@@ -18,7 +18,7 @@ function generarTXT() {
     let numeroCasoRaw = document.getElementById("Caso").value.trim();
     // Validamos que no esté vacío y que no sea el placeholder por defecto si el usuario no lo cambió
     if (numeroCasoRaw === "" || numeroCasoRaw === "0000000" || numeroCasoRaw === "INC0000000") {
-        alert("⚠️ EL CAMPO #CASO (INC/WO) ES OBLIGATORIO.\nPor favor ingrese el número del incidente antes de exportar.");
+        alert(" EL CAMPO #CASO (INC/WO) ES OBLIGATORIO.\nPor favor ingrese el número del incidente antes de exportar.");
         document.getElementById("Caso").focus();
         return;
     }
