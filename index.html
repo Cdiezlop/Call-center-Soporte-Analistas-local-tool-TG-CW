@@ -150,7 +150,7 @@
                         <div class="form-check m-0">
                             <input class="form-check-input" type="checkbox" id="chkContactoActualizado">
                             <label class="form-check-label fw-bold text-primary small" for="chkContactoActualizado">
-                                Contacto Actualizado (Requerido para TXT)
+                                Contacto Actualizado (Verificar datos de contacto)
                             </label>
                         </div>
                     </div>
@@ -348,8 +348,9 @@
                         <div class="input-group">
                             <select class="form-select form-select-sm" id="guiones2" onchange="selecion2()">
                                 <option value="s">-- Resolución --</option>
-                                <option value="0" style="color:red; font-weight:bold;">RESOLUCIÓN CAPA3</option>
                                 <option value="AGENDAMIENTO">AGENDAMIENTO</option>
+                                <optgroup label="--- CERRAR CASO ---"></optgroup>
+                                <option value="0">RESOLUCIÓN CAPA3</option>
                                 <option value="2">Resolución (Blanco)</option>
                                 <option value="3">Sin Respuesta</option>
                                 <optgroup label="--- INFRAESTRUCTURA ---">

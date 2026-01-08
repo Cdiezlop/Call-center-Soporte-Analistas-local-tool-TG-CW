@@ -166,6 +166,8 @@ grupocoordinadoresn1b2b@comware.com.co
 grupo_liderestecnicos_B2B@comware.com.co
 
 ___________________________________________________
+INFORMACION DE MASCARA SUBRED
+
 /32 255.255.255.255 0.0.0.0 1 1
 /31 255.255.255.254 0.0.0.1 2 2
 /30 255.255.255.252 0.0.0.3 4 2
@@ -177,7 +179,7 @@ ___________________________________________________
 /24 255.255.255.0 0.0.0.255 256 254
 
 _____________________________________________________
-COMANDOS PARA VERIFICAR GIGAS DE CENTRAL EN APERTURA
+COMANDOS PARA VERIFICAR GIGAS DE CENTRAL EN APERTURA- Gigas desde la central. 
 
 NE.
 dis in des | in AAMxx    -  interfaces
@@ -207,4 +209,8 @@ PROXY UNE
 https://pac-uw2.iws-hybrid.trendmicro.com/7a797eb7-0f00-4e0e-abc2-4bee9cfed9cc/ProxyTigo.pac
 http://wpad.epmtelco.com.co/pac_files/wpad.pac
 http://proxyune 8080
+
+
+10.*;172.*;192.*;200.13.249.44;10.159.35.247;*.colombiamovil.corp;*.edatel.com.co;*.epmtelco.com.co;*.etp.com.co;*.etp.corp;*.teune.com.co;*.tigoune.com;*netact.tigo.co;digiturno.tigoune.com.co;seguimientopedido.tigo.com.co;crm.tigo.com.co;crmportal.tigo.com.co;descrmportal.tigo.com.co;intcrmportal.tigo.com.co;mobilecrm.une.com.co;portalcrm.tigo.com.co;epos.tigo.com.co;app.millicom.com;autodiscover.une.com.co;autogestion.tigoune.com.co;busservices.tigo.com.co;cloud.une.com.co;consolacloud.une.com.co;consultaintegral.tigo.com.co;consultasdinamicas.TigoUne.com.co;contact.tigo.com.co;corporativo.une.com.co;cpm.une.net.co;csr.tigo.com.co;dms.tigo.com.co;epm.millicom.com;esb.tigo.com.co;evoluciona.TigoUne.com.co;fenix.une.com.co;gestdoc.tigo.com.co;gestionclientese2e;gestioncomercial.une.com.co;gestionpqr.tigo.com.co;iaas.une.com.co;insights.millicom.com;intranet.tigo.com.co;Intranet.tigoune.com.co;iqtigo.iq-online.net.co;pagos.tigo.com.co;pbook.tigo.com.co;portal.millicom.com;portaliq.tigo.com.co;portallegacy.tigo.com.co;portalti.tigo.com.co;rdsgateway.une.com.co;rdswebunete.une.com.co;reporisp.une.net.co;revocacion.une.com.co;sap.une.com.co;smnet.une.net.co;smpro.une.net.co;soa.TigoUne.com.co;solmov.une.com.co;solmovreporte.une.com.co;solmovws.une.com.co;staff.tigo.com.co;stateservice.une.com.co;tigogestion.tigo.com.co;tigoonline.tigo.com.co;tigouneendirecto*;une-piptvadmin02.une.net.co;une-tiptv01.une.net.co;unevm-pgrhv01.une.net.co;viafirma.tigo.com.co;wac.tigo.com.co;wikisp.une.net.co;wl.TigoUne.com.co;wlservices.tigo.com.co;css.tigo.com.co;b2b-cw-avaya.comware.com.co;transfer.tigo.com.co;*hfm.millicom.com
+
 `;

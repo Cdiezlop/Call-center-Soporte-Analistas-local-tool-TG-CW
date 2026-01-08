@@ -1,9 +1,9 @@
 // Base de datos de NE METRO
 const metroData = [
-    { "id": 1, "name": "mde-ame-ne40x16-06", "NE": "10.165.43.50" },
-    { "id": 3, "name": "mde-ame-ne40x16a-08", "NE": "10.165.43.43" },
-    { "id": 4, "name": "mde-ame-ne40x3-rr", "NE": "10.165.41.254" },
-    { "id": 5, "name": "mde-bai-7750sr12-01", "NE": "10.165.41.37" },
+    { "id": 1, "name": "America: mde-ame-ne40x16-06", "NE": "10.165.43.50" },
+    { "id": 3, "name": "America: mde-ame-ne40x16a-08", "NE": "10.165.43.43" },
+    { "id": 4, "name": "America: mde-ame-ne40x3-rr", "NE": "10.165.41.254" },
+    { "id": 5, "name": "Buenos aires: mde-bai-7750sr12-01", "NE": "10.165.41.37" },
     { "id": 6, "name": "mde-bel-ne40x16a-01", "NE": "10.165.43.11" },
     { "id": 7, "name": "mde-ber-ne40x16a-01", "NE": "10.165.41.26" },
     { "id": 8, "name": "mde-bos-ne40ex16a-01", "NE": "10.165.43.7" },

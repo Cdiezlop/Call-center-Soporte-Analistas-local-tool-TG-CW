@@ -29,7 +29,7 @@ function selecion2() {
             break;
 
         case "3": // Sin Respuesta
-            texto = "La causa fue: Desconocida.\n\nLa solución fue: Se realizaron intentos de contacto sin éxito. Se cierra el caso por falta de gestión.";
+            texto = "La causa fue: Sin comunicacion con el cliente. \n\nLa solución fue: Se realizaron intentos de contacto sin éxito. Se cierra el caso por falta de comunicación.";
             break;
 
         // Agregar más casos simples aquí si es necesario

@@ -38,7 +38,7 @@ function aplicarPlantillaTT(tipo) {
         case "AGENDAMIENTO":
             texto = `${caso}\n`;
             texto += `DISPONIBILIDAD\n`;
-            texto += `Horario: LUNES-VIERNES 8am-5pm Sabados 8am-2pm\n`;
+            texto += `Horario: LUNES-VIERNES 8am-5pm SABADOS 8am-2pm\n`;
             texto += `Nombre Contacto en Sitio: ${nombreCompleto}\n`;
             texto += `Teléfonos Contacto en Sitio: ${celular}\n`;
             texto += `Contacto en sitio, tiene acceso a los CPE: SI\n`;
@@ -46,13 +46,13 @@ function aplicarPlantillaTT(tipo) {
             texto += `Permisos de ingreso: NO\n`;
             texto += `Parafiscales: NO\n`;
             texto += `Requiere Curso: NO\n`;
-            texto += `Requiere llevar equipo: NO\n`;
+            texto += `Requiere llevar equipo: \n`;
             texto += `Tipo de equipo (Referencia) y cantidad: \n`;
             texto += `Motivo de escalamiento: ${descarte}`;
             break;
 
         case "APERTURA_DOBLE_1":
-            texto = `Se presenta apertura doble en el anillo: Afectando las comunicaciones del cliente.\n\n`;
+            texto = `Se presenta apertura doble en el anillo:  ${anillo} Afectando las comunicaciones del cliente.\n\n`;
             texto += `Ciudad: ${ciudad}\n`;
             texto += `IP del Swich: ${sn}\n\n`;
             texto += `Datos del Cliente\n\n`;
@@ -61,7 +61,7 @@ function aplicarPlantillaTT(tipo) {
             texto += `Dirección cliente: ${direccion}\n`;
             texto += `Teléfono cliente: ${celular}\n`;
             texto += `Correo cliente: ${correo}\n`;
-            texto += `Disponibilidad horaria: LUNES-VIERNES 8am-5pm Sabados 8am-2pm\n`;
+            texto += `Disponibilidad horaria: LUNES-VIERNES 8am-5pm SABADOS 8am-2pm\n`;
             texto += `Pedido de retiro (si/no): NO\n`;
             texto += `Descartes realizados: ${descarte}`;
             break;
@@ -78,7 +78,7 @@ function aplicarPlantillaTT(tipo) {
             texto += `Correo cliente caído extremo A: ${correo}\n`;
             texto += `Dirección cliente caído extremo A: ${direccion}\n`;
             texto += `Teléfono cliente caído extremo A: ${celular}\n`;
-            texto += `Disponibilidad horaria cliente extremo A: LUNES-VIERNES 8am-5pm Sabados 8am-2pm\n`;
+            texto += `Disponibilidad horaria cliente extremo A: LUNES-VIERNES 8am-5pm SABADOS 8am-2pm\n`;
             texto += `Pedido de retiro (Sí/No): \n`;
             texto += `Descartes realizados: ${descarte}\n\n\n`;
             
@@ -104,11 +104,11 @@ function aplicarPlantillaTT(tipo) {
             texto += `Contacto cliente: ${nombreCompleto}\n`;
             texto += `Teléfono cliente: ${celular}\n`;
             texto += `Dirección cliente: ${direccion}\n`;
-            texto += `Disponibilidad cliente: LUNES-VIERNES 8am-5pm Sabados 8am-2pm`;
+            texto += `Disponibilidad cliente: LUNES-VIERNES 8am-5pm SABADOS 8am-2pm`;
             break;
 
         case "REINGRESO_EMPALME":
-            texto = `Se requiere realizar el reingreso al anillo: desde el empalme de derivación al cliente.\n\n\n`;
+            texto = `Se requiere realizar el reingreso al anillo: ${anillo} desde el empalme de derivación al cliente.\n\n\n`;
             texto += `Anillo: ${anillo}\n`;
             texto += `Ip switch: ${sn}\n`;
             texto += `Ciudad: ${ciudad}\n`;
@@ -117,7 +117,7 @@ function aplicarPlantillaTT(tipo) {
             texto += `Contacto cliente: ${nombreCompleto}\n`;
             texto += `Teléfono cliente: ${celular}\n`;
             texto += `Dirección cliente: ${direccion}\n`;
-            texto += `Disponibilidad cliente: LUNES-VIERNES 8am-5pm Sabados 8am-2pm\n`;
+            texto += `Disponibilidad cliente: LUNES-VIERNES 8am-5pm SABADOS 8am-2pm\n`;
             texto += `Descartes realizados: ${descarte}`;
             break;
 

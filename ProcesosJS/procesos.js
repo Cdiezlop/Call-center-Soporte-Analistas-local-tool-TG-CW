@@ -135,7 +135,7 @@ function actualizarDescripcionAuto() {
             }
 
             // Construir frase base
-            texto = `Se comunica ${sujeto} ${nombrePila} indicando que ${estadoServicio} desde hace ${tiempo}. `;
+            texto = `Se comunica ${sujeto} ${nombrePila} indicando que ${estadoServicio} hace ${tiempo}. `;
 
             // Agregar Flags (Estado técnico - CORREGIDO A MINÚSCULAS)
             texto += `Confirma que `;

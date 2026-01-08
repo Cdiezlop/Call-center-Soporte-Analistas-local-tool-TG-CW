@@ -113,19 +113,19 @@ function generarTXT() {
 
     // Secciones fijas
     
-    contenido += `---------- Notas adicionales ----------\n`;
+    contenido += `---------- NOTAS ADICIONALES ----------\n\n`;
     contenido += `${notasAdicionales}\n\n\n`; 
 
-    contenido += `---------- Descripción de Llamada ----------\n`;
+    contenido += `---------- DESCRIPCIÓN DE LLAMADA ----------\n\n`;
     contenido += `${descLlamada}\n\n\n`;
 
-    contenido += `---------- Gestion ----------\n`;
+    contenido += `---------- GESTION ----------\n\n`;
     contenido += `${gestionTipificacion}\n\n\n`;
 
-    contenido += `---------- Resolucion / Cierre ---------\n`;
+    contenido += `---------- RESOLUCION / CIERRE ---------\n`;
     contenido += `${resolucion}\n\n\n`;
 
-    contenido += `---------- Diagnóstico y Soporte ----------\n`;
+    contenido += `---------------- DIAGNÓSTICO Y SOPORTE-----------------\n`;
     contenido += `${diagnostico}\n`;
 
     // ---------------------------------------------------------

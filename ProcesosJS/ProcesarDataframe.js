@@ -54,7 +54,7 @@ function csvToJson(csv) {
  */
 function cargarDataframe() {
     if (globalDataframe.length === 0) {
-        alert("⚠️ No se ha cargado el archivo Dataframe. Por favor, cárguelo desde el menú de Configuración.");
+        alert(" No se ha cargado el archivo Dataframe. Por favor, cárguelo desde el menú de Configuración.");
         return;
     }
 
