@@ -55,10 +55,10 @@ function generarTXT() {
     // B. Datos Principales
     let idLlamada = document.getElementById("IdLlamada").value.trim();
     
-    let tratamiento = document.getElementById("Tratamiento").value;
+    
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
-    let nombreCompleto = `${tratamiento} ${nombre} ${apellido}`.trim();
+    let nombreCompleto = ` ${nombre} ${apellido}`.trim();
 
     let nit = document.getElementById("dian1").value.trim();
     let dv = document.getElementById("dian2").value.trim();
@@ -66,7 +66,7 @@ function generarTXT() {
 
     let empresa = document.getElementById("Empresa").value.trim();
     let direccion = document.getElementById("Direccion").value.trim();
-    let telefono = `${document.getElementById("Celular").value.trim()} / ${document.getElementById("Fijo").value.trim()}`.replace(" / ", "").trim();
+    let telefono = `${document.getElementById("Celular").value.trim()} - ${document.getElementById("Fijo").value.trim()}`;
     let correo = document.getElementById("Correo").value.trim();
     let ciudad = document.getElementById("Ciudad").value.trim();
 
