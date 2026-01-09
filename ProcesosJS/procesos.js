@@ -268,7 +268,7 @@ function generarInfoRapida() {
     let tratamiento = document.getElementById("Tratamiento").value;
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
-    let nombreCompleto = `${tratamiento} ${nombre} ${apellido}`.trim();
+    let nombreCompleto = ` ${nombre} ${apellido}`.trim();
 
     let idLlamada = document.getElementById("IdLlamada").value.trim();
     
@@ -289,9 +289,9 @@ function generarInfoRapida() {
     let idServ = document.getElementById("Legado").value.trim();
     let acp = document.getElementById("acp").value.trim();
     let identificador = "";
-    if (idServ && acp) identificador = `${idServ} / ACP-${acp}`;
+    if (idServ && acp) identificador = `${idServ} / ${acp}`;
     else if (idServ) identificador = idServ;
-    else if (acp) identificador = `ACP-${acp}`;
+    else if (acp) identificador = `${acp}`;
 
     // Campos Condicionales
     let anillo = document.getElementById("anillo").value.trim();
