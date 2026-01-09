@@ -187,12 +187,23 @@
                     </div>
 
                     <div class="input-group">
-                        <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">Switch</button>
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('switch1')">SW Cliente</button>
                         <input type="text" class="form-control status-monitor" id="switch1" placeholder="Serial equipo cliente" onkeyup="mayus(this);">
                         <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('NE')">NE</button>
                         <input type="text" class="form-control status-monitor" id="NE" placeholder="MPLS / NE" onkeyup="mayus(this);">
                         <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('switch1','NE')"><i class="bi bi-trash3"></i></button>
                         <button class="btn btn-outline-primary" onclick="cargarDataframe()" title="Cargar desde CSV"><i class="bi bi-arrow-clockwise"></i></button>
+                    </div>
+
+                    <div class="input-group">
+                        <button class="btn btn-label-main" onclick="copyToClipBoard('IdCrm')">ID CRM</button>
+                        <input type="text" class="form-control status-monitor" id="IdCrm" placeholder="ID CRM" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-label-sub ms-1" onclick="copyToClipBoard('Tt')" title="Copia solo el número">TT</button>
+                        <button class="btn btn-label-sub" onclick="copiarTTconPrefijo()" title="Copia TT [Número]" style="border-left: 1px solid rgba(255,255,255,0.3);">Tx</button>
+                        <input type="text" class="form-control status-monitor" id="Tt" placeholder="Número TT" onkeyup="mayus(this);">
+                        
+                        <button class="btn btn-outline-danger btn-trash" onclick="deliteTextbox('IdCrm','Tt')"><i class="bi bi-trash3"></i></button>
                     </div>
 
                     <div class="mt-3 mb-3 p-2 border rounded bg-light">

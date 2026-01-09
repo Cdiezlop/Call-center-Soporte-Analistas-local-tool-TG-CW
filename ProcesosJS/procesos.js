@@ -230,6 +230,16 @@ function generarCpeOnt(prefijo) {
     navigator.clipboard.writeText(resultado);
 }
 
+// Función para el botón "Tx" (Copia "TT [valor]")
+function copiarTTconPrefijo() {
+    let tt = document.getElementById("Tt").value.trim();
+    if (tt === "") {
+        // Opcional: alert("Campo TT vacío");
+        return;
+    }
+    navigator.clipboard.writeText("TT " + tt);
+}
+
 function generarPassArris() {
     if (typeof claves === 'undefined') { alert("Error: arris.js no cargado."); return; }
     var fecha = new Date();
@@ -287,7 +297,7 @@ function borrarTodoConConfirmacion() {
         const ids = [
             "Caso", "Nombre", "Apellido", "dian1", "dian2", "IdLlamada", 
             "Celular", "Fijo", "Correo", "Direccion", "Empresa", "Ciudad", 
-            "Legado", "Legado2", "acp", "anillo", "switch1", "NE", 
+            "Legado", "Legado2", "acp", "anillo", "switch1", "NE","IdCrm", "Tt", 
             "TiempoSinServicio", "desc_auto", "observaciones", "observacionesGiones", 
             "observaciones2", "nota", "ResumenGenerado"
         ];
