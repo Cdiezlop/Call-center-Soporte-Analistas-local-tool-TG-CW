@@ -10,7 +10,7 @@ function aplicarPlantillaTT(tipo) {
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
     let tratamiento = document.getElementById("Tratamiento").value; // Sr/Sra
-    let nombreCompleto = `${tratamiento} ${nombre} ${apellido}`.trim();
+    let nombreCompleto = ` ${nombre} ${apellido}`.trim();
 
     let empresa = document.getElementById("Empresa").value.trim();
     let celular = document.getElementById("Celular").value.trim();
