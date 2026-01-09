@@ -41,7 +41,6 @@
                 </div>
                 <div class="btn-group btn-group-sm">
                     <button class="btn btn-outline-primary btn-macro" id="btAvaya">AVAYA</button>
-                    <button class="btn btn-outline-primary btn-macro" onclick="loginMayuscula()">LOGIN</button>
                     <button class="btn btn-outline-primary btn-macro" id="btLogin">user</button>
                     <button class="btn btn-outline-primary btn-macro" onclick="loginAgregarUne()">@une</button>
                     <button class="btn btn-outline-primary btn-macro" onclick="fecha()">FECHA</button>
@@ -58,6 +57,9 @@
                 
                 <button class="btn btn-sm btn-primary btn-macro" onclick="generarWord()"><i class="bi bi-file-word"></i> Word</button>
                 <button onclick="generarTXT()" class="btn btn-sm btn-dark fw-bold btn-macro ms-2"><i class="bi bi-file-text"></i> Exportar TXT</button>
+               <button onclick="generarInfoRapida()" class="btn btn-sm btn-secondary btn-macro ms-1" style="background-color: #9e9e9e; border-color: #9e9e9e; color: white;">
+                    <i class="bi bi-info-circle"></i> Info Rápida
+                </button>
             </div>
         </div>
 
@@ -433,7 +435,13 @@
             <div class="mb-2"><label class="form-label small">Pass ETP</label><input type="password" id="passEtp" class="form-control form-control-sm"></div>
             <div class="mb-2"><label class="form-label small">Pass ELITE</label><input type="password" id="passElite" class="form-control form-control-sm"></div>
             <div class="mb-2"><label class="form-label small">Pass FENIX</label><input type="password" id="passFenix" class="form-control form-control-sm"></div>
-            <div class="d-grid mt-3"><button class="btn btn-primary btn-sm" id="btSavePass">Guardar</button></div>
+            <div class="d-flex gap-2 mt-3">
+                <button class="btn btn-primary btn-sm w-50" id="btSavePass">
+                    <i class="bi bi-save"></i> Guardar
+                </button>
+                <button class="btn btn-secondary btn-sm w-50" id="btDownloadPass">
+                    <i class="bi bi-download"></i> Descargar
+                </button>
         </div>
     </div>
 

@@ -259,6 +259,69 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* ==========================================
+   GENERADOR DE INFO RÁPIDA (Botón Gris)
+   ========================================== */
+function generarInfoRapida() {
+    // 1. Obtener Datos
+    let caso = document.getElementById("Caso").value.trim();
+    
+    let tratamiento = document.getElementById("Tratamiento").value;
+    let nombre = document.getElementById("Nombre").value.trim();
+    let apellido = document.getElementById("Apellido").value.trim();
+    let nombreCompleto = `${tratamiento} ${nombre} ${apellido}`.trim();
+
+    let idLlamada = document.getElementById("IdLlamada").value.trim();
+    
+    let nit = document.getElementById("dian1").value.trim();
+    let dv = document.getElementById("dian2").value.trim();
+    let nitCompleto = dv ? `${nit}-${dv}` : nit;
+
+    // Capitalizar Empresa (Primera letra de cada palabra mayúscula)
+    let empresaRaw = document.getElementById("Empresa").value.trim();
+    let empresa = empresaRaw.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+
+    let direccion = document.getElementById("Direccion").value.trim();
+    let celular = document.getElementById("Celular").value.trim();
+    let correo = document.getElementById("Correo").value.trim();
+    let ciudad = document.getElementById("Ciudad").value.trim();
+
+    // Identificador Compuesto
+    let idServ = document.getElementById("Legado").value.trim();
+    let acp = document.getElementById("acp").value.trim();
+    let identificador = "";
+    if (idServ && acp) identificador = `${idServ} / ACP-${acp}`;
+    else if (idServ) identificador = idServ;
+    else if (acp) identificador = `ACP-${acp}`;
+
+    // Campos Condicionales
+    let anillo = document.getElementById("anillo").value.trim();
+    let idCrm = document.getElementById("IdCrm").value.trim();
+    let tt = document.getElementById("Tt").value.trim();
+
+    // 2. Construir Plantilla
+    let texto = `[${caso}]\n\n`;
+    texto += `NOMBRE DE CONTACTO: ${nombreCompleto}\n`;
+    texto += `ID LLAMADA: ${idLlamada}\n`;
+    texto += `NIT: ${nitCompleto}\n`;
+    texto += `NOMBRE DE EMPRESA: ${empresa}\n`;
+    texto += `DIRECCION: ${direccion}\n`;
+    texto += `TELEFONO: ${celular}\n`;
+    texto += `CORREO ELECTRONICO: ${correo}\n`;
+    texto += `CIUDAD: ${ciudad}\n`;
+    texto += `IDENTIFICADOR: ${identificador}\n`;
+
+    if (anillo !== "") texto += `ANILLO: ${anillo}\n`;
+    if (idCrm !== "") texto += `ID CRM: ${idCrm}\n`;
+    if (tt !== "") texto += `TT: ${tt}\n`;
+
+    // 3. Copiar al Portapapeles
+    navigator.clipboard.writeText(texto).then(() => {
+        // Feedback visual temporal (opcional) en el botón si quisieras
+        // alert("Info Rápida copiada al portapapeles"); 
+    });
+}
+
+/* ==========================================
    GENERADOR DE RESUMEN
    ========================================== */
 function actualizarResumen() {
