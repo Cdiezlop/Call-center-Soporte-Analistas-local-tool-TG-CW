@@ -309,6 +309,7 @@ function generarInfoRapida() {
     texto += `CORREO ELECTRONICO: ${correo}\n`;
     texto += `CIUDAD: ${ciudad}\n`;
     texto += `IDENTIFICADOR: ${identificador}\n`;
+    texto += `SN/MAC/SW: ${snMac}\n\n`;
 
     if (anillo !== "") texto += `ANILLO: ${anillo}\n`;
     if (idCrm !== "") texto += `ID CRM: ${idCrm}\n`;
