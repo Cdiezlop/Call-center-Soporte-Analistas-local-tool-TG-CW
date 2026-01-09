@@ -258,45 +258,53 @@ document.addEventListener("DOMContentLoaded", function() {
     if (document.getElementById("btnCpe")) document.getElementById("btnCpe").onclick = function() { generarCpeOnt("ONT"); };
 });
 
+
+
 /* ==========================================
    GENERADOR DE INFO RÁPIDA (Botón Gris)
    ========================================== */
 function generarInfoRapida() {
-    // 1. Obtener Datos
-    let caso = document.getElementById("Caso").value.trim();
+    // 1. Obtener Datos (Validando existencia de elementos)
+    let caso = document.getElementById("Caso") ? document.getElementById("Caso").value.trim() : "";
     
-    let tratamiento = document.getElementById("Tratamiento").value;
-    let nombre = document.getElementById("Nombre").value.trim();
-    let apellido = document.getElementById("Apellido").value.trim();
+    let tratamiento = document.getElementById("Tratamiento") ? document.getElementById("Tratamiento").value : "";
+    let nombre = document.getElementById("Nombre") ? document.getElementById("Nombre").value.trim() : "";
+    let apellido = document.getElementById("Apellido") ? document.getElementById("Apellido").value.trim() : "";
     let nombreCompleto = `${nombre} ${apellido}`.trim();
 
-    let idLlamada = document.getElementById("IdLlamada").value.trim();
+    let idLlamada = document.getElementById("IdLlamada") ? document.getElementById("IdLlamada").value.trim() : "";
     
-    let nit = document.getElementById("dian1").value.trim();
-    let dv = document.getElementById("dian2").value.trim();
+    let nit = document.getElementById("dian1") ? document.getElementById("dian1").value.trim() : "";
+    let dv = document.getElementById("dian2") ? document.getElementById("dian2").value.trim() : "";
     let nitCompleto = dv ? `${nit}-${dv}` : nit;
 
-    // Capitalizar Empresa (Primera letra de cada palabra mayúscula)
-    let empresaRaw = document.getElementById("Empresa").value.trim();
+    // Capitalizar Empresa
+    let empresaRaw = document.getElementById("Empresa") ? document.getElementById("Empresa").value.trim() : "";
     let empresa = empresaRaw.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 
-    let direccion = document.getElementById("Direccion").value.trim();
-    let celular = document.getElementById("Celular").value.trim();
-    let correo = document.getElementById("Correo").value.trim();
-    let ciudad = document.getElementById("Ciudad").value.trim();
+    let direccion = document.getElementById("Direccion") ? document.getElementById("Direccion").value.trim() : "";
+    let celular = document.getElementById("Celular") ? document.getElementById("Celular").value.trim() : "";
+    let correo = document.getElementById("Correo") ? document.getElementById("Correo").value.trim() : "";
+    let ciudad = document.getElementById("Ciudad") ? document.getElementById("Ciudad").value.trim() : "";
 
     // Identificador Compuesto
-    let idServ = document.getElementById("Legado").value.trim();
-    let acp = document.getElementById("acp").value.trim();
+    let idServ = document.getElementById("Legado") ? document.getElementById("Legado").value.trim() : "";
+    let acp = document.getElementById("acp") ? document.getElementById("acp").value.trim() : "";
     let identificador = "";
     if (idServ && acp) identificador = `${idServ} / ${acp}`;
     else if (idServ) identificador = idServ;
     else if (acp) identificador = `${acp}`;
 
-    // Campos Condicionales
-    let anillo = document.getElementById("anillo").value.trim();
-    let idCrm = document.getElementById("IdCrm").value.trim();
-    let tt = document.getElementById("Tt").value.trim();
+    // Campos Técnicos
+    let snMac = document.getElementById("Legado2") ? document.getElementById("Legado2").value.trim() : "";
+    let anillo = document.getElementById("anillo") ? document.getElementById("anillo").value.trim() : "";
+    
+    // VALIDACIÓN ESPECIAL: Estos campos causaban el error si no existían en el HTML
+    let elIdCrm = document.getElementById("IdCrm");
+    let idCrm = elIdCrm ? elIdCrm.value.trim() : "";
+    
+    let elTt = document.getElementById("Tt");
+    let tt = elTt ? elTt.value.trim() : "";
 
     // 2. Construir Plantilla
     let texto = `[${caso}]\n\n`;
@@ -317,10 +325,12 @@ function generarInfoRapida() {
 
     // 3. Copiar al Portapapeles
     navigator.clipboard.writeText(texto).then(() => {
-        // Feedback visual temporal (opcional) en el botón si quisieras
-        // alert("Info Rápida copiada al portapapeles"); 
+        // Opcional: Feedback visual
+        // alert("Info Rápida copiada"); 
     });
 }
+
+
 
 /* ==========================================
    GENERADOR DE RESUMEN
