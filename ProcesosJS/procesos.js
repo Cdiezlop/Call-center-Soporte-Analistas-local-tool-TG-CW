@@ -268,7 +268,7 @@ function generarInfoRapida() {
     let tratamiento = document.getElementById("Tratamiento").value;
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
-    let nombreCompleto = ` ${nombre} ${apellido}`.trim();
+    let nombreCompleto = `${nombre} ${apellido}`.trim();
 
     let idLlamada = document.getElementById("IdLlamada").value.trim();
     

@@ -58,7 +58,7 @@ function generarTXT() {
     
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
-    let nombreCompleto = ` ${nombre} ${apellido}`.trim();
+    let nombreCompleto = `${nombre} ${apellido}`.trim();
 
     let nit = document.getElementById("dian1").value.trim();
     let dv = document.getElementById("dian2").value.trim();
@@ -72,7 +72,7 @@ function generarTXT() {
 
     let idServ = document.getElementById("Legado").value.trim();
     let acp = document.getElementById("acp").value.trim();
-    let identificador = (idServ && acp) ? `${idServ} / ${acp}` : (idServ || (acp ? `${acp}` : ""));
+    let identificador = (idServ && acp) ? `${idServ} - ${acp}` : (idServ || (acp ? `${acp}` : ""));
     
     let snMac = document.getElementById("Legado2").value.trim();
 
