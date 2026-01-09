@@ -207,7 +207,7 @@ function refrescarDataframe() {
 }
 
 /* ==========================================
-   BOTONES CPE# / ONT# / ARRIS / MAC
+   BOTONES CPE# / ONT# / ARRIS / MAC / ID CRM, TT
    ========================================== */
 function limpiarMac(texto) {
     // Elimina dos puntos, guiones, puntos y espacios
