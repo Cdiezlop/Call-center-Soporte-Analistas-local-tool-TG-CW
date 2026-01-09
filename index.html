@@ -285,7 +285,7 @@
                             <label><input type="checkbox" id="chk_electricas" checked onchange="actualizarDescripcionAuto()"> Energía OK</label>
                             <label><input type="checkbox" id="chk_dispositivos" checked onchange="actualizarDescripcionAuto()"> Todos Disp.</label>
                         </div>
-                        <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()">
+                        <input type="text" class="form-control form-control-sm mb-1" id="TiempoSinServicio" placeholder="Tiempo sin servicio (Ej: 2 horas)" oninput="actualizarDescripcionAuto()" onkeyup="minus(this)">
                         <textarea class="form-control form-control-sm" id="desc_auto" rows="4" style="font-size: 0.9rem; background: #e9ecef;"></textarea>
                     </div>
 

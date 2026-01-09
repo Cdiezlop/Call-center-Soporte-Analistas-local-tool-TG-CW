@@ -1,1540 +1,395 @@
+/* ==========================================
+   BASE DE DATOS CLAVES ARRIS (Año 2026)
+   Formato de fecha: d/m/aaaa (sin ceros a la izquierda en día/mes)
+   ========================================== */
 
 const claves = [
-    {
-        "Dia": "01/01/2024",
-        "Clave": "GZ4XG0ER5M"
-    },
-    {
-        "Dia": "02/01/2024",
-        "Clave": "G179S527W9"
-    },
-    {
-        "Dia": "03/01/2024",
-        "Clave": "U5N9TAZ7W8"
-    },
-    {
-        "Dia": "04/01/2024",
-        "Clave": "877IVRK6I9"
-    },
-    {
-        "Dia": "05/01/2024",
-        "Clave": "964I1IKY4D"
-    },
-    {
-        "Dia": "06/01/2024",
-        "Clave": "I9KTUKVG0R"
-    },
-    {
-        "Dia": "07/01/2024",
-        "Clave": "Y4STO3WF4R"
-    },
-    {
-        "Dia": "08/01/2024",
-        "Clave": "ZXSTREXE83"
-    },
-    {
-        "Dia": "09/01/2024",
-        "Clave": "C2YX2Z6PHU"
-    },
-    {
-        "Dia": "10/01/2024",
-        "Clave": "FBOUZZ8IE1"
-    },
-    {
-        "Dia": "11/01/2024",
-        "Clave": "JZAXLH4ZEW"
-    },
-    {
-        "Dia": "12/01/2024",
-        "Clave": "NLGXLE3Q6X"
-    },
-    {
-        "Dia": "13/01/2024",
-        "Clave": "HPR2ELVJ0Z"
-    },
-    {
-        "Dia": "14/01/2024",
-        "Clave": "GJS29L3NJF"
-    },
-    {
-        "Dia": "15/01/2024",
-        "Clave": "FMT22X3RUG"
-    },
-    {
-        "Dia": "16/01/2024",
-        "Clave": "KVPI1H19LK"
-    },
-    {
-        "Dia": "17/01/2024",
-        "Clave": "LUPI1XF6QO"
-    },
-    {
-        "Dia": "18/01/2024",
-        "Clave": "7EST0J74B9"
-    },
-    {
-        "Dia": "19/01/2024",
-        "Clave": "NS4IJIKY4V"
-    },
-    {
-        "Dia": "20/01/2024",
-        "Clave": "I9KTUK92I9"
-    },
-    {
-        "Dia": "21/01/2024",
-        "Clave": "Y4STO3A1M9"
-    },
-    {
-        "Dia": "22/01/2024",
-        "Clave": "ZXSTREB0QL"
-    },
-    {
-        "Dia": "23/01/2024",
-        "Clave": "U2GX2ZSPH8"
-    },
-    {
-        "Dia": "24/01/2024",
-        "Clave": "Y7GXGZR5E9"
-    },
-    {
-        "Dia": "25/01/2024",
-        "Clave": "5V32J33UZO"
-    },
-    {
-        "Dia": "26/01/2024",
-        "Clave": "4N42G9PYZF"
-    },
-    {
-        "Dia": "27/01/2024",
-        "Clave": "0RS9HUTKKK"
-    },
-    {
-        "Dia": "28/01/2024",
-        "Clave": "2J629335JF"
-    },
-    {
-        "Dia": "29/01/2024",
-        "Clave": "1M722F39UG"
-    },
-    {
-        "Dia": "30/01/2024",
-        "Clave": "YHPIJH19L2"
-    },
-    {
-        "Dia": "31/01/2024",
-        "Clave": "ZGPIJXF6Q6"
-    },
-    {
-        "Dia": "01/02/2024",
-        "Clave": "XGOUT1KA5B"
-    },
-    {
-        "Dia": "02/02/2024",
-        "Clave": "MLGXLEEQ6N"
-    },
-    {
-        "Dia": "03/02/2024",
-        "Clave": "08S9TUTK29"
-    },
-    {
-        "Dia": "04/02/2024",
-        "Clave": "88XIPI4UID"
-    },
-    {
-        "Dia": "05/02/2024",
-        "Clave": "ZXSTREUI1X"
-    },
-    {
-        "Dia": "06/02/2024",
-        "Clave": "PYK2136YGE"
-    },
-    {
-        "Dia": "07/02/2024",
-        "Clave": "USN9XAZ7K5"
-    },
-    {
-        "Dia": "08/02/2024",
-        "Clave": "C47IJRK6IW"
-    },
-    {
-        "Dia": "09/02/2024",
-        "Clave": "YBETSJYEKL"
-    },
-    {
-        "Dia": "10/02/2024",
-        "Clave": "PRAXMC6A8V"
-    },
-    {
-        "Dia": "11/02/2024",
-        "Clave": "KJP29L3MJF"
-    },
-    {
-        "Dia": "12/02/2024",
-        "Clave": "UG9922Q8E0"
-    },
-    {
-        "Dia": "13/02/2024",
-        "Clave": "FXRUJO2DHZ"
-    },
-    {
-        "Dia": "14/02/2024",
-        "Clave": "97SXGZ25EZ"
-    },
-    {
-        "Dia": "15/02/2024",
-        "Clave": "GVT2JF35ZO"
-    },
-    {
-        "Dia": "16/02/2024",
-        "Clave": "ZZ896ORM2W"
-    },
-    {
-        "Dia": "17/02/2024",
-        "Clave": "I9KTUK66NF"
-    },
-    {
-        "Dia": "18/02/2024",
-        "Clave": "N0CUKCKAMU"
-    },
-    {
-        "Dia": "19/02/2024",
-        "Clave": "XZMXG0XR54"
-    },
-    {
-        "Dia": "20/02/2024",
-        "Clave": "OSPI1H19LJ"
-    },
-    {
-        "Dia": "21/02/2024",
-        "Clave": "DW0T0EA27X"
-    },
-    {
-        "Dia": "22/02/2024",
-        "Clave": "CZ4XLHUZE7"
-    },
-    {
-        "Dia": "23/02/2024",
-        "Clave": "GLAXLETQ68"
-    },
-    {
-        "Dia": "24/02/2024",
-        "Clave": "02S9EUTKWO"
-    },
-    {
-        "Dia": "25/02/2024",
-        "Clave": "TNXIJI4UI7"
-    },
-    {
-        "Dia": "26/02/2024",
-        "Clave": "ZXSTREFXVR"
-    },
-    {
-        "Dia": "27/02/2024",
-        "Clave": "4Y521X6SGE"
-    },
-    {
-        "Dia": "28/02/2024",
-        "Clave": "UMN9IAZ7EK"
-    },
-    {
-        "Dia": "29/02/2024",
-        "Clave": "7EST0JIUA9"
-    },
-    {
-        "Dia": "01/03/2024",
-        "Clave": "5C4IPIKY4Z"
-    },
-    {
-        "Dia": "02/03/2024",
-        "Clave": "ORAXMCFA8N"
-    },
-    {
-        "Dia": "03/03/2024",
-        "Clave": "JB89T2NF2A"
-    },
-    {
-        "Dia": "04/03/2024",
-        "Clave": "ZXSTRETK0X"
-    },
-    {
-        "Dia": "05/03/2024",
-        "Clave": "GN79V527K8"
-    },
-    {
-        "Dia": "06/03/2024",
-        "Clave": "DW0T0EVIC3"
-    },
-    {
-        "Dia": "07/03/2024",
-        "Clave": "HZAXLHAZES"
-    },
-    {
-        "Dia": "08/03/2024",
-        "Clave": "Z489YORM85"
-    },
-    {
-        "Dia": "09/03/2024",
-        "Clave": "SHIU4DQ2D4"
-    },
-    {
-        "Dia": "10/03/2024",
-        "Clave": "MJO29R3RJF"
-    },
-    {
-        "Dia": "11/03/2024",
-        "Clave": "F2QI7JFXIM"
-    },
-    {
-        "Dia": "12/03/2024",
-        "Clave": "KYQ21963GE"
-    },
-    {
-        "Dia": "13/03/2024",
-        "Clave": "UXN93AZ7Q0"
-    },
-    {
-        "Dia": "14/03/2024",
-        "Clave": "XGOUT6QAIZ"
-    },
-    {
-        "Dia": "15/03/2024",
-        "Clave": "HNT2GXPKZF"
-    },
-    {
-        "Dia": "16/03/2024",
-        "Clave": "I9KTUK58YR"
-    },
-    {
-        "Dia": "17/03/2024",
-        "Clave": "4ZMX570Q22"
-    },
-    {
-        "Dia": "18/03/2024",
-        "Clave": "UR9982Q8QV"
-    },
-    {
-        "Dia": "19/03/2024",
-        "Clave": "FXRUJZEDNU"
-    },
-    {
-        "Dia": "20/03/2024",
-        "Clave": "CVY21FBDUU"
-    },
-    {
-        "Dia": "21/03/2024",
-        "Clave": "7EST0JA3RR"
-    },
-    {
-        "Dia": "22/03/2024",
-        "Clave": "XLSXLEVQ67"
-    },
-    {
-        "Dia": "23/03/2024",
-        "Clave": "RQ2I12L0AK"
-    },
-    {
-        "Dia": "24/03/2024",
-        "Clave": "N0CUKT2ASP"
-    },
-    {
-        "Dia": "25/03/2024",
-        "Clave": "EZ4XG0SR5A"
-    },
-    {
-        "Dia": "26/03/2024",
-        "Clave": "XWVT30FYKF"
-    },
-    {
-        "Dia": "27/03/2024",
-        "Clave": "Q7AXGZQ5EC"
-    },
-    {
-        "Dia": "28/03/2024",
-        "Clave": "WL7I1RK6ID"
-    },
-    {
-        "Dia": "29/03/2024",
-        "Clave": "UGGUKM8WXK"
-    },
-    {
-        "Dia": "30/03/2024",
-        "Clave": "0PS9KUTKKJ"
-    },
-    {
-        "Dia": "31/03/2024",
-        "Clave": "ZIXI7I4UIU"
-    },
-    {
-        "Dia": "01/04/2024",
-        "Clave": "JZAXG0HR5M"
-    },
-    {
-        "Dia": "02/04/2024",
-        "Clave": "FXRUJAQD6C"
-    },
-    {
-        "Dia": "03/04/2024",
-        "Clave": "UEN9TAZ78B"
-    },
-    {
-        "Dia": "04/04/2024",
-        "Clave": "4ZYXLHEZEP"
-    },
-    {
-        "Dia": "05/04/2024",
-        "Clave": "994IJIKY4S"
-    },
-    {
-        "Dia": "06/04/2024",
-        "Clave": "HR4XMCCA8R"
-    },
-    {
-        "Dia": "07/04/2024",
-        "Clave": "B7XIJI4UI5"
-    },
-    {
-        "Dia": "08/04/2024",
-        "Clave": "VZMXG0AR5T"
-    },
-    {
-        "Dia": "09/04/2024",
-        "Clave": "FXRUJM2DD5"
-    },
-    {
-        "Dia": "10/04/2024",
-        "Clave": "UQN90AZ7K4"
-    },
-    {
-        "Dia": "11/04/2024",
-        "Clave": "XGOUTZKAF3"
-    },
-    {
-        "Dia": "12/04/2024",
-        "Clave": "Z3892ORM82"
-    },
-    {
-        "Dia": "13/04/2024",
-        "Clave": "TRGXMC5A8Y"
-    },
-    {
-        "Dia": "14/04/2024",
-        "Clave": "I0XIVI4UIH"
-    },
-    {
-        "Dia": "15/04/2024",
-        "Clave": "7ZYXG03R50"
-    },
-    {
-        "Dia": "16/04/2024",
-        "Clave": "XWVT3059D9"
-    },
-    {
-        "Dia": "17/04/2024",
-        "Clave": "GVV21FBCUU"
-    },
-    {
-        "Dia": "18/04/2024",
-        "Clave": "XGOUTBWAMW"
-    },
-    {
-        "Dia": "19/04/2024",
-        "Clave": "ZF899ORMKV"
-    },
-    {
-        "Dia": "20/04/2024",
-        "Clave": "5RSXMCYA85"
-    },
-    {
-        "Dia": "21/04/2024",
-        "Clave": "PTXI7I4UIT"
-    },
-    {
-        "Dia": "22/04/2024",
-        "Clave": "GBFUL2KAQS"
-    },
-    {
-        "Dia": "23/04/2024",
-        "Clave": "XWVT30C2PL"
-    },
-    {
-        "Dia": "24/04/2024",
-        "Clave": "9V221RBOUU"
-    },
-    {
-        "Dia": "25/04/2024",
-        "Clave": "XGOUTN8ATP"
-    },
-    {
-        "Dia": "26/04/2024",
-        "Clave": "ZR89GORMWO"
-    },
-    {
-        "Dia": "27/04/2024",
-        "Clave": "SHIU40E2VN"
-    },
-    {
-        "Dia": "28/04/2024",
-        "Clave": "J489I2NFWM"
-    },
-    {
-        "Dia": "29/04/2024",
-        "Clave": "GBFULEWAXL"
-    },
-    {
-        "Dia": "30/04/2024",
-        "Clave": "XWVT30JV1X"
-    },
-    {
-        "Dia": "01/05/2024",
-        "Clave": "U1N9RAZ7WE"
-    },
-    {
-        "Dia": "02/05/2024",
-        "Clave": "WVG2JX3KZO"
-    },
-    {
-        "Dia": "03/05/2024",
-        "Clave": "UGGUKK8W7C"
-    },
-    {
-        "Dia": "04/05/2024",
-        "Clave": "I9KTUKTM83"
-    },
-    {
-        "Dia": "05/05/2024",
-        "Clave": "TJJ29937JF"
-    },
-    {
-        "Dia": "06/05/2024",
-        "Clave": "GBFUL7QAA9"
-    },
-    {
-        "Dia": "07/05/2024",
-        "Clave": "FXRUJFWDB8"
-    },
-    {
-        "Dia": "08/05/2024",
-        "Clave": "C7PI1XF6QK"
-    },
-    {
-        "Dia": "09/05/2024",
-        "Clave": "ZSH9Z2ZPW6"
-    },
-    {
-        "Dia": "10/05/2024",
-        "Clave": "UGGUK2QWE5"
-    },
-    {
-        "Dia": "11/05/2024",
-        "Clave": "I9KTUK0FQL"
-    },
-    {
-        "Dia": "12/05/2024",
-        "Clave": "JF8922NF83"
-    },
-    {
-        "Dia": "13/05/2024",
-        "Clave": "6ZYXG06R5Y"
-    },
-    {
-        "Dia": "14/05/2024",
-        "Clave": "FXRUJXEDI1"
-    },
-    {
-        "Dia": "15/05/2024",
-        "Clave": "J0PIJXF6Q2"
-    },
-    {
-        "Dia": "16/05/2024",
-        "Clave": "ZAH962ZPEZ"
-    },
-    {
-        "Dia": "17/05/2024",
-        "Clave": "1LYXLE2Q62"
-    },
-    {
-        "Dia": "18/05/2024",
-        "Clave": "SHIU4T82MX"
-    },
-    {
-        "Dia": "19/05/2024",
-        "Clave": "JX8992NFQW"
-    },
-    {
-        "Dia": "20/05/2024",
-        "Clave": "OZGXG0ZR55"
-    },
-    {
-        "Dia": "21/05/2024",
-        "Clave": "W2MX2ZYPH6"
-    },
-    {
-        "Dia": "22/05/2024",
-        "Clave": "DW0T0EB44X"
-    },
-    {
-        "Dia": "23/05/2024",
-        "Clave": "RS7IJRK6IT"
-    },
-    {
-        "Dia": "24/05/2024",
-        "Clave": "JLGXLEVQ69"
-    },
-    {
-        "Dia": "25/05/2024",
-        "Clave": "SHIU4BQ2TQ"
-    },
-    {
-        "Dia": "26/05/2024",
-        "Clave": "UPXIVI4UIG"
-    },
-    {
-        "Dia": "27/05/2024",
-        "Clave": "7M52293ZUG"
-    },
-    {
-        "Dia": "28/05/2024",
-        "Clave": "E24X2ZRPHD"
-    },
-    {
-        "Dia": "29/05/2024",
-        "Clave": "DW0T0EIXMF"
-    },
-    {
-        "Dia": "30/05/2024",
-        "Clave": "YL7I1RK6IB"
-    },
-    {
-        "Dia": "31/05/2024",
-        "Clave": "3N92G9PUZF"
-    },
-    {
-        "Dia": "01/06/2024",
-        "Clave": "LRAXMCJA8M"
-    },
-    {
-        "Dia": "02/06/2024",
-        "Clave": "N0CUKEQA6E"
-    },
-    {
-        "Dia": "03/06/2024",
-        "Clave": "ZXSTRESO33"
-    },
-    {
-        "Dia": "04/06/2024",
-        "Clave": "FXRUJWED8C"
-    },
-    {
-        "Dia": "05/06/2024",
-        "Clave": "9BPIJXF6Q1"
-    },
-    {
-        "Dia": "06/06/2024",
-        "Clave": "AA7I1RK6IA"
-    },
-    {
-        "Dia": "07/06/2024",
-        "Clave": "ZJ89XORMQ9"
-    },
-    {
-        "Dia": "08/06/2024",
-        "Clave": "0SS9YUTKQ8"
-    },
-    {
-        "Dia": "09/06/2024",
-        "Clave": "JZ4X57BQ2U"
-    },
-    {
-        "Dia": "10/06/2024",
-        "Clave": "GBFULCWAE6"
-    },
-    {
-        "Dia": "11/06/2024",
-        "Clave": "12SX2Z9PHW"
-    },
-    {
-        "Dia": "12/06/2024",
-        "Clave": "FBOUZU8IG4"
-    },
-    {
-        "Dia": "13/06/2024",
-        "Clave": "7EST0J2EIL"
-    },
-    {
-        "Dia": "14/06/2024",
-        "Clave": "I24I1IKY48"
-    },
-    {
-        "Dia": "15/06/2024",
-        "Clave": "J12I12L0AH"
-    },
-    {
-        "Dia": "16/06/2024",
-        "Clave": "JQ8962NFK0"
-    },
-    {
-        "Dia": "17/06/2024",
-        "Clave": "HZAXG03R52"
-    },
-    {
-        "Dia": "18/06/2024",
-        "Clave": "HYW21R6IGE"
-    },
-    {
-        "Dia": "19/06/2024",
-        "Clave": "Z7MXGZ15E4"
-    },
-    {
-        "Dia": "20/06/2024",
-        "Clave": "8Z4XLH0ZE5"
-    },
-    {
-        "Dia": "21/06/2024",
-        "Clave": "YBETSJA6GL"
-    },
-    {
-        "Dia": "22/06/2024",
-        "Clave": "I9KTUKB5PL"
-    },
-    {
-        "Dia": "23/06/2024",
-        "Clave": "RTXIVI4UIF"
-    },
-    {
-        "Dia": "24/06/2024",
-        "Clave": "UO99E2Q8QS"
-    },
-    {
-        "Dia": "25/06/2024",
-        "Clave": "GW79F527WR"
-    },
-    {
-        "Dia": "26/06/2024",
-        "Clave": "9V421LBGUU"
-    },
-    {
-        "Dia": "27/06/2024",
-        "Clave": "8V52J33PZO"
-    },
-    {
-        "Dia": "28/06/2024",
-        "Clave": "6L4XLESQ6D"
-    },
-    {
-        "Dia": "29/06/2024",
-        "Clave": "SHIU4YE2XN"
-    },
-    {
-        "Dia": "30/06/2024",
-        "Clave": "Y4STO3JXNF"
-    },
-    {
-        "Dia": "01/07/2024",
-        "Clave": "MZGXG0KR5M"
-    },
-    {
-        "Dia": "02/07/2024",
-        "Clave": "GD79S527EF"
-    },
-    {
-        "Dia": "03/07/2024",
-        "Clave": "UNN9TAZ7KE"
-    },
-    {
-        "Dia": "04/07/2024",
-        "Clave": "ZWH9U2ZP2D"
-    },
-    {
-        "Dia": "05/07/2024",
-        "Clave": "Z689VORMEC"
-    },
-    {
-        "Dia": "06/07/2024",
-        "Clave": "AB2I12L0AG"
-    },
-    {
-        "Dia": "07/07/2024",
-        "Clave": "BAXI7I4UIQ"
-    },
-    {
-        "Dia": "08/07/2024",
-        "Clave": "UZ99Y2Q829"
-    },
-    {
-        "Dia": "09/07/2024",
-        "Clave": "XWVT30YJSR"
-    },
-    {
-        "Dia": "10/07/2024",
-        "Clave": "DW0T0EZI2X"
-    },
-    {
-        "Dia": "11/07/2024",
-        "Clave": "XGOUTWKAF6"
-    },
-    {
-        "Dia": "12/07/2024",
-        "Clave": "YBETSJ1GLR"
-    },
-    {
-        "Dia": "13/07/2024",
-        "Clave": "SHIU4FW2H4"
-    },
-    {
-        "Dia": "14/07/2024",
-        "Clave": "N0CUKP2AI3"
-    },
-    {
-        "Dia": "15/07/2024",
-        "Clave": "ZXSTRE4DEF"
-    },
-    {
-        "Dia": "16/07/2024",
-        "Clave": "O2GX2Z5PH1"
-    },
-    {
-        "Dia": "17/07/2024",
-        "Clave": "Y7MXGZ45E2"
-    },
-    {
-        "Dia": "18/07/2024",
-        "Clave": "IVW2JF30ZO"
-    },
-    {
-        "Dia": "19/07/2024",
-        "Clave": "HLGXLE2Q64"
-    },
-    {
-        "Dia": "20/07/2024",
-        "Clave": "GPY2ERVJ0Z"
-    },
-    {
-        "Dia": "21/07/2024",
-        "Clave": "FJZ29X3TJF"
-    },
-    {
-        "Dia": "22/07/2024",
-        "Clave": "EM022F33UG"
-    },
-    {
-        "Dia": "23/07/2024",
-        "Clave": "G179D5272U"
-    },
-    {
-        "Dia": "24/07/2024",
-        "Clave": "UBN9EAZ78T"
-    },
-    {
-        "Dia": "25/07/2024",
-        "Clave": "TS7IDRK6IL"
-    },
-    {
-        "Dia": "26/07/2024",
-        "Clave": "ZU89GORM2R"
-    },
-    {
-        "Dia": "27/07/2024",
-        "Clave": "VQ2IP2L0A4"
-    },
-    {
-        "Dia": "28/07/2024",
-        "Clave": "WPXIVI4UIE"
-    },
-    {
-        "Dia": "29/07/2024",
-        "Clave": "XOQIDJFXIO"
-    },
-    {
-        "Dia": "30/07/2024",
-        "Clave": "XWVT30JYGF"
-    },
-    {
-        "Dia": "31/07/2024",
-        "Clave": "DW0T0EKXQL"
-    },
-    {
-        "Dia": "01/08/2024",
-        "Clave": "XGOUT7WA5H"
-    },
-    {
-        "Dia": "02/08/2024",
-        "Clave": "YLYXLEKQ6N"
-    },
-    {
-        "Dia": "03/08/2024",
-        "Clave": "0QS9TUTKQF"
-    },
-    {
-        "Dia": "04/08/2024",
-        "Clave": "J089U2NFWE"
-    },
-    {
-        "Dia": "05/08/2024",
-        "Clave": "9DQI1JFXIB"
-    },
-    {
-        "Dia": "06/08/2024",
-        "Clave": "52YX2ZGPHR"
-    },
-    {
-        "Dia": "07/08/2024",
-        "Clave": "F74XGZF5ES"
-    },
-    {
-        "Dia": "08/08/2024",
-        "Clave": "Z7H9Y2ZPEA"
-    },
-    {
-        "Dia": "09/08/2024",
-        "Clave": "D94IDIKY4I"
-    },
-    {
-        "Dia": "10/08/2024",
-        "Clave": "SHIU4WE2E8"
-    },
-    {
-        "Dia": "11/08/2024",
-        "Clave": "N0CUK6KAF7"
-    },
-    {
-        "Dia": "12/08/2024",
-        "Clave": "XZSXG0AR5X"
-    },
-    {
-        "Dia": "13/08/2024",
-        "Clave": "H5PIDH19LP"
-    },
-    {
-        "Dia": "14/08/2024",
-        "Clave": "I4PIJXF6QZ"
-    },
-    {
-        "Dia": "15/08/2024",
-        "Clave": "XGOUTD2AJ3"
-    },
-    {
-        "Dia": "16/08/2024",
-        "Clave": "4L4XLE6Q61"
-    },
-    {
-        "Dia": "17/08/2024",
-        "Clave": "KPV2EFV60Z"
-    },
-    {
-        "Dia": "18/08/2024",
-        "Clave": "J68982NF20"
-    },
-    {
-        "Dia": "19/08/2024",
-        "Clave": "NZQI7JFXIH"
-    },
-    {
-        "Dia": "20/08/2024",
-        "Clave": "B24X2Z2PH5"
-    },
-    {
-        "Dia": "21/08/2024",
-        "Clave": "L7AXGZ15E6"
-    },
-    {
-        "Dia": "22/08/2024",
-        "Clave": "ZDH9C2ZPKW"
-    },
-    {
-        "Dia": "23/08/2024",
-        "Clave": "RV4IJIKY4O"
-    },
-    {
-        "Dia": "24/08/2024",
-        "Clave": "I9KTUKD5HF"
-    },
-    {
-        "Dia": "25/08/2024",
-        "Clave": "N0CUKCQATT"
-    },
-    {
-        "Dia": "26/08/2024",
-        "Clave": "3ZYXG0WR5B"
-    },
-    {
-        "Dia": "27/08/2024",
-        "Clave": "GU79H527WR"
-    },
-    {
-        "Dia": "28/08/2024",
-        "Clave": "WQPIPXF6Q5"
-    },
-    {
-        "Dia": "29/08/2024",
-        "Clave": "XGOUTJ8AXP"
-    },
-    {
-        "Dia": "30/08/2024",
-        "Clave": "ALAXLESQ6F"
-    },
-    {
-        "Dia": "31/08/2024",
-        "Clave": "6P92ELVC0Z"
-    },
-    {
-        "Dia": "01/09/2024",
-        "Clave": "J589R2NF2I"
-    },
-    {
-        "Dia": "02/09/2024",
-        "Clave": "ZXSTRERS03"
-    },
-    {
-        "Dia": "03/09/2024",
-        "Clave": "GT79T527WG"
-    },
-    {
-        "Dia": "04/09/2024",
-        "Clave": "8FPIPXF6Q4"
-    },
-    {
-        "Dia": "05/09/2024",
-        "Clave": "ZZYXLHIZEQ"
-    },
-    {
-        "Dia": "06/09/2024",
-        "Clave": "ZS89WORM2D"
-    },
-    {
-        "Dia": "07/09/2024",
-        "Clave": "I9KTUKWNML"
-    },
-    {
-        "Dia": "08/09/2024",
-        "Clave": "YZMX57FQ2T"
-    },
-    {
-        "Dia": "09/09/2024",
-        "Clave": "UR99Z2Q8WA"
-    },
-    {
-        "Dia": "10/09/2024",
-        "Clave": "FXRUJ5QDE9"
-    },
-    {
-        "Dia": "11/09/2024",
-        "Clave": "RVP21XBPUU"
-    },
-    {
-        "Dia": "12/09/2024",
-        "Clave": "7EST0J1I9F"
-    },
-    {
-        "Dia": "13/09/2024",
-        "Clave": "UGGUK4WWH6"
-    },
-    {
-        "Dia": "14/09/2024",
-        "Clave": "0DS94UTKE5"
-    },
-    {
-        "Dia": "15/09/2024",
-        "Clave": "Y4STO34F83"
-    },
-    {
-        "Dia": "16/09/2024",
-        "Clave": "GBFUL3QAK3"
-    },
-    {
-        "Dia": "17/09/2024",
-        "Clave": "L2PI1H19LC"
-    },
-    {
-        "Dia": "18/09/2024",
-        "Clave": "FBOUZR8IM1"
-    },
-    {
-        "Dia": "19/09/2024",
-        "Clave": "JVX2JR3AZO"
-    },
-    {
-        "Dia": "20/09/2024",
-        "Clave": "OZ4I7IKY4B"
-    },
-    {
-        "Dia": "21/09/2024",
-        "Clave": "6RYXMC2A86"
-    },
-    {
-        "Dia": "22/09/2024",
-        "Clave": "GJ029F39JF"
-    },
-    {
-        "Dia": "23/09/2024",
-        "Clave": "RWQI1JFXIA"
-    },
-    {
-        "Dia": "24/09/2024",
-        "Clave": "EY22196XGE"
-    },
-    {
-        "Dia": "25/09/2024",
-        "Clave": "UXN9FAZ7WU"
-    },
-    {
-        "Dia": "26/09/2024",
-        "Clave": "XGOUTC2AUT"
-    },
-    {
-        "Dia": "27/09/2024",
-        "Clave": "BN52GFPWZF"
-    },
-    {
-        "Dia": "28/09/2024",
-        "Clave": "WR2IJ2L0AW"
-    },
-    {
-        "Dia": "29/09/2024",
-        "Clave": "N0CUKBQAXQ"
-    },
-    {
-        "Dia": "30/09/2024",
-        "Clave": "8M82293VUG"
-    },
-    {
-        "Dia": "01/10/2024",
-        "Clave": "XWVT30QUPR"
-    },
-    {
-        "Dia": "02/10/2024",
-        "Clave": "1VG213BUUU"
-    },
-    {
-        "Dia": "03/10/2024",
-        "Clave": "7EST0JSSEL"
-    },
-    {
-        "Dia": "04/10/2024",
-        "Clave": "ZNI2G3PJZF"
-    },
-    {
-        "Dia": "05/10/2024",
-        "Clave": "SHIU4O829F"
-    },
-    {
-        "Dia": "06/10/2024",
-        "Clave": "XJK29F38JF"
-    },
-    {
-        "Dia": "07/10/2024",
-        "Clave": "ZXSTREWOTX"
-    },
-    {
-        "Dia": "08/10/2024",
-        "Clave": "CCPIDH19LN"
-    },
-    {
-        "Dia": "09/10/2024",
-        "Clave": "FBOUZ2KIDB"
-    },
-    {
-        "Dia": "10/10/2024",
-        "Clave": "EA7I7RK6IC"
-    },
-    {
-        "Dia": "11/10/2024",
-        "Clave": "8LAXLEDQ6W"
-    },
-    {
-        "Dia": "12/10/2024",
-        "Clave": "G82IP2L0A1"
-    },
-    {
-        "Dia": "13/10/2024",
-        "Clave": "XZMX57BQ2Y"
-    },
-    {
-        "Dia": "14/10/2024",
-        "Clave": "I6QIJJFXIR"
-    },
-    {
-        "Dia": "15/10/2024",
-        "Clave": "OYT21R6EGE"
-    },
-    {
-        "Dia": "16/10/2024",
-        "Clave": "DW0T0E5FZX"
-    },
-    {
-        "Dia": "17/10/2024",
-        "Clave": "ZTH972ZP23"
-    },
-    {
-        "Dia": "18/10/2024",
-        "Clave": "YBETSJ7DOX"
-    },
-    {
-        "Dia": "19/10/2024",
-        "Clave": "0IS99UTKK1"
-    },
-    {
-        "Dia": "20/10/2024",
-        "Clave": "Y4STO39BD9"
-    },
-    {
-        "Dia": "21/10/2024",
-        "Clave": "IMZ22X3IUG"
-    },
-    {
-        "Dia": "22/10/2024",
-        "Clave": "32YX2Z2PH7"
-    },
-    {
-        "Dia": "23/10/2024",
-        "Clave": "UWN9DAZ7WX"
-    },
-    {
-        "Dia": "24/10/2024",
-        "Clave": "SZSXLH0ZE9"
-    },
-    {
-        "Dia": "25/10/2024",
-        "Clave": "TV4IJIKY4M"
-    },
-    {
-        "Dia": "26/10/2024",
-        "Clave": "HRAXMCYA8B"
-    },
-    {
-        "Dia": "27/10/2024",
-        "Clave": "VTXIVI4UIB"
-    },
-    {
-        "Dia": "28/10/2024",
-        "Clave": "7Z4XG0WR5D"
-    },
-    {
-        "Dia": "29/10/2024",
-        "Clave": "XWVT30I2JL"
-    },
-    {
-        "Dia": "30/10/2024",
-        "Clave": "9V821XBOUU"
-    },
-    {
-        "Dia": "31/10/2024",
-        "Clave": "XGOUTTKAZP"
-    },
-    {
-        "Dia": "01/11/2024",
-        "Clave": "3NF2G3PIZF"
-    },
-    {
-        "Dia": "02/11/2024",
-        "Clave": "4RYXMCNA8N"
-    },
-    {
-        "Dia": "03/11/2024",
-        "Clave": "7IXIJI4UIY"
-    },
-    {
-        "Dia": "04/11/2024",
-        "Clave": "0MI2233NUG"
-    },
-    {
-        "Dia": "05/11/2024",
-        "Clave": "ZYJ21F61GE"
-    },
-    {
-        "Dia": "06/11/2024",
-        "Clave": "DW0T0EVQML"
-    },
-    {
-        "Dia": "07/11/2024",
-        "Clave": "BE7IDRK6IH"
-    },
-    {
-        "Dia": "08/11/2024",
-        "Clave": "DLGXLEHQ6T"
-    },
-    {
-        "Dia": "09/11/2024",
-        "Clave": "SHIU4BW2DC"
-    },
-    {
-        "Dia": "10/11/2024",
-        "Clave": "EBXI7I4UIM"
-    },
-    {
-        "Dia": "11/11/2024",
-        "Clave": "IZGXG0ER5W"
-    },
-    {
-        "Dia": "12/11/2024",
-        "Clave": "W2SX2ZDPHX"
-    },
-    {
-        "Dia": "13/11/2024",
-        "Clave": "DW0T0E2JA9"
-    },
-    {
-        "Dia": "14/11/2024",
-        "Clave": "Z4H942ZPE7"
-    },
-    {
-        "Dia": "15/11/2024",
-        "Clave": "1L4XLEAQ60"
-    },
-    {
-        "Dia": "16/11/2024",
-        "Clave": "I9KTUK5GEF"
-    },
-    {
-        "Dia": "17/11/2024",
-        "Clave": "J98972NF84"
-    },
-    {
-        "Dia": "18/11/2024",
-        "Clave": "6Z4XG07R53"
-    },
-    {
-        "Dia": "19/11/2024",
-        "Clave": "FXRUJ3QDN2"
-    },
-    {
-        "Dia": "20/11/2024",
-        "Clave": "O1PI1XF6QE"
-    },
-    {
-        "Dia": "21/11/2024",
-        "Clave": "ZSH9B2ZP20"
-    },
-    {
-        "Dia": "22/11/2024",
-        "Clave": "UGGUK82WQZ"
-    },
-    {
-        "Dia": "23/11/2024",
-        "Clave": "I9KTUKC923"
-    },
-    {
-        "Dia": "24/11/2024",
-        "Clave": "GJ229F37JF"
-    },
-    {
-        "Dia": "25/11/2024",
-        "Clave": "GBFULD2ATW"
-    },
-    {
-        "Dia": "26/11/2024",
-        "Clave": "FXRUJREDUV"
-    },
-    {
-        "Dia": "27/11/2024",
-        "Clave": "U1N9HAZ72U"
-    },
-    {
-        "Dia": "28/11/2024",
-        "Clave": "CV62J93QZO"
-    },
-    {
-        "Dia": "29/11/2024",
-        "Clave": "UGGUKWQWXS"
-    },
-    {
-        "Dia": "30/11/2024",
-        "Clave": "YR2IV2L0A6"
-    },
-    {
-        "Dia": "01/12/2024",
-        "Clave": "JW89R2NFWL"
-    },
-    {
-        "Dia": "02/12/2024",
-        "Clave": "3MG22R3AUG"
-    },
-    {
-        "Dia": "03/12/2024",
-        "Clave": "G279T5278J"
-    },
-    {
-        "Dia": "04/12/2024",
-        "Clave": "1VI21RBGUU"
-    },
-    {
-        "Dia": "05/12/2024",
-        "Clave": "0VJ2J33JZO"
-    },
-    {
-        "Dia": "06/12/2024",
-        "Clave": "ULYXLEKQ6R"
-    },
-    {
-        "Dia": "07/12/2024",
-        "Clave": "XRSXMCJA8S"
-    },
-    {
-        "Dia": "08/12/2024",
-        "Clave": "N0CUKK2ACE"
-    },
-    {
-        "Dia": "09/12/2024",
-        "Clave": "ZXSTREYO39"
-    },
-    {
-        "Dia": "10/12/2024",
-        "Clave": "FXRUJQEDEC"
-    },
-    {
-        "Dia": "11/12/2024",
-        "Clave": "DW0T0E0M99"
-    },
-    {
-        "Dia": "12/12/2024",
-        "Clave": "7EST0J1LCL"
-    },
-    {
-        "Dia": "13/12/2024",
-        "Clave": "ZV893ORM89"
-    },
-    {
-        "Dia": "14/12/2024",
-        "Clave": "0YS94UTK28"
-    },
-    {
-        "Dia": "15/12/2024",
-        "Clave": "QJT29L3CJF"
-    },
-    {
-        "Dia": "16/12/2024",
-        "Clave": "NZMXG0AR51"
-    },
-    {
-        "Dia": "17/12/2024",
-        "Clave": "OYV21X6IGE"
-    },
-    {
-        "Dia": "18/12/2024",
-        "Clave": "T7MXGZ85E3"
-    },
-    {
-        "Dia": "19/12/2024",
-        "Clave": "WZYXLH7ZE4"
-    },
-    {
-        "Dia": "20/12/2024",
-        "Clave": "UGGUKJEWO2"
-    },
-    {
-        "Dia": "21/12/2024",
-        "Clave": "SHIU4M82P1"
-    },
-    {
-        "Dia": "22/12/2024",
-        "Clave": "Y4STO3BB53"
-    },
-    {
-        "Dia": "23/12/2024",
-        "Clave": "RZQIJJFXIP"
-    },
-    {
-        "Dia": "24/12/2024",
-        "Clave": "XWVT30D9BF"
-    },
-    {
-        "Dia": "25/12/2024",
-        "Clave": "UUN9FAZ7WX"
-    },
-    {
-        "Dia": "26/12/2024",
-        "Clave": "ZXH9G2ZP8W"
-    },
-    {
-        "Dia": "27/12/2024",
-        "Clave": "EN52GXPBZF"
-    },
-    {
-        "Dia": "28/12/2024",
-        "Clave": "DP62ERVE0Z"
-    },
-    {
-        "Dia": "29/12/2024",
-        "Clave": "PZGX57XQ2E"
-    },
-    {
-        "Dia": "30/12/2024",
-        "Clave": "GBFULC2AYS"
-    },
-    {
-        "Dia": "31/12/2024",
-        "Clave": "V2SX2ZVPHG"
-    }
+    // --- ENERO (Mes 1) ---
+    { fecha: "1/1/2026", clave: "VVF2JL3AZO" },
+    { fecha: "2/1/2026", clave: "6B4IVIKY45" },
+    { fecha: "3/1/2026", clave: "URGXMCEA8O" },
+    { fecha: "4/1/2026", clave: "JH89U2NF89" },
+    { fecha: "5/1/2026", clave: "ZXSTREUJ63" },
+    { fecha: "6/1/2026", clave: "GT79W527Q7" },
+    { fecha: "7/1/2026", clave: "B6PIDXF6QY" },
+    { fecha: "8/1/2026", clave: "NZGXLH9ZET" },
+    { fecha: "9/1/2026", clave: "ZA89ZORME4" },
+    { fecha: "10/1/2026", clave: "SHIU4JW2E3" },
+    { fecha: "11/1/2026", clave: "LJP29X3XJF" },
+    { fecha: "12/1/2026", clave: "G1QIDJFXIS" },
+    { fecha: "13/1/2026", clave: "G24X2Z4PHY" },
+    { fecha: "14/1/2026", clave: "U3N94AZ7WZ" },
+    { fecha: "15/1/2026", clave: "XGOUTCWAJY" },
+    { fecha: "16/1/2026", clave: "GNU2G3PQZF" },
+    { fecha: "17/1/2026", clave: "I9KTUK674X" },
+    { fecha: "18/1/2026", clave: "AZSX57ZQ23" },
+    { fecha: "19/1/2026", clave: "DMX22F37UG" },
+    { fecha: "20/1/2026", clave: "FXRUJ5KDOT" },
+    { fecha: "21/1/2026", clave: "BVZ21LBJUU" },
+    { fecha: "22/1/2026", clave: "7EST0JB2XX" },
+    { fecha: "23/1/2026", clave: "3LYXLEUQ68" },
+    { fecha: "24/1/2026", clave: "SP2I72L0AQ" },
+    { fecha: "25/1/2026", clave: "Y4STO3EZE3" },
+    { fecha: "26/1/2026", clave: "KZAXG0RR5B" },
+    { fecha: "27/1/2026", clave: "XWVT30GXQL" },
+    { fecha: "28/1/2026", clave: "W7GXGZP5ED" },
+    { fecha: "29/1/2026", clave: "XK7I7RK6IJ" },
+    { fecha: "30/1/2026", clave: "UGGUKSEWYJ" },
+    { fecha: "31/1/2026", clave: "1P92E9V50Z" },
+
+    // --- FEBRERO (Mes 2) ---
+    { fecha: "1/2/2026", clave: "Y4STO3QOJ9" },
+    { fecha: "2/2/2026", clave: "VMG22R3IUG" },
+    { fecha: "3/2/2026", clave: "X2MX2ZFPHO" },
+    { fecha: "4/2/2026", clave: "8API1XF6QL" },
+    { fecha: "5/2/2026", clave: "SVJ2JF33ZO" },
+    { fecha: "6/2/2026", clave: "A84IPIKY4Y" },
+    { fecha: "7/2/2026", clave: "QPL2ELVG0Z" },
+    { fecha: "8/2/2026", clave: "Y4STO3XHVL" },
+    { fecha: "9/2/2026", clave: "OMN2233UUG" },
+    { fecha: "10/2/2026", clave: "92YX2Z8PHV" },
+    { fecha: "11/2/2026", clave: "UWN91AZ7Q3" },
+    { fecha: "12/2/2026", clave: "MZGXLH6ZEX" },
+    { fecha: "13/2/2026", clave: "H14I1IKY4A" },
+    { fecha: "14/2/2026", clave: "JPS2EXVS0Z" },
+    { fecha: "15/2/2026", clave: "Y4STO34A7X" },
+    { fecha: "16/2/2026", clave: "DZ4XG02R51" },
+    { fecha: "17/2/2026", clave: "FXRUJ4KDLX" },
+    { fecha: "18/2/2026", clave: "U8N98AZ72W" },
+    { fecha: "19/2/2026", clave: "YZSXLHZZE4" },
+    { fecha: "20/2/2026", clave: "OU4IDIKY4M" },
+    { fecha: "21/2/2026", clave: "CPZ2E9V40Z" },
+    { fecha: "22/2/2026", clave: "QSXIDI4UIZ" },
+    { fecha: "23/2/2026", clave: "PZGXG0VR58" },
+    { fecha: "24/2/2026", clave: "FXRUJGWDSQ" },
+    { fecha: "25/2/2026", clave: "UKN9FAZ7EP" },
+    { fecha: "26/2/2026", clave: "AZ4XLHSZEB" },
+    { fecha: "27/2/2026", clave: "ZX89HORM2N" },
+    { fecha: "28/2/2026", clave: "NRAXMCQA8D" },
+
+    // --- MARZO (Mes 3) ---
+    { fecha: "1/3/2026", clave: "KZ4X57IQ2M" },
+    { fecha: "2/3/2026", clave: "ZXSTREROSR" },
+    { fecha: "3/3/2026", clave: "XWVT30SN0X" },
+    { fecha: "4/3/2026", clave: "UPN9UAZ7KB" },
+    { fecha: "5/3/2026", clave: "FZAXLHEZEQ" },
+    { fecha: "6/3/2026", clave: "YBETSJVKNR" },
+    { fecha: "7/3/2026", clave: "B82IV2L0AC" },
+    { fecha: "8/3/2026", clave: "QJM29X3VJF" },
+    { fecha: "9/3/2026", clave: "GBFULVEAD6" },
+    { fecha: "10/3/2026", clave: "XWVT30ZGIF" },
+    { fecha: "11/3/2026", clave: "U7N91AZ724" },
+    { fecha: "12/3/2026", clave: "MVQ2J33QZO" },
+    { fecha: "13/3/2026", clave: "UGGUKQEWH2" },
+    { fecha: "14/3/2026", clave: "I12ID2L0AU" },
+    { fecha: "15/3/2026", clave: "JJT29F3DJF" },
+    { fecha: "16/3/2026", clave: "GBFULDWAKZ" },
+    { fecha: "17/3/2026", clave: "FXRUJL2DLY" },
+    { fecha: "18/3/2026", clave: "MXPI7XF6QQ" },
+    { fecha: "19/3/2026", clave: "FVX2JL38ZO" },
+    { fecha: "20/3/2026", clave: "UGGUK8WWOV" },
+    { fecha: "21/3/2026", clave: "I9KTUKA5WR" },
+    { fecha: "22/3/2026", clave: "JL89C2NFET" },
+    { fecha: "23/3/2026", clave: "CZ4XG0WR58" },
+    { fecha: "24/3/2026", clave: "FXRUJ3KDSR" },
+    { fecha: "25/3/2026", clave: "TQPIPXF6Q8" },
+    { fecha: "26/3/2026", clave: "ZGH9G2ZPKP" },
+    { fecha: "27/3/2026", clave: "7L4XLESQ6C" },
+    { fecha: "28/3/2026", clave: "I9KTUKHYE9" },
+    { fecha: "29/3/2026", clave: "J389J2NFWM" },
+    { fecha: "30/3/2026", clave: "UZMXG0PR5F" },
+    { fecha: "31/3/2026", clave: "22SX2ZOPHG" },
+
+    // --- ABRIL (Mes 4) ---
+    { fecha: "1/4/2026", clave: "DW0T0EQQLF" },
+    { fecha: "2/4/2026", clave: "7EST0JRPUX" },
+    { fecha: "3/4/2026", clave: "7D4IDIKY4K" },
+    { fecha: "4/4/2026", clave: "8C2ID2L0AT" },
+    { fecha: "5/4/2026", clave: "UJJ29F3CJF" },
+    { fecha: "6/4/2026", clave: "TZMXG0ER5R" },
+    { fecha: "7/4/2026", clave: "SYL2136UGE" },
+    { fecha: "8/4/2026", clave: "B7YXGZC5ET" },
+    { fecha: "9/4/2026", clave: "XGOUT3QAD7" },
+    { fecha: "10/4/2026", clave: "YBETSJZHSX" },
+    { fecha: "11/4/2026", clave: "I9KTUK0G1X" },
+    { fecha: "12/4/2026", clave: "G4XI7I4UIR" },
+    { fecha: "13/4/2026", clave: "MMR22L3AUG" },
+    { fecha: "14/4/2026", clave: "G879452782" },
+    { fecha: "15/4/2026", clave: "KVT21XBSUU" },
+    { fecha: "16/4/2026", clave: "JVU2JF31ZO" },
+    { fecha: "17/4/2026", clave: "UGGUK1QWLZ" },
+    { fecha: "18/4/2026", clave: "SHIU4AQ2MY" },
+    { fecha: "19/4/2026", clave: "Y4STO388ZR" },
+    { fecha: "20/4/2026", clave: "OWQIDJFXIP" },
+    { fecha: "21/4/2026", clave: "PVPIJH19LX" },
+    { fecha: "22/4/2026", clave: "U6N9CAZ72U" },
+    { fecha: "23/4/2026", clave: "ZFH9D2ZPKT" },
+    { fecha: "24/4/2026", clave: "BN22GFPZZF" },
+    { fecha: "25/4/2026", clave: "FR4XMCVA8A" },
+    { fecha: "26/4/2026", clave: "N0CUK8KAUQ" },
+    { fecha: "27/4/2026", clave: "ZXSTREG0XX" },
+    { fecha: "28/4/2026", clave: "FXRUJQ8DWO" },
+    { fecha: "29/4/2026", clave: "XNPIDXF6QV" },
+    { fecha: "30/4/2026", clave: "YM7IVRK6I4" },
+
+    // --- MAYO (Mes 5) ---
+    { fecha: "1/5/2026", clave: "UGGUK6WW5G" },
+    { fecha: "2/5/2026", clave: "WRMXMCJA8N" },
+    { fecha: "3/5/2026", clave: "6ZSX57IQ2O" },
+    { fecha: "4/5/2026", clave: "GBFULZKA8D" },
+    { fecha: "5/5/2026", clave: "VYJ21R6HGE" },
+    { fecha: "6/5/2026", clave: "UVK21XBRUU" },
+    { fecha: "7/5/2026", clave: "ZQH9X2ZPWA" },
+    { fecha: "8/5/2026", clave: "SNM2GRPAZF" },
+    { fecha: "9/5/2026", clave: "09S9ZUTK88" },
+    { fecha: "10/5/2026", clave: "JJ8902NFE7" },
+    { fecha: "11/5/2026", clave: "UT9912Q8W6" },
+    { fecha: "12/5/2026", clave: "G5PIPH19L2" },
+    { fecha: "13/5/2026", clave: "H4PIVXF6QC" },
+    { fecha: "14/5/2026", clave: "7EST0J3E59" },
+    { fecha: "15/5/2026", clave: "J24IPIKY4V" },
+    { fecha: "16/5/2026", clave: "I9KTUK5COL" },
+    { fecha: "17/5/2026", clave: "Y4STO36BYR" },
+    { fecha: "18/5/2026", clave: "ZXSTRE7A89" },
+    { fecha: "19/5/2026", clave: "FXRUJ1KDNY" },
+    { fecha: "20/5/2026", clave: "19KTUK9989" },
+    { fecha: "21/5/2026", clave: "1ZYXLH0ZE6" },
+    { fecha: "22/5/2026", clave: "BLAXLEZQ67" },
+    { fecha: "23/5/2026", clave: "KRAXMCYA88" },
+    { fecha: "24/5/2026", clave: "UZGX57XQ29" },
+    { fecha: "25/5/2026", clave: "4ZYXG0WR5A" },
+    { fecha: "26/5/2026", clave: "AY421F65GE" },
+    { fecha: "27/5/2026", clave: "9V521LBFUU" },
+    { fecha: "28/5/2026", clave: "9J629L3GJF" },
+    { fecha: "29/5/2026", clave: "ZO89JORMWO" },
+    { fecha: "30/5/2026", clave: "0XS9KUTKWN" },
+    { fecha: "31/5/2026", clave: "J789L2NF2M" },
+
+    // --- JUNIO (Mes 6) ---
+    { fecha: "1/6/2026", clave: "U499R2Q88H" },
+    { fecha: "2/6/2026", clave: "FXRUJI2D6G" },
+    { fecha: "3/6/2026", clave: "97YXGZJ5EO" },
+    { fecha: "4/6/2026", clave: "XVI2JR3BZO" },
+    { fecha: "5/6/2026", clave: "ZB89VORMKD" },
+    { fecha: "6/6/2026", clave: "I9KTUKVN53" },
+    { fecha: "7/6/2026", clave: "Y4STO3WMF9" },
+    { fecha: "8/6/2026", clave: "GBFULAWACA" },
+    { fecha: "9/6/2026", clave: "GI79Z527K9" },
+    { fecha: "10/6/2026", clave: "E8PIDXF6QT" },
+    { fecha: "11/6/2026", clave: "7EST0J0IMR" },
+    { fecha: "12/6/2026", clave: "UGGUKH8WG6" },
+    { fecha: "13/6/2026", clave: "OPR2E9V00Z" },
+    { fecha: "14/6/2026", clave: "NJS29F3AJF" },
+    { fecha: "15/6/2026", clave: "UA9952Q8E3" },
+    { fecha: "16/6/2026", clave: "FXRUJO8DK2" },
+    { fecha: "17/6/2026", clave: "FBOUZYEIL1" },
+    { fecha: "18/6/2026", clave: "JVW2JX3HZO" },
+    { fecha: "19/6/2026", clave: "ZH899ORMQZ" },
+    { fecha: "20/6/2026", clave: "FBOUZBQIOX" },
+    { fecha: "21/6/2026", clave: "Y4STO3A8LF" },
+    { fecha: "22/6/2026", clave: "GBFULG2AQW" },
+    { fecha: "23/6/2026", clave: "GO79D527QV" },
+    { fecha: "24/6/2026", clave: "UYN9EAZ7WU" },
+    { fecha: "25/6/2026", clave: "7EST0JE4SX" },
+    { fecha: "26/6/2026", clave: "UGGUKNEWUS" },
+    { fecha: "27/6/2026", clave: "DR4XMCVA8C" },
+    { fecha: "28/6/2026", clave: "ZEH9I2ZPKP" },
+    { fecha: "29/6/2026", clave: "UG99J2Q8KP" },
+    { fecha: "30/6/2026", clave: "FXRUJUEDYO" },
+
+    // --- JULIO (Mes 7) ---
+    { fecha: "1/7/2026", clave: "DW0T0EQTOL" },
+    { fecha: "2/7/2026", clave: "0VG2J93SZO" },
+    { fecha: "3/7/2026", clave: "7G4IPIKY4T" },
+    { fecha: "4/7/2026", clave: "SHIU47Q28F" },
+    { fecha: "5/7/2026", clave: "XJJ29X3RJF" },
+    { fecha: "6/7/2026", clave: "ADQIJJFXIS" },
+    { fecha: "7/7/2026", clave: "M2GX2ZGPHS" },
+    { fecha: "8/7/2026", clave: "UFN9YAZ7EB" },
+    { fecha: "9/7/2026", clave: "XGOUTUKADA" },
+    { fecha: "10/7/2026", clave: "LLMXLEDQ6V" },
+    { fecha: "11/7/2026", clave: "F82I12L0AE" },
+    { fecha: "12/7/2026", clave: "N0CUKT8AG7" },
+    { fecha: "13/7/2026", clave: "KZGXG0AR5Y" },
+    { fecha: "14/7/2026", clave: "XWVT303GWX" },
+    { fecha: "15/7/2026", clave: "87YXGZ85E0" },
+    { fecha: "16/7/2026", clave: "Z0H962ZP83" },
+    { fecha: "17/7/2026", clave: "YBETSJ6DV3" },
+    { fecha: "18/7/2026", clave: "KPW2E9VZ0Z" },
+    { fecha: "19/7/2026", clave: "JZ8992NFW0" },
+    { fecha: "20/7/2026", clave: "I9KTUK99B9" },
+    { fecha: "21/7/2026", clave: "GN79B527QY" },
+    { fecha: "22/7/2026", clave: "QXPIJXF6QY" },
+    { fecha: "23/7/2026", clave: "TZSXLH0ZE8" },
+    { fecha: "24/7/2026", clave: "ZM89EORMWV" },
+    { fecha: "25/7/2026", clave: "I9KTUKE5GF" },
+    { fecha: "26/7/2026", clave: "SZGX57XQ2B" },
+    { fecha: "27/7/2026", clave: "UL99H2Q8QS" },
+    { fecha: "28/7/2026", clave: "FXRUJZKDWR" },
+    { fecha: "29/7/2026", clave: "9V721RBJUU" },
+    { fecha: "30/7/2026", clave: "7EST0JJ039" },
+    { fecha: "31/7/2026", clave: "UGGUKYQWZO" },
+
+    // --- AGOSTO (Mes 8) ---
+    { fecha: "1/8/2026", clave: "06S9RUTK8J" },
+    { fecha: "2/8/2026", clave: "N0CUKM2A6I" },
+    { fecha: "3/8/2026", clave: "0MH22L36UG" },
+    { fecha: "4/8/2026", clave: "R2MX2ZKPHP" },
+    { fecha: "5/8/2026", clave: "9FPI7XF6QL" },
+    { fecha: "6/8/2026", clave: "GZGXLHIZER" },
+    { fecha: "7/8/2026", clave: "BD4I7IKY4A" },
+    { fecha: "8/8/2026", clave: "VPM2E9VY0Z" },
+    { fecha: "9/8/2026", clave: "DBXIJI4UIZ" },
+    { fecha: "10/8/2026", clave: "VZSXG0ER5V" },
+    { fecha: "11/8/2026", clave: "FXRUJSEDF9" },
+    { fecha: "12/8/2026", clave: "RVQ21LBCUU" },
+    { fecha: "13/8/2026", clave: "XGOUTH8AH7" },
+    { fecha: "14/8/2026", clave: "ZR894ORM26" },
+    { fecha: "15/8/2026", clave: "SHIU46Q2J5" },
+    { fecha: "16/8/2026", clave: "JG8962NFE4" },
+    { fecha: "17/8/2026", clave: "GBFULWKAL3" },
+    { fecha: "18/8/2026", clave: "M2PIVH19L5" },
+    { fecha: "19/8/2026", clave: "17SXGZ55E4" },
+    { fecha: "20/8/2026", clave: "ZXSTRE9AUX" },
+    { fecha: "21/8/2026", clave: "QLSXLE3Q66" },
+    { fecha: "22/8/2026", clave: "I9KTUKB933" },
+    { fecha: "23/8/2026", clave: "FZ4X571Q28" },
+    { fecha: "24/8/2026", clave: "SWQI1JFXI9" },
+    { fecha: "25/8/2026", clave: "GM79F527QV" },
+    { fecha: "26/8/2026", clave: "DW0T0EF5HF" },
+    { fecha: "27/8/2026", clave: "ZBH9H2ZPKT" },
+    { fecha: "28/8/2026", clave: "UGGUKRKWWS" },
+    { fecha: "29/8/2026", clave: "00S9JUTK2R" },
+    { fecha: "30/8/2026", clave: "N0CUKGWAYQ" },
+    { fecha: "31/8/2026", clave: "UQ99L2Q8WP" },
+
+    // --- SEPTIEMBRE (Mes 9) ---
+    { fecha: "1/9/2026", clave: "Q2MX2ZOPHM" },
+    { fecha: "2/9/2026", clave: "DW0T0ERU43" },
+    { fecha: "3/9/2026", clave: "ZYH9T2ZP8I" },
+    { fecha: "4/9/2026", clave: "VLYXLELQ6P" },
+    { fecha: "5/9/2026", clave: "SHIU4TE29G" },
+    { fecha: "6/9/2026", clave: "J389W2NF2F" },
+    { fecha: "7/9/2026", clave: "0ZYXG0IR5S" },
+    { fecha: "8/9/2026", clave: "FXRUJXKDCD" },
+    { fecha: "9/9/2026", clave: "DCPIVXF6Q8" },
+    { fecha: "10/9/2026", clave: "ZMH902ZPWB" },
+    { fecha: "11/9/2026", clave: "UGGUK2WWFA" },
+    { fecha: "12/9/2026", clave: "I9KTUK1KWX" },
+    { fecha: "13/9/2026", clave: "JR8932NFQ8" },
+    { fecha: "14/9/2026", clave: "GBFUL7WAI7" },
+    { fecha: "15/9/2026", clave: "FXRUJL8DJ6" },
+    { fecha: "16/9/2026", clave: "UVN96AZ7W5" },
+    { fecha: "17/9/2026", clave: "NVV2J33KZO" },
+    { fecha: "18/9/2026", clave: "UGGUKQKWM3" },
+    { fecha: "19/9/2026", clave: "N22IP2L0A0" },
+    { fecha: "20/9/2026", clave: "O07IPRK6IU" },
+    { fecha: "21/9/2026", clave: "GBFULVKAP0" },
+    { fecha: "22/9/2026", clave: "XWVT30BAOR" },
+    { fecha: "23/9/2026", clave: "UJN9DAZ7KY" },
+    { fecha: "24/9/2026", clave: "FZGXLH1ZE9" },
+    { fecha: "25/9/2026", clave: "YBETSJE7T3" },
+    { fecha: "26/9/2026", clave: "UV2ID2L0AO" },
+    { fecha: "27/9/2026", clave: "KZAX57YQ2C" },
+    { fecha: "28/9/2026", clave: "ZXSTREH4Y3" },
+    { fecha: "29/9/2026", clave: "XWVT30I3CF" },
+    { fecha: "30/9/2026", clave: "AV821RBHUU" },
+
+    // --- OCTUBRE (Mes 10) ---
+    { fecha: "1/10/2026", clave: "4VF2JR37ZO" },
+    { fecha: "2/10/2026", clave: "ILMXLEOQ6N" },
+    { fecha: "3/10/2026", clave: "LRGXMCNA8O" },
+    { fecha: "4/10/2026", clave: "N0CUK8QA8I" },
+    { fecha: "5/10/2026", clave: "ZXSTREUSRX" },
+    { fecha: "6/10/2026", clave: "FXRUJE2DAG" },
+    { fecha: "7/10/2026", clave: "DW0T0EWQXX" },
+    { fecha: "8/10/2026", clave: "7EST0JXP09" },
+    { fecha: "9/10/2026", clave: "DD4IJIKY4K" },
+    { fecha: "10/10/2026", clave: "EC2ID2L0AN" },
+    { fecha: "11/10/2026", clave: "JQ8912NFQB" },
+    { fecha: "12/10/2026", clave: "TMQ22L34UG" },
+    { fecha: "13/10/2026", clave: "SYR21L66GE" },
+    { fecha: "14/10/2026", clave: "H7AXGZC5EZ" },
+    { fecha: "15/10/2026", clave: "KZMXLHBZE0" },
+    { fecha: "16/10/2026", clave: "UGGUK72WK6" },
+    { fecha: "17/10/2026", clave: "SHIU4AW2L5" },
+    { fecha: "18/10/2026", clave: "Y4STO37FTR" },
+    { fecha: "19/10/2026", clave: "N3QI7JFXID" },
+    { fecha: "20/10/2026", clave: "KJY29X3PJF" },
+    { fecha: "21/10/2026", clave: "P1PI7XF6QJ" },
+    { fecha: "22/10/2026", clave: "Q07IJRK6IM" },
+    { fecha: "23/10/2026", clave: "ZP89DORM2Z" },
+    { fecha: "24/10/2026", clave: "0SS9EUTKWY" },
+    { fecha: "25/10/2026", clave: "DZ4X571Q2A" },
+    { fecha: "26/10/2026", clave: "GBFUL0QAUW" },
+    { fecha: "27/10/2026", clave: "J2GX2ZZPHC" },
+    { fecha: "28/10/2026", clave: "FBOUZ6QIWU" },
+    { fecha: "29/10/2026", clave: "XGOUT92AXT" },
+    { fecha: "30/10/2026", clave: "YBETSJJ3S3" },
+    { fecha: "31/10/2026", clave: "I9KTUKK2VX" },
+
+    // --- NOVIEMBRE (Mes 11) ---
+    { fecha: "1/11/2026", clave: "Y4STO3QXGF" },
+    { fecha: "2/11/2026", clave: "ZXSTRERWKR" },
+    { fecha: "3/11/2026", clave: "O2MX2ZOPHO" },
+    { fecha: "4/11/2026", clave: "S7MXGZN5EP" },
+    { fecha: "5/11/2026", clave: "1VJ2J93OZO" },
+    { fecha: "6/11/2026", clave: "0NK2GFPSZF" },
+    { fecha: "7/11/2026", clave: "0LS9XUTKQG" },
+    { fecha: "8/11/2026", clave: "JP89Y2NFQF" },
+    { fecha: "9/11/2026", clave: "UT99Z2Q82E" },
+    { fecha: "10/11/2026", clave: "EDPIPH19LW" },
+    { fecha: "11/11/2026", clave: "FCPIPXF6Q0" },
+    { fecha: "12/11/2026", clave: "7EST0J1MNX" },
+    { fecha: "13/11/2026", clave: "YBETSJ2LR3" },
+    { fecha: "14/11/2026", clave: "SHIU4F22I9" },
+    { fecha: "15/11/2026", clave: "N0CUKJ2AJ8" },
+    { fecha: "16/11/2026", clave: "GBFULNEAK7" },
+    { fecha: "17/11/2026", clave: "PYV21F6ZGE" },
+    { fecha: "18/11/2026", clave: "OVW21FB3UU" },
+    { fecha: "19/11/2026", clave: "NVX2JR36ZO" },
+    { fecha: "20/11/2026", clave: "XWVT309DZ3" },
+    { fecha: "21/11/2026", clave: "03S9BUTK82" },
+    { fecha: "22/11/2026", clave: "J789C2NF81" },
+    { fecha: "23/11/2026", clave: "UB99D2Q8K0" },
+    { fecha: "24/11/2026", clave: "XWVT30DAY3" },
+    { fecha: "25/11/2026", clave: "DW0T0EE923" },
+    { fecha: "26/11/2026", clave: "XGOUTQKAUX" },
+    { fecha: "27/11/2026", clave: "UGGUKUQWVW" },
+    { fecha: "28/11/2026", clave: "SHIU4XK2WV" },
+    { fecha: "29/11/2026", clave: "N0CUK1KAXU" },
+    { fecha: "30/11/2026", clave: "GBFUL5WAYT" },
+
+    // --- DICIEMBRE (Mes 12) ---
+    { fecha: "1/12/2026", clave: "H2GX2ZRPHM" },
+    { fecha: "2/12/2026", clave: "5VG21RBEUU" },
+    { fecha: "3/12/2026", clave: "7L7I7RK6I8" },
+    { fecha: "4/12/2026", clave: "YBETSJTVW9" },
+    { fecha: "5/12/2026", clave: "1RYXMCNA8Q" },
+    { fecha: "6/12/2026", clave: "1JK2993YJF" },
+    { fecha: "7/12/2026", clave: "US99X2Q82H" },
+    { fecha: "8/12/2026", clave: "XWVT30XRFL" },
+    { fecha: "9/12/2026", clave: "FBOUZ4QIDF" },
+    { fecha: "10/12/2026", clave: "XVO2J33HZO" },
+    { fecha: "11/12/2026", clave: "ZB891ORMQD" },
+    { fecha: "12/12/2026", clave: "I9KTUK1NZ3" },
+    { fecha: "13/12/2026", clave: "N0CUKO8AHB" },
+    { fecha: "14/12/2026", clave: "9ZAXG0ER5Z" },
+    { fecha: "15/12/2026", clave: "GU79552729" },
+    { fecha: "16/12/2026", clave: "K8PIPXF6QZ" },
+    { fecha: "17/12/2026", clave: "XGOUT72AL7" },
+    { fecha: "18/12/2026", clave: "SLYXLEAQ63" },
+    { fecha: "19/12/2026", clave: "0ES99UTKK5" },
+    { fecha: "20/12/2026", clave: "O4XI7I4UIJ" },
+    { fecha: "21/12/2026", clave: "ZXSTREAE7F" },
+    { fecha: "22/12/2026", clave: "LY021L64GE" },
+    { fecha: "23/12/2026", clave: "KV121LB8UU" },
+    { fecha: "24/12/2026", clave: "S07I1RK6I2" },
+    { fecha: "25/12/2026", clave: "YBETSJEAQ3" },
+    { fecha: "26/12/2026", clave: "VRSXMC2A8B" },
+    { fecha: "27/12/2026", clave: "GJ52933SJF" },
+    { fecha: "28/12/2026", clave: "UM99I2Q8WW" },
+    { fecha: "29/12/2026", clave: "FXRUJUKDXV" },
+    { fecha: "30/12/2026", clave: "FBOUZYKIYU" },
+    { fecha: "31/12/2026", clave: "CV92JX3BZO" }
 ];
-
-
-/*
-const btClaveArris = document.getElementById('btClaveArris');
-
-btClaveArris.addEventListener('click',capturaClaveArris) 
-
-
-const fechaActual = new Date();
-const dia = fechaActual.getDate();
-const mes = fechaActual.getMonth() + 1; // Los meses comienzan desde 0
-const anio = fechaActual.getFullYear();
-
-const fechaA = `${dia}/0${mes}/${anio}`;
-
-
-let result = claves.filter( persona => {
-    return persona.Dia == fechaA
-})
-
-
-const resulClave = result[0].Clave;
-console.log(result[0].Clave);
-
-//copiar al portapapeles la clave Arris
-function capturaClaveArris(resulClave) {
-    navigator.clipboard.writeText(resulClave);
-  }
-*/
-
-  /*------------------------------------------- */
-
-  const btClaveArris = document.getElementById('btClaveArris');
-
-btClaveArris.addEventListener('click', capturaClaveArris);
-
-function capturaClaveArris() {
-    const fechaActual = new Date();
-    const dia = fechaActual.getDate();
-    const mes = fechaActual.getMonth() + 1; // Los meses comienzan desde 0
-    const anio = fechaActual.getFullYear();
-
-    let fechaA =`${dia}/${mes}/${anio}`;
-
-    if (dia > 9 && mes >9){
-         fechaA = `${dia}/${mes}/${anio}`;
-    }else if (dia <= 9 && mes >9) {
-         fechaA = `0${dia}/${mes}/${anio}`;
-    }else if (dia <= 9 && mes <=9) {
-         fechaA = `0${dia}/0${mes}/${anio}`;
-    }else if (dia > 9 && mes <=9) {
-         fechaA = `${dia}/0${mes}/${anio}`;
-    }
-
-
- console.log(fechaA)
-
-    let result = claves.filter(persona => {
-        return persona.Dia == fechaA;
-    });
-
-    if (result.length > 0) {
-        const resulClave = result[0].Clave;
-        console.log(resulClave);
-        
-        // Copiar al portapapeles la clave Arris
-        navigator.clipboard.writeText(resulClave)
-            .then(() => console.log('Clave copiada al portapapeles'))
-            .catch(err => console.error('Error al copiar al portapapeles:', err));
-    } else {
-        console.log('No hay clave correspondiente para la fecha actual.');
-    }
-}
