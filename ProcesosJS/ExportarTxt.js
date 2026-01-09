@@ -72,7 +72,7 @@ function generarTXT() {
 
     let idServ = document.getElementById("Legado").value.trim();
     let acp = document.getElementById("acp").value.trim();
-    let identificador = (idServ && acp) ? `${idServ} / ACP-${acp}` : (idServ || (acp ? `ACP-${acp}` : ""));
+    let identificador = (idServ && acp) ? `${idServ} / ${acp}` : (idServ || (acp ? `${acp}` : ""));
     
     let snMac = document.getElementById("Legado2").value.trim();
 
