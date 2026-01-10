@@ -3,9 +3,6 @@
    ========================================================================== */
 
 const INFO_TXT_CONTENT = `
-PROXI: 
-http://wpad.epmtelco.com.co/pac_files/wpad.pac
-https://pac-uw2.iws-hybrid.trendmicro.com/7a797eb7-0f00-4e0e-abc2-4bee9cfed9cc/ProxyTigo.pac 
 
 //////////////////////////////////////////////////////////////////////////////
 
