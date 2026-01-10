@@ -31,17 +31,14 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     margin-bottom: 15px;
     padding: 8px 20px;
-    position: sticky; /* Aseguramos que sea sticky */
-    top: 0;
-    z-index: 1020; /* Bootstrap sticky default */
 }
 .navbar-title { font-size: 1rem; font-weight: 500; margin: 0; }
 
-/* Contenedor fluido */
+/* Contenedor fluido (OCUPA TODA LA PANTALLA) */
 .container-fluid-custom {
-    width: 100%;       
-    max-width: 100%;   
-    padding: 0 15px;   
+    width: 100%;       /* Ancho total */
+    max-width: 100%;   /* Asegura que no se limite */
+    padding: 0 15px;   /* Pequeño margen interno para que no pegue al borde */
     margin: 0 auto;
     flex: 1;
 }
@@ -54,7 +51,7 @@ body {
     box-shadow: 0 3px 6px rgba(0,0,0,0.08);
     border: 1px solid #dcdcdc;
     margin-bottom: 12px;
-    width: 100%;
+    width: 100%; /* Asegura que la tarjeta use todo el espacio disponible */
 }
 .card-header-custom {
     font-size: 0.85rem;
@@ -107,7 +104,7 @@ body {
 /* Inputs de una línea */
 input.form-control, select.form-control { height: 34px; }
 
-/* Textareas */
+/* Textareas: Altura automática para respetar el atributo 'rows' del HTML */
 textarea.form-control {
     height: auto; 
     resize: vertical; 
@@ -208,11 +205,3 @@ textarea.form-control {
     cursor: pointer;
 }
 .search-item:hover { background-color: #e9ecef; color: var(--primary-color); }
-
-/* --- CORRECCIÓN PANEL LATERAL (OFFCANVAS) --- */
-.offcanvas {
-    z-index: 10500 !important; /* Prioridad máxima, encima de todo */
-}
-.offcanvas-backdrop {
-    z-index: 10400 !important; /* El fondo oscuro justo debajo del panel */
-}
