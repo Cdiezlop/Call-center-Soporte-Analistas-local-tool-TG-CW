@@ -90,9 +90,12 @@ function actualizarDescripcionAuto() {
     let nombre = document.getElementById("Nombre").value.trim();
     let apellido = document.getElementById("Apellido").value.trim();
     
-    let sujeto = (tratamiento === 'Sr') ? 'el señor' : 'la señora';
-    let nombrePila = (nombre === "") ? "_______" : nombre; // Solo nombre en el saludo, apellido opcional si se quiere agregar
+// Lógica Corregida: Manejo de opción vacía
+    let sujeto = "_______";
+    if (tratamiento === 'Sr') sujeto = 'el señor';
+    if (tratamiento === 'Sra') sujeto = 'la señora';
 
+    let nombrePila = (nombre === "") ? "_______" : nombre; 
     let texto = "";
 
     // 3. Lógica según Plantilla
@@ -381,15 +384,13 @@ function borrarTodoConConfirmacion() {
             if (el) el.value = "";
         });
 
-        // Reset Menús
-        let selects = ["guionesGuion", "guiones", "guiones2", "AreaConware", "tipoIncTxt", "sel_plantilla_desc"];
+        // Reset Menús (Incluyendo Tratamiento y TipoInc)
+        let selects = ["guionesGuion", "guiones", "guiones2", "AreaConware", "tipoIncTxt", "sel_plantilla_desc", "Tratamiento"];
         selects.forEach(id => { if(document.getElementById(id)) document.getElementById(id).selectedIndex = 0; });
 
-        // Reset Radios INC/WO
+        // Desmarcar Radios INC/WO
         let radiosTipo = document.getElementsByName("radioTipoCaso");
         for(let r of radiosTipo) r.checked = false;
-        // Opcional: Dejar marcado INC por defecto
-        if (document.getElementById("radINC")) document.getElementById("radINC").checked = true;
 
         // Reset Colores
         const monitors = document.querySelectorAll('.status-monitor');
@@ -397,26 +398,22 @@ function borrarTodoConConfirmacion() {
 
         document.getElementById("chkContactoActualizado").checked = false;
         
-        // Reset Resumen Radios
+        // Desmarcar Radios Resumen
         let radiosNames = ["res_causa", "res_servicio", "res_tec"];
         radiosNames.forEach(name => {
             let radios = document.getElementsByName(name);
             for(let r of radios) r.checked = false;
         });
 
-        // Reset Checks Descripción (True por defecto)
+        // Reset Checks Descripción
         ["chk_cambios", "chk_reinicio", "chk_conexiones", "chk_electricas", "chk_dispositivos"].forEach(id => {
             if(document.getElementById(id)) document.getElementById(id).checked = true;
         });
 
+
         // Actualizar vista
         actualizarDescripcionAuto();
     }
-}
-
-function uncheckRadios(name) {
-    let radios = document.getElementsByName(name);
-    for(let i=0; i<radios.length; i++) radios[i].checked = false;
 }
 
 /* ==========================================

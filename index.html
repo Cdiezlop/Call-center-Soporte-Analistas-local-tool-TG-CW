@@ -71,7 +71,7 @@
 
                     <div class="mb-1 d-flex gap-3 ps-1">
                         <div class="form-check form-check-inline m-0">
-                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" onclick="seleccionarTipoCaso('INC')" checked>
+                            <input class="form-check-input" type="radio" name="radioTipoCaso" id="radINC" value="INC" onclick="seleccionarTipoCaso('INC')">
                             <label class="form-check-label fw-bold small" for="radINC">INC</label>
                         </div>
                         <div class="form-check form-check-inline m-0">
@@ -84,6 +84,7 @@
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Caso')">#CASO</button>
                         <input type="text" class="form-control status-monitor" id="Caso" placeholder="INC*** / WO***" onkeyup="mayus(this)">
                         <select class="form-select bg-light" id="tipoIncTxt" style="max-width: 110px; font-size: 0.85rem;">
+                            <option value="" selected>-- Tipo --</option>
                             <option value="AVANCE">AVANCE</option>
                             <option value="CREAR">CREAR</option>
                         </select>
@@ -94,6 +95,7 @@
                         <button class="btn btn-label-main" onclick="copyToClipBoard('Nombre')">Nombre</button>
                         <input type="text" class="form-control status-monitor" id="Nombre" placeholder="Nombre" onkeyup="capitalizar(this); actualizarDescripcionAuto()">
                         <select class="form-select" id="Tratamiento" style="max-width: 75px;" onchange="actualizarDescripcionAuto()">
+                            <option value="" selected>--</option>
                             <option value="Sr">Sr</option>
                             <option value="Sra">Sra</option>
                         </select>
