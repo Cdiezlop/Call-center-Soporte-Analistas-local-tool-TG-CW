@@ -177,7 +177,7 @@ function actualizarDescripcionAuto() {
             break;
 
         case "SALIDA":
-            texto = `Se realiza llamada al señor/la señora ${nombrePila}.`;
+            texto = `Se realiza llamada a ${sujeto} ${nombrePila}.`;
             break;
     }
 
@@ -310,7 +310,7 @@ function generarInfoRapida() {
     let tt = elTt ? elTt.value.trim() : "";
 
     // 2. Construir Plantilla
-    let texto = `[${caso}]\n\n`;
+    let texto = `Caso Helix: ${caso}\n`;
     texto += `NOMBRE DE CONTACTO: ${nombreCompleto}\n`;
     texto += `ID LLAMADA: ${idLlamada}\n`;
     texto += `NIT: ${nitCompleto}\n`;
@@ -320,7 +320,7 @@ function generarInfoRapida() {
     texto += `CORREO ELECTRONICO: ${correo}\n`;
     texto += `CIUDAD: ${ciudad}\n`;
     texto += `IDENTIFICADOR: ${identificador}\n`;
-    texto += `SN/MAC/SW: ${snMac}\n\n`;
+    texto += `SN/MAC/SW: ${snMac}\n`;
 
     if (anillo !== "") texto += `ANILLO: ${anillo}\n`;
     if (idCrm !== "") texto += `ID CRM: ${idCrm}\n`;
