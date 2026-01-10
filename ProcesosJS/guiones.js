@@ -29,35 +29,59 @@ function selecionGuiones() {
     if (switchName === "") switchName = "__________";
     if (anillo === "") anillo = "__________";
 
-    /* =========================================
-       TEXTOS BASE
+
+/* =========================================
+       TEXTOS BASE (ACTUALIZADO)
        ========================================= */
     switch (cod) {
         
-        // --- TECNOLOGÍA GPON ---
+        // --- TECNOLOGÍA GPON (Grupo actualizado) ---
         case "GPON_NO_NAVEGA_MASIVA":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado offline. Perfil LDAP bien configurado. Cliente presenta pérdida total de navegación. Se evidencia falla masiva asociada a la TT ___. Se procede a ___.`;
+            texto = `NO NAVEGA\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline, se confirma alarma por LOS, se evidencia falla masiva en la zona, asociado a la Tx. Se le informa al cliente que la solución está en progreso.`;
             break;
 
         case "GPON_NO_NAVEGA_TERRENO":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado offline. Perfil LDAP bien configurado. Cliente presenta pérdida total de navegación. Se evidencian varios clientes afectados en la infraestructura relacionada, se envia correo al area de fallas masivas para confirmar TT o escalar a terreno.`;
-            break;
-        
-        case "GPON_LOS_ROJO":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado offline. Perfil LDAP bien configurado. Cliente presenta pérdida total de navegación. No se evidencia falla masiva, se validaron las conexiones en el equipo, el cliente confirma que las conexiones internas están bien, se escala a terreno.`;
+            texto = `FALLA PARA TERRENO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline, cliente presenta pérdida total de navegación, no se evidencia falla masiva en la zona, se validaron las conexiones en el equipo, el cliente confirma que las conexiones internas están bien, se escala a terreno.`;
             break;
 
         case "GPON_CONECTA_NO_NAVEGA":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado online. Perfil LDAP bien configurado. Parámetros ópticos ___. Conectividad física presente pero sin tráfico de navegación. Se procede a ___.`;
+            texto = `CONECTA Y NO NAVEGA\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} online. Parámetros ópticos estables. Conectividad física presente pero sin tráfico de navegación. Se procede a escalar a campo.`;
             break;
 
         case "GPON_INTERMITENCIA":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado online. Perfil LDAP bien configurado. Parámetros ópticos alarmados, se verifica historial de alarmas y se identifican varias desconexiones en el equipo por ___. Se procede a ___.`;
+            texto = `INTERMITENCIA\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} online. Parámetros ópticos alarmados con variaciones detectadas, se verifica historial de alarmas y se identifican varias desconexiones en el equipo. Se procede a escalar a campo.`;
             break;
 
         case "GPON_OPERATIVIDAD":
-            texto = `Servicio con ID ${identificadorServicio} activo. Equipo con identificador ${sn} en estado online. Perfil LDAP bien configurado. Se evidencia levantamiento en capa 3 en el NE ${ne}, se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
+            texto = `SERVICIO OPERATIVO EN LA RED DE TIGO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado online. Se validan VLAN configuradas, parámetros dentro de los rangos óptimos de operatividad, equipo en modo Bridge, se realiza levantamiento de capa 3 en el NE ${ne}, se realiza prueba de ping sin pérdida de paquetes. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
             break;
+
+        case "GPON_POSIBLE_MASIVA":
+            texto = `POSIBLE FALLA MASIVA O TERRENO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline. Cliente presenta pérdida total de navegación, se valida alarma por LOS, se evidencia afectación general en la zona con varios clientes afectados en la infraestructura relacionada, se envía correo al área de fallas masivas para confirmar TT o escalar a terreno.`;
+            break;
+
+
+        // --- TECNOLOGÍA GPON AVANZADO (Nuevo Grupo) ---
+        case "GPON_AV_NO_NAVEGA":
+            texto = `NO NAVEGA\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline. Presenta alarma con LOS. Se evidencia falla masiva asociada a la Tx . Se le informa que el caso esta en proceso para solucion en el menor tiempo posible.`;
+            break;
+
+        case "GPON_AV_FALLA_TERRENO":
+            texto = `FALLA - PARA TERRENO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline. Presenta alarma con LOS. No se visualiza falla en la zona, el cliente confirma que las conexiones internas están bien, se procede a escalar a terreno.`;
+            break;
+
+        case "GPON_AV_POSIBLE_MASIVA":
+            texto = `POSIBLE FALLA MASIVA O TERRENO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} en estado offline. Cliente presenta pérdida total de navegación. Se evidencian varios clientes afectados en la infraestructura relacionada, se envia correo al area de fallas masivas para confirmar TT o escalar a terreno.`;
+            break;
+
+        case "GPON_AV_LENTITUD":
+            texto = `LENTITUD E INTERMITENCIA\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} online. Se evidencia levantamiento en capa 3 en el ${ne}, Parámetros ópticos por fuera del rango optimo, se verifica historial de alarmas y se identifican varias desconexiones en el equipo. Se procede a estalar a terreno.`;
+            break;
+
+        case "GPON_AV_OPERATIVIDAD":
+            texto = `SERVICIO OPERATIVO EN LA RED DE TIGO\nServicio con ID ${identificadorServicio} activo. Equipo con SN ${sn} online. Se evidencia levantamiento en capa 3 en el NE ${ne}, se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
+            break;
+
 
         // --- TECNOLOGÍA HFC ---
         case "HFC_NO_NAVEGA_MASIVA":
@@ -76,6 +100,7 @@ function selecionGuiones() {
             texto = `Servicio con ID ${identificadorServicio} activo. Equipo con MAC ${sn} online. Perfil LDAP ___. Parámetros eléctricos ___. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
             break;
 
+
         // --- TECNOLOGÍA FIBRA ---
         case "FIBRA_APERTURA_DOBLE_1":
             texto = `Se evidencia que el servicio con ID ${identificadorServicio} está activo, se valida que el SW ${switchName} en el anillo ${anillo} presenta una apertura doble donde solo el usuario está afectado. Se confirma equipo energizado, leds de los cables de la fibra apagados, se confirma con los vecinos y las Gigas del usuario están Down.`;
@@ -86,10 +111,13 @@ function selecionGuiones() {
             break;
 
         case "FIBRA_OPERATIVO_PING":
-            // CORRECCIÓN SOLICITADA: "se tiene gestión del switch [S/N]"
-            // Usamos la variable 'sn' en lugar de 'switchName' para el switch gestionado
             texto = `Se verificó que el servicio ${identificadorServicio} está activo, se tiene gestión del switch ${sn}, se ingresa al NE ${ne} en el cual se evidencia levantamiento en capa 3. Se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
             break;
+
+        case "FIBRA_PUERTO_BLOQUEADO":
+            texto = `PUERTO BLOQUEADO\nSe verificó que el servicio ${identificadorServicio} está activo, se tiene gestión del switch ${sn}, se encuentra puerto bloqueado en relación a ___, se desbloquea el puerto. Se ingresa al NE ${ne} en el cual se evidencia levantamiento en capa 3. Se realiza prueba de ping sin pérdida de paquetes, parámetros dentro de los rangos óptimos de operatividad. Se confirma operatividad dentro de la red de Tigo. Se recomienda validar equipos y configuración interna.`;
+            break;
+
 
         // --- DIAGNÓSTICO TV ---
         case "TV_HFC_IMAGEN":
@@ -102,15 +130,23 @@ function selecionGuiones() {
             texto = `Servicio con ID ${identificadorServicio} activo. Deco con serial ${sn} activo en plataforma Verimatrix con paquetes asignados. Conectividad IP ___ (óptima/con pérdida). Se envían registros y se realiza reinicio/restablecimiento de fábrica del deco. Cliente confirma mejora en la calidad de imagen. Se procede a ___.`;
             break;
 
-        // --- OTROS ---
-        case "2":
-            texto = "Cliente no responde a los llamados realizados a los teléfonos de contacto.";
+
+        // --- OTROS (Actualizado) ---
+        case "TipiNovComercial":
+            texto = `NOVEDAD COMERCIAL\nSe confirma servicio ${identificadorServicio} suspendido, se le informa al cliente que presenta una novedad comercial en el servicio y se transfiere con la linea de atención al cliente para mas información.`;
             break;
-        case "9":
-            texto = "Cliente reporta falla en el servicio de movilidad. Línea se encuentra en estado activo y con particiones. Se realiza prueba de master switch y location update.";
+
+        case "EscalarVoz":
+            texto = `TRANSFERENCIA A VOZ Y COLAB...\nSe confirma servicio ${identificadorServicio} en estado activo, se transfiere con el area de Voz y colaboración N1 para su respectiva gestión.`;
             break;
-        case "15":
-            texto = "Se escala caso al nivel 2 de voz, se adjunta plantilla en las notas.";
+
+        case "LlamadaColgada":
+            texto = `LLAMADA COLGADA DURANTE LA INTERACCION\nSe confirma servicio ${identificadorServicio} activo. Durante la llamada, se presentaron problemas de comunicacion y se colgo la llamada, se procede a ejar caso resuelto por las proximas 24 horas.`;
+            break;
+
+        case "EscalarMovil":
+            // Nota: Aquí se solicitó ID "Serv" solamente, usamos idServ
+            texto = `TRANSFERENCIA A MOVILIDAD...\nSe confirma servicio ${idServ} en estado activo, se transfiere con el area de Voz y colaboración N1 para su respectiva gestión.`;
             break;
 
         default:

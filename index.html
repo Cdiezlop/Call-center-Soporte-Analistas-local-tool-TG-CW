@@ -294,36 +294,51 @@
                     <div class="script-block">
                         <span class="script-title">2. Tipificación y Guión Rápido</span>
                         <div class="input-group">
-                            <select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
+<select class="form-select form-select-sm" id="guionesGuion" onchange="selecionGuiones()">
                                 <option value="">-- Selecciona una opción --</option>
+                                
                                 <optgroup label="--- TECNOLOGÍA GPON ---">
-                                    <option value="GPON_NO_NAVEGA_MASIVA">NO NAVEGA, TT FALLA MASIVA</option>
-                                    <option value="GPON_NO_NAVEGA_TERRENO">NO NAVEGA, POSIBLE FALLA MASIVA O TERRENO</option>
-                                    <option value="GPON_LOS_ROJO">LOS EN ROJO - TERRENO</option>
+                                    <option value="GPON_NO_NAVEGA_MASIVA">NO NAVEGA</option>
+                                    <option value="GPON_NO_NAVEGA_TERRENO">FALLA PARA TERRENO</option>
                                     <option value="GPON_CONECTA_NO_NAVEGA">CONECTA Y NO NAVEGA</option>
                                     <option value="GPON_INTERMITENCIA">INTERMITENCIA</option>
-                                    <option value="GPON_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
+                                    <option value="GPON_OPERATIVIDAD">SERVICIO OPERATIVO EN LA RED DE TIGO</option>
+                                    <option value="GPON_POSIBLE_MASIVA">POSIBLE FALLA MASIVA O TERRENO</option>
                                 </optgroup>
+
+                                <optgroup label="----- TEC GPON AVANZADO -----">
+                                    <option value="GPON_AV_NO_NAVEGA">NO NAVEGA</option>
+                                    <option value="GPON_AV_FALLA_TERRENO">FALLA - PARA TERRENO</option>
+                                    <option value="GPON_AV_POSIBLE_MASIVA">POSIBLE FALLA MASIVA O TERRENO</option>
+                                    <option value="GPON_AV_LENTITUD">LENTITUD E INTERMITENCIA</option>
+                                    <option value="GPON_AV_OPERATIVIDAD">SERVICIO OPERATIVO EN LA RED DE TIGO</option>
+                                </optgroup>
+
                                 <optgroup label="--- TECNOLOGÍA HFC ---">
                                     <option value="HFC_NO_NAVEGA_MASIVA">NO NAVEGA TT DE FALLA MASIVA</option>
                                     <option value="HFC_PERFIL_LDAP">CONECTA Y NO NAVEGA, PERFIL LDAP MAL CONFIGURADO</option>
                                     <option value="HFC_INTERMITENCIA">INTERMITENCIA POR PARAMETROS ALARMADOS</option>
                                     <option value="HFC_OPERATIVIDAD">OPERATIVIDAD NORMAL EN LA RED DE TIGO</option>
                                 </optgroup>
+
                                 <optgroup label="--- TECNOLOGÍA FIBRA ---">
                                     <option value="FIBRA_APERTURA_DOBLE_1">APERTURA DOBLE 1 CLIENTE</option>
                                     <option value="FIBRA_APERTURA_EXTREMO">APERTURA DOBLE EXTREMO</option>
                                     <option value="FIBRA_OPERATIVO_PING">SERVICIO OPERATIVO PING</option>
+                                    <option value="FIBRA_PUERTO_BLOQUEADO">PUERTO BLOQUEADO</option>
                                 </optgroup>
+
                                 <optgroup label="--- DIAGNÓSTICO TV ---">
                                     <option value="TV_HFC_IMAGEN">HFC - Problemas de imagen</option>
                                     <option value="TV_HFC_SIN_SENAL">HFC - Sin señal</option>
-                                    <option value="TV_GPON_IMAGEN">GPON - Problemas de imagen</option>
+                                    <option value="TV_GPON_IMAGEN">GPON - Problemas de imagen (Decos Android)</option>
                                 </optgroup>
+
                                 <optgroup label="--- OTROS ---">
-                                    <option value="2">No responde</option>
-                                    <option value="9">Movilidad</option>
-                                    <option value="15">VOZ Escalamiento</option>
+                                    <option value="TipiNovComercial">Novedad Comercial</option>
+                                    <option value="EscalarVoz">E. Voz y colaboración</option>
+                                    <option value="LlamadaColgada">Llamada Colgada</option>
+                                    <option value="EscalarMovil">Escalar movil</option>
                                 </optgroup>
                             </select>
                             <button class="btn btn-success btn-sm" onclick="copyToClipBoard('observacionesGiones')">Copiar</button>
